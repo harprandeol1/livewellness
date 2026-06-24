@@ -336,6 +336,128 @@
         line-height: 1.7;
       }
 
+      .plan-comparison {
+        max-width: 1180px;
+        margin: 14px auto 0;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .membership-card {
+        position: relative;
+        min-height: 640px;
+        border: 1px solid #e8e8e8;
+        border-radius: 16px;
+        background: #fff;
+        padding: 30px;
+        overflow: hidden;
+      }
+
+      .membership-card.popular {
+        background:
+          radial-gradient(circle at 100% 0%, rgba(255, 49, 95, 0.12), transparent 32%),
+          #fff;
+      }
+
+      .membership-card.executive {
+        background: #050505;
+        color: #fff;
+      }
+
+      .membership-card.wide {
+        grid-column: span 2;
+      }
+
+      .badge {
+        display: inline-flex;
+        margin-bottom: 18px;
+        border-radius: 999px;
+        background: #f0eded;
+        color: #6a6060;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        padding: 8px 10px;
+        text-transform: uppercase;
+      }
+
+      .membership-card h3 {
+        margin-bottom: 10px;
+        font-size: 36px;
+        letter-spacing: -0.08em;
+        line-height: 0.96;
+      }
+
+      .membership-card > p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .price {
+        margin: 28px 0 4px;
+        font-size: 58px;
+        font-weight: 600;
+        letter-spacing: -0.09em;
+        line-height: 0.9;
+      }
+
+      .price span {
+        color: #777;
+        font-size: 18px;
+        letter-spacing: -0.03em;
+      }
+
+      .commitment {
+        margin-bottom: 24px;
+        color: #777;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .membership-card ul {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .membership-card li {
+        color: #555;
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      .membership-card li::before {
+        content: "+ ";
+      }
+
+      .membership-card .excluded {
+        margin-top: 22px;
+      }
+
+      .membership-card .excluded li {
+        color: #9a6a6a;
+      }
+
+      .membership-card .excluded li::before {
+        content: "- ";
+      }
+
+      .membership-card.executive > p,
+      .membership-card.executive li,
+      .membership-card.executive .price span,
+      .membership-card.executive .commitment {
+        color: rgba(255, 255, 255, 0.68);
+      }
+
+      .membership-card.wide ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .details {
         max-width: 1180px;
         margin: 0 auto;
@@ -393,4 +515,359 @@
         grid-template-columns: 0.9fr 1fr;
         gap: 80px;
         max-width: 1180px;
-        margin:
+        margin: 0 auto;
+      }
+
+      .dark-grid h2 {
+        margin: 0;
+        font-size: clamp(42px, 5vw, 82px);
+        letter-spacing: -0.08em;
+        line-height: 0.94;
+      }
+
+      .dark-grid p {
+        color: rgba(255, 255, 255, 0.68);
+        line-height: 1.75;
+      }
+
+      .cta {
+        max-width: 1180px;
+        margin: 0 auto 90px;
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.16), transparent 24%),
+          linear-gradient(135deg, #020202, #1a1a1f);
+        color: #fff;
+        text-align: center;
+        padding: 86px 32px;
+      }
+
+      .cta p {
+        max-width: 620px;
+        margin: 0 auto 28px;
+        color: rgba(255, 255, 255, 0.68);
+        line-height: 1.7;
+      }
+
+      @media (max-width: 900px) {
+        .nav {
+          padding: 0 20px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .hero {
+          padding: 110px 20px 48px;
+        }
+
+        .hero-inner,
+        .details,
+        .dark-grid,
+        .compare-strip {
+          grid-template-columns: 1fr;
+        }
+
+        .options,
+        .plan-comparison,
+        .membership-card.wide ul {
+          grid-template-columns: 1fr;
+        }
+
+        .membership-card.wide {
+          grid-column: auto;
+        }
+
+        .section {
+          padding: 84px 20px;
+        }
+
+        .hero h1 {
+          font-size: clamp(48px, 14vw, 78px);
+        }
+
+        .details-art {
+          min-height: 380px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="nav">
+      <a class="logo" href="index.html">Live Wellness</a>
+      <nav class="nav-links">
+        <a href="how-it-works.html">How It Works</a>
+        <a href="membership-options.html">Memberships</a>
+        <a href="index.html#addons">Services</a>
+        <a href="index.html#consult">Contact</a>
+      </nav>
+      <a class="join-btn" href="index.html#consult">Join Live Wellness</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">Membership options</p>
+            <h1>Choose the care model that fits your lifestyle.</h1>
+            <p>
+              Start with foundational access or step into a concierge membership
+              with deeper diagnostics, house calls, IV therapy, and ongoing
+              physician-led optimization.
+            </p>
+          </div>
+
+          <div class="hero-panel">
+            <span>Compare plans</span>
+            <h2>See every tier, benefit, and monthly price.</h2>
+            <p>
+              Review Basic, Essential, Premier, Executive, and Elite memberships side by side.
+            </p>
+            <a class="dark-btn" href="#compare-memberships">Compare memberships</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-intro">
+          <p class="label">Pick your path</p>
+          <h2>Membership options built around access, prevention, and longevity.</h2>
+          <p>
+            Every plan is direct-pay and designed to give you more time with your
+            physician, better diagnostics, and a clear plan for long-term health.
+          </p>
+        </div>
+
+        <div class="options">
+          <article class="option">
+            <span class="option-number">Option 01</span>
+            <h3>Primary care access</h3>
+            <p>
+              Best for patients who want reliable direct physician access and
+              foundational primary care.
+            </p>
+            <ul>
+              <li>Same-day and next-day appointments</li>
+              <li>Unlimited virtual visits</li>
+              <li>Text and email access</li>
+              <li>Annual wellness exam</li>
+            </ul>
+          </article>
+
+          <article class="option feature">
+            <span class="option-number">Option 02</span>
+            <h3>Concierge longevity care</h3>
+            <p>
+              Best for patients who want in-person care, advanced diagnostics,
+              optimization, and more hands-on follow-up.
+            </p>
+            <ul>
+              <li>Expanded biomarker testing</li>
+              <li>House calls in select tiers</li>
+              <li>IV therapy in select tiers</li>
+              <li>Weight loss and hormone evaluation</li>
+            </ul>
+          </article>
+
+          <article class="option dark">
+            <span class="option-number">Option 03</span>
+            <h3>Executive and family care</h3>
+            <p>
+              Best for families and executives who want the deepest access,
+              comprehensive diagnostics, and white-glove coordination.
+            </p>
+            <ul>
+              <li>Unlimited access in higher tiers</li>
+              <li>Executive annual physicals</li>
+              <li>Travel medicine support</li>
+              <li>Family coverage available</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="compare-strip">
+          <div>
+            <h3>Ready to compare every membership?</h3>
+            <p>
+              View pricing, commitments, included benefits, discounts, and add-on
+              availability across all membership tiers.
+            </p>
+          </div>
+          <a class="dark-btn" href="#compare-memberships">Compare memberships</a>
+        </div>
+      </section>
+
+      <section class="section gray" id="compare-memberships">
+        <div class="section-intro">
+          <p class="label">Compare memberships</p>
+          <h2>Choose your level of care.</h2>
+          <p>
+            Direct-pay memberships. HSA/FSA accepted. Superbills provided. Free
+            15-minute discovery call.
+          </p>
+        </div>
+
+        <div class="plan-comparison">
+          <article class="membership-card">
+            <h3>Basic</h3>
+            <p>Foundational primary care with on-demand physician access.</p>
+            <div class="price">$199<span>/mo</span></div>
+            <div class="commitment">3-month minimum</div>
+            <ul>
+              <li>Same-day and next-day appointments</li>
+              <li>Unlimited virtual visits</li>
+              <li>Physician text and email access</li>
+              <li>Annual wellness exam</li>
+              <li>Standard labs and diagnostics</li>
+              <li>Prescription management</li>
+              <li>Referral coordination</li>
+              <li>Urgent care visits virtual</li>
+              <li>Personal care coordinator</li>
+            </ul>
+            <ul class="excluded">
+              <li>House calls not included</li>
+              <li>IV therapy not included</li>
+            </ul>
+          </article>
+
+          <article class="membership-card">
+            <h3>Essential</h3>
+            <p>Primary and urgent care with in-person visits and longevity labs.</p>
+            <div class="price">$399<span>/mo</span></div>
+            <div class="commitment">6-month minimum</div>
+            <ul>
+              <li>Everything in Basic</li>
+              <li>2 in-office visits per month</li>
+              <li>1 urgent care house call per month</li>
+              <li>Extended 60-minute annual physical</li>
+              <li>Expanded biomarker lab panel</li>
+              <li>Chronic condition management</li>
+              <li>Functional medicine screening</li>
+              <li>Basic nutrition and lifestyle coaching</li>
+              <li>10% discount on add-on services</li>
+            </ul>
+            <ul class="excluded">
+              <li>IV therapy not included</li>
+              <li>Hormone therapy not included</li>
+            </ul>
+          </article>
+
+          <article class="membership-card popular">
+            <span class="badge">Most popular</span>
+            <h3>Premier</h3>
+            <p>Advanced diagnostics, IV therapy, weight loss, and house calls.</p>
+            <div class="price">$799<span>/mo</span></div>
+            <div class="commitment">6-month minimum</div>
+            <ul>
+              <li>Everything in Essential</li>
+              <li>Unlimited in-office visits</li>
+              <li>2 house calls per month</li>
+              <li>2 IV therapy infusions per month</li>
+              <li>Advanced longevity lab panel 2x/year</li>
+              <li>Hormone and peptide therapy evaluation</li>
+              <li>Medical weight loss program</li>
+              <li>Gut health and microbiome assessment</li>
+              <li>Personalized supplement protocol</li>
+              <li>Semi-annual health optimization review</li>
+              <li>20% discount on add-on services</li>
+            </ul>
+          </article>
+
+          <article class="membership-card executive">
+            <h3>Executive</h3>
+            <p>Full-spectrum longevity medicine with deep diagnostics and unlimited access.</p>
+            <div class="price">$1,299<span>/mo</span></div>
+            <div class="commitment">12-month commitment</div>
+            <ul>
+              <li>Everything in Premier</li>
+              <li>Unlimited house calls</li>
+              <li>Unlimited IV therapy infusions</li>
+              <li>Full-day executive annual physical</li>
+              <li>Advanced cardiac and metabolic imaging</li>
+              <li>Body composition DEXA analysis</li>
+              <li>VO2 Max and fitness performance testing</li>
+              <li>Hormone optimization and peptide protocols</li>
+              <li>Continuous glucose monitoring</li>
+              <li>Sleep study and optimization plan</li>
+              <li>Quarterly longevity physician reviews</li>
+              <li>25% discount on all add-ons</li>
+            </ul>
+          </article>
+
+          <article class="membership-card wide">
+            <span class="badge">Family plan</span>
+            <h3>Elite</h3>
+            <p>Bespoke white-glove care with a dedicated physician and family coverage.</p>
+            <div class="price">$2,499<span>/mo</span></div>
+            <div class="commitment">12-month - family of up to 4</div>
+            <ul>
+              <li>Everything in Executive</li>
+              <li>Covers family of up to 4</li>
+              <li>Dedicated physician with direct cell</li>
+              <li>Concierge travel medicine and pre-trip consults</li>
+              <li>On-call physician for travel emergencies</li>
+              <li>Pediatric and adolescent care included</li>
+              <li>Anti-aging and aesthetic medicine consult</li>
+              <li>Genetic testing and precision health plan</li>
+              <li>Mental clarity and cognitive optimization</li>
+              <li>Priority specialist access and navigation</li>
+              <li>Monthly physician-led reviews</li>
+              <li>30% discount on all add-ons</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section gray">
+        <div class="details">
+          <div class="details-art"></div>
+          <div class="details-copy">
+            <p class="label">What changes by tier</p>
+            <h2>More access, deeper testing, and more support as your needs grow.</h2>
+            <p>
+              Membership levels scale from virtual primary care access to in-office
+              visits, house calls, advanced longevity labs, IV therapy, executive
+              physicals, travel support, family coverage, and dedicated physician access.
+            </p>
+            <p>
+              Your plan can be upgraded or downgraded as your needs change. During your
+              health assessment, we can help recommend the level that actually fits your
+              goals.
+            </p>
+            <a class="dark-btn" href="#compare-memberships">Compare memberships</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section dark-section">
+        <div class="dark-grid">
+          <h2>Direct-pay care designed to replace rushed healthcare.</h2>
+          <div>
+            <p>
+              These memberships are standalone and do not work with health insurance.
+              They can replace many primary care and urgent care needs because
+              medications, specialist referrals, diagnostics, and care coordination are
+              managed like a traditional primary care practice.
+            </p>
+            <p>
+              The difference is time, access, prevention, and a deeper understanding
+              of your goals.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <p class="eyebrow">Next step</p>
+        <h2>Compare the memberships side by side.</h2>
+        <p>
+          See every tier and choose the membership that fits your lifestyle,
+          health goals, and desired level of physician access.
+        </p>
+        <a class="join-btn" href="#compare-memberships">Compare memberships</a>
+      </section>
+    </main>
+  </body>
+</html>
