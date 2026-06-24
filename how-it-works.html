@@ -3,63 +3,501 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="How Live Wellness concierge memberships and one-time health assessments work, from comprehensive diagnostics to personalized long-term planning."
-    />
     <title>How It Works | Live Wellness</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Inter", Arial, sans-serif;
+        color: #111;
+        background: #fff;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        height: 56px;
+        background: rgba(0, 0, 0, 0.92);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 7vw;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .logo {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.45em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 34px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .join-btn {
+        background: #fff;
+        color: #000;
+        padding: 9px 16px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .hero {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        background: #030303;
+        color: #fff;
+        padding: 120px 7vw 76px;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(to bottom, rgba(0,0,0,0.1), #000 92%),
+          radial-gradient(circle at 68% 28%, rgba(255,255,255,0.18), transparent 16%),
+          radial-gradient(circle at 34% 40%, rgba(255,75,120,0.22), transparent 18%),
+          linear-gradient(135deg, #08080a, #17171d 45%, #050505);
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        right: 10vw;
+        top: 17vh;
+        width: 55vw;
+        height: 45vh;
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 14px;
+        background:
+          repeating-linear-gradient(
+            90deg,
+            rgba(255,255,255,0.13) 0 1px,
+            transparent 1px 88px
+          ),
+          linear-gradient(120deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
+        box-shadow: 0 0 120px rgba(255,255,255,0.08);
+        transform: skewY(-2deg);
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        max-width: 1180px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 72px;
+        align-items: end;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: rgba(255,255,255,0.58);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        max-width: 760px;
+        margin: 0 0 24px;
+        font-size: clamp(56px, 7vw, 116px);
+        line-height: 0.9;
+        letter-spacing: -0.08em;
+        font-weight: 600;
+      }
+
+      .hero p {
+        max-width: 560px;
+        margin: 0;
+        color: rgba(255,255,255,0.72);
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .option-card {
+        display: block;
+        border-radius: 16px;
+        padding: 28px;
+        margin-top: 12px;
+        border: 1px solid rgba(255,255,255,0.14);
+      }
+
+      .option-card.light {
+        background: rgba(255,255,255,0.94);
+        color: #111;
+      }
+
+      .option-card.dark {
+        background: rgba(10,10,12,0.86);
+        color: #fff;
+        backdrop-filter: blur(14px);
+      }
+
+      .option-card span {
+        display: block;
+        margin-bottom: 38px;
+        color: #777;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .option-card h2 {
+        margin: 0 0 12px;
+        font-size: 28px;
+        line-height: 1;
+        letter-spacing: -0.06em;
+      }
+
+      .option-card p {
+        color: inherit;
+        opacity: 0.68;
+        font-size: 14px;
+      }
+
+      .section {
+        padding: 120px 7vw;
+      }
+
+      .section-intro {
+        max-width: 760px;
+        margin: 0 auto 64px;
+        text-align: center;
+      }
+
+      .section-intro .label {
+        margin: 0 0 18px;
+        color: #777;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+      }
+
+      .section-intro h2 {
+        margin: 0 0 22px;
+        font-size: clamp(42px, 5vw, 82px);
+        line-height: 0.94;
+        letter-spacing: -0.08em;
+      }
+
+      .section-intro p {
+        color: #666;
+        line-height: 1.7;
+      }
+
+      .gray {
+        background: #f7f7f7;
+      }
+
+      .steps {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+
+      .step {
+        min-height: 420px;
+        border: 1px solid #e8e8e8;
+        border-radius: 16px;
+        background: #fff;
+        padding: 30px;
+      }
+
+      .step.feature {
+        color: #fff;
+        background:
+          radial-gradient(circle at 80% 12%, rgba(255,255,255,0.6), transparent 18%),
+          linear-gradient(135deg, #ff315f, #ff7490);
+      }
+
+      .step-number {
+        display: block;
+        margin-bottom: 58px;
+        color: #888;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+      }
+
+      .step.feature .step-number {
+        color: rgba(255,255,255,0.75);
+      }
+
+      .step h3 {
+        margin: 0 0 18px;
+        font-size: 34px;
+        line-height: 0.98;
+        letter-spacing: -0.07em;
+      }
+
+      .step p {
+        color: #666;
+        line-height: 1.65;
+      }
+
+      .step.feature p {
+        color: rgba(255,255,255,0.78);
+      }
+
+      .small-link {
+        display: inline-flex;
+        margin-top: 14px;
+        border: 1px solid #ddd;
+        border-radius: 999px;
+        padding: 9px 15px;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .note {
+        max-width: 1180px;
+        margin: 12px auto 0;
+        border: 1px solid #e8e8e8;
+        border-radius: 16px;
+        background: #fff;
+        padding: 28px;
+        color: #666;
+        line-height: 1.7;
+      }
+
+      .assessment {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 0.9fr 1fr;
+        gap: 76px;
+        align-items: center;
+      }
+
+      .assessment-art {
+        min-height: 560px;
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 45% 38%, rgba(255,75,120,0.8), transparent 20%),
+          radial-gradient(circle at 78% 18%, rgba(255,255,255,0.5), transparent 13%),
+          linear-gradient(135deg, #16161d, #3b2532 55%, #ff829a);
+      }
+
+      .assessment-art::after {
+        content: "1,000+";
+        position: absolute;
+        left: 36px;
+        bottom: 36px;
+        width: 190px;
+        padding: 24px;
+        border-radius: 14px;
+        background: rgba(0,0,0,0.42);
+        color: #fff;
+        font-size: 48px;
+        letter-spacing: -0.08em;
+        backdrop-filter: blur(10px);
+      }
+
+      .assessment-copy h2 {
+        margin: 0 0 22px;
+        font-size: clamp(42px, 5vw, 82px);
+        line-height: 0.94;
+        letter-spacing: -0.08em;
+      }
+
+      .assessment-copy p {
+        color: #666;
+        line-height: 1.75;
+      }
+
+      .dark-section {
+        background: #050505;
+        color: #fff;
+      }
+
+      .why {
+        max-width: 1180px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 0.9fr 1fr;
+        gap: 80px;
+      }
+
+      .why h2 {
+        margin: 0;
+        font-size: clamp(42px, 5vw, 82px);
+        line-height: 0.94;
+        letter-spacing: -0.08em;
+      }
+
+      .why p {
+        color: rgba(255,255,255,0.68);
+        line-height: 1.75;
+      }
+
+      .faq {
+        max-width: 920px;
+        margin: 0 auto;
+      }
+
+      details {
+        border-bottom: 1px solid #e5e5e5;
+      }
+
+      summary {
+        cursor: pointer;
+        list-style: none;
+        padding: 28px 0;
+        font-size: 22px;
+        font-weight: 600;
+        letter-spacing: -0.04em;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details p {
+        margin: -8px 0 28px;
+        color: #666;
+        line-height: 1.7;
+      }
+
+      .cta {
+        max-width: 1180px;
+        margin: 0 auto 90px;
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at 80% 0%, rgba(255,255,255,0.16), transparent 24%),
+          linear-gradient(135deg, #020202, #1a1a1f);
+        color: #fff;
+        text-align: center;
+        padding: 86px 32px;
+      }
+
+      .cta h2 {
+        margin: 0 0 18px;
+        font-size: clamp(42px, 5vw, 82px);
+        line-height: 0.94;
+        letter-spacing: -0.08em;
+      }
+
+      .cta p {
+        max-width: 620px;
+        margin: 0 auto 28px;
+        color: rgba(255,255,255,0.68);
+        line-height: 1.7;
+      }
+
+      @media (max-width: 900px) {
+        .nav-links {
+          display: none;
+        }
+
+        .nav {
+          padding: 0 20px;
+        }
+
+        .hero-inner,
+        .assessment,
+        .why {
+          grid-template-columns: 1fr;
+        }
+
+        .steps {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding: 110px 20px 48px;
+        }
+
+        .section {
+          padding: 84px 20px;
+        }
+
+        .hero h1 {
+          font-size: clamp(48px, 14vw, 78px);
+        }
+
+        .option-card h2 {
+          font-size: 24px;
+        }
+
+        .assessment-art {
+          min-height: 380px;
+        }
+      }
+    </style>
   </head>
-  <body class="how-page">
-    <header class="topbar" id="top">
-      <nav class="nav-shell" aria-label="Primary navigation">
-        <a class="wordmark" href="index.html" aria-label="Live Wellness home">Live Wellness</a>
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
-          <span class="sr-only">Toggle navigation</span>
-          <span></span>
-          <span></span>
-        </button>
-        <div class="nav-links" id="nav-links">
-          <a href="how-it-works.html">How It Works</a>
-          <a href="index.html#plans">Memberships</a>
-          <a href="index.html#addons">Services <span aria-hidden="true">v</span></a>
-          <a href="#faq">Explore <span aria-hidden="true">v</span></a>
-        </div>
-        <div class="nav-actions">
-          <a href="index.html#consult">Login</a>
-          <a class="join-button" href="index.html#consult">Join Live Wellness</a>
-        </div>
+
+  <body>
+    <header class="nav">
+      <a class="logo" href="index.html">Live Wellness</a>
+
+      <nav class="nav-links">
+        <a href="how-it-works.html">How It Works</a>
+        <a href="index.html#plans">Memberships</a>
+        <a href="index.html#addons">Services</a>
+        <a href="#faq">FAQ</a>
       </nav>
+
+      <a class="join-btn" href="index.html#consult">Join Live Wellness</a>
     </header>
 
     <main>
-      <section class="how-hero" aria-labelledby="how-hero-heading">
-        <div class="how-hero-image" aria-hidden="true">
-          <div class="diagnostic-suite">
-            <span class="scan-ring scan-ring-one"></span>
-            <span class="scan-ring scan-ring-two"></span>
-            <span class="exam-light"></span>
-            <span class="glass-room"></span>
-          </div>
-        </div>
-        <div class="how-hero-content page-grid">
-          <div class="how-hero-copy">
-            <p class="kicker">How it works</p>
-            <h1 id="how-hero-heading">Let's fast forward your health and elevate your quality of life.</h1>
+      <section class="hero">
+        <div class="hero-inner">
+          <div>
+            <p class="eyebrow">How it works</p>
+            <h1>Let's fast forward your health and elevate your quality of life.</h1>
             <p>
-              Choose a one-time deep-dive assessment or an ongoing concierge
-              membership built around preventive care, diagnostics, access, and
-              long-term optimization.
+              Choose a one-time deep-dive assessment or an ongoing concierge membership
+              built around preventive care, diagnostics, access, and long-term optimization.
             </p>
           </div>
-          <div class="path-cards" aria-label="Care path options">
-            <a class="path-card" href="#assessment">
+
+          <div>
+            <a class="option-card light" href="#assessment">
               <span>Option 01</span>
               <h2>One-time health assessment and planning</h2>
               <p>
@@ -67,7 +505,8 @@
                 3-, 6-, and 12-month roadmap.
               </p>
             </a>
-            <a class="path-card path-card-dark" href="#membership-flow">
+
+            <a class="option-card dark" href="#membership">
               <span>Option 02</span>
               <h2>Concierge monthly plans</h2>
               <p>
@@ -79,126 +518,179 @@
         </div>
       </section>
 
-      <section class="membership-flow section-padding" id="membership-flow" aria-labelledby="membership-flow-heading">
+      <section class="section gray" id="membership">
         <div class="section-intro">
-          <p class="kicker">Concierge memberships</p>
-          <h2 id="membership-flow-heading">Membership that starts with a world-class clinic experience.</h2>
+          <p class="label">Concierge memberships</p>
+          <h2>Membership that starts with a world-class clinic experience.</h2>
           <p>
-            Each membership has its own benefits and is tailored to your needs. Your
-            plan can be upgraded or downgraded as your goals change, and we will help
-            guide that recommendation during your health assessment.
+            Each membership plan comes with its own benefits and is tailored according
+            to your needs. We can always upgrade or downgrade your plan based on your goals.
           </p>
         </div>
 
-        <div class="process-grid">
-          <article class="process-step">
+        <div class="steps">
+          <article class="step">
             <span class="step-number">01</span>
             <h3>Choose the membership type that fits your lifestyle.</h3>
             <p>
-              Start by selecting the level of access, diagnostics, house calls, IV
-              therapy, and physician support that fits how you want to manage your health.
+              Select the level of physician access, diagnostics, house calls, IV therapy,
+              and ongoing support that fits your life.
             </p>
-            <a class="mini-tab" href="index.html#plans">Compare memberships</a>
+            <a class="small-link" href="index.html#plans">Compare memberships</a>
           </article>
 
-          <article class="process-step process-step-wide">
+          <article class="step">
             <span class="step-number">02</span>
-            <h3>Let's get started with your first physical exam.</h3>
+            <h3>Start with your first physical exam.</h3>
             <p>
-              You visit the physician for a 1- to 2-hour comprehensive intake. We take
-              your full medical history, review your past records, complete your physical
-              exam, and perform comprehensive diagnostic testing.
-            </p>
-            <p>
-              There is no rush. Bring your questions and the parts of life you want to
-              enhance, including sleep quality, physical fitness, mental clarity,
-              energy, metabolic health, and long-term performance.
+              Visit the doctor for a 1- to 2-hour comprehensive intake. We review your
+              history, past records, questions, goals, physical exam, and diagnostic tests.
+              No rush - bring everything you want to improve, from sleep and fitness to
+              mental clarity and energy.
             </p>
           </article>
 
-          <article class="process-step process-step-hot">
+          <article class="step feature">
             <span class="step-number">03</span>
-            <h3>Evaluate results and build your 3-, 6-, and 12-month goals.</h3>
+            <h3>Review results and build your 3-, 6-, and 12-month goals.</h3>
             <p>
-              We review your labs, imaging, diagnostics, and risk profile, then create a
-              practical plan with next steps, deeper testing when useful, personalized
-              exercise and nutrition, and follow-up visits scheduled to track progress.
+              We evaluate your labs, imaging, and risk profile, then create a plan for
+              deeper testing, personalized exercise, nutrition, and follow-up visits.
             </p>
           </article>
         </div>
 
-        <div class="membership-notes">
-          <p>
-            Memberships are standalone direct-pay plans and do not work with health
-            insurance. They can replace many primary care and urgent care needs because
-            medications, specialist referrals, diagnostics, and care coordination are
-            managed like a traditional primary care practice, with more access and time.
-          </p>
+        <div class="note">
+          These memberships are standalone direct-pay plans and do not work with health
+          insurance. They can replace many primary care and urgent care needs because
+          medications, specialist referrals, diagnostics, and care coordination are managed
+          like a traditional primary care practice - with more time and access.
         </div>
       </section>
 
-      <section class="assessment-section" id="assessment" aria-labelledby="assessment-heading">
-        <div class="assessment-visual" aria-hidden="true">
-          <div class="data-card">
-            <span>1,000+</span>
-            <p>Potential health data points</p>
+      <section class="section" id="assessment">
+        <div class="assessment">
+          <div class="assessment-art"></div>
+
+          <div class="assessment-copy">
+            <p class="eyebrow" style="color:#777;">One-time assessment</p>
+            <h2>A focused deep dive when you want answers and a plan.</h2>
+            <p>
+              The one-time health assessment is designed for patients who want a
+              comprehensive review without starting a monthly membership. We collect a
+              deep medical history, perform a detailed physical, use advanced lab testing
+              and preventive screening exams, then turn the findings into a clear roadmap.
+            </p>
+            <p>
+              Our clinic is proactive about preventive exams and provides layers of
+              diagnostic insight - from biomarkers and advanced labs to imaging such as
+              MRI when appropriate.
+            </p>
           </div>
         </div>
-        <div class="assessment-copy">
-          <p class="kicker">One-time assessment</p>
-          <h2 id="assessment-heading">A focused deep dive when you want answers and a plan.</h2>
-          <p>
-            The one-time health assessment is designed for patients who want a
-            comprehensive review without starting a monthly membership. We collect
-            medical history, perform a detailed physical, use advanced lab testing and
-            screening exams, then turn the findings into a clear plan.
-          </p>
+      </section>
+
+      <section class="section dark-section">
+        <div class="why">
+          <h2>Why choose this?</h2>
+          <div>
+            <p>
+              The current healthcare system is often rushed, reactive, and built around
+              treating problems after they appear. Most visits do not give enough time
+              to understand your full history, goals, habits, risks, sleep, fitness,
+              nutrition, hormones, or long-term quality of life.
+            </p>
+            <p>
+              We take a deeper preventive approach. It is not only about living longer -
+              it is about living healthier, happier, sharper, and with more control over
+              your future.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section class="faq-section section-padding" id="faq" aria-labelledby="faq-heading">
+      <section class="section gray" id="faq">
         <div class="section-intro">
-          <p class="kicker">Questions</p>
-          <h2 id="faq-heading">Frequently asked questions</h2>
+          <p class="label">Questions</p>
+          <h2>Frequently asked questions</h2>
         </div>
 
-        <div class="faq-list">
+        <div class="faq">
           <details open>
-            <summary>How will this help me?</summary>
+            <summary>How will it help me?</summary>
             <p>
               We use an evidence-based precision medicine approach, collecting a broad
               picture of your health through history, physical exam, advanced labs,
-              screening exams, and selected imaging.
+              diagnostics, screening exams, and selected imaging. The goal is to identify
+              risks early and help you take control of long-term health.
             </p>
           </details>
 
           <details>
             <summary>Do you take health insurance?</summary>
             <p>
-              Memberships are standalone direct-pay plans and do not bill health
-              insurance. We do offer <a href="index.html#addons">a la carte options</a>
-              for members and non-members.
+              Memberships are standalone and do not work with health insurance. We do
+              offer a la carte options, and we can manage referrals like a traditional
+              healthcare practice when needed.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is this HSA/FSA eligible?</summary>
+            <p>Yes. HSA/FSA cards are accepted.</p>
+          </details>
+
+          <details>
+            <summary>Do I get discounts?</summary>
+            <p>
+              Yes. Members receive discounts on aesthetics and other services depending
+              on the membership chosen.
+            </p>
+          </details>
+
+          <details>
+            <summary>What is physician availability?</summary>
+            <p>
+              We generally offer same-day or next-day appointments. Members receive a
+              direct line to the physician, with 24/7 access included in select plans.
+            </p>
+          </details>
+
+          <details>
+            <summary>What if I am travelling?</summary>
+            <p>
+              We recommend pre-travel visits for national or international travel and
+              offer telemedicine support during travel when appropriate.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do you offer house calls?</summary>
+            <p>
+              Yes. House calls are included in certain membership levels and are also
+              available as a la carte options.
+            </p>
+          </details>
+
+          <details>
+            <summary>Who are these memberships designed for?</summary>
+            <p>
+              Anyone who takes healthcare seriously and wants to work with us to improve
+              the quality of their life.
             </p>
           </details>
         </div>
       </section>
 
-      <section class="how-cta" aria-labelledby="how-cta-heading">
-        <p class="kicker">Start here</p>
-        <h2 id="how-cta-heading">Ready to take the deeper look?</h2>
+      <section class="cta">
+        <p class="eyebrow">Start here</p>
+        <h2>Ready to take the deeper look?</h2>
         <p>
-          Begin with a one-time assessment or choose a membership built for ongoing
-          access, prevention, and optimization.
+          Begin with a one-time assessment or choose a concierge membership built for
+          access, prevention, and long-term optimization.
         </p>
-        <a class="button button-light" href="index.html#consult">Join us</a>
+        <a class="join-btn" href="index.html#consult">Join us</a>
       </section>
     </main>
-
-    <footer class="footer">
-      <a class="wordmark" href="index.html">Live Wellness</a>
-      <p>Direct-pay concierge medicine, longevity diagnostics, and physician-led access.</p>
-    </footer>
-
-    <script src="script.js"></script>
   </body>
 </html>
