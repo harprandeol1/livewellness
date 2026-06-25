@@ -7,577 +7,412 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles.css" />
     <style>
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
       body {
-        margin: 0;
-        min-width: 320px;
         background: #f7f7f7;
-        color: #17171c;
-        font-family: "Inter", Arial, sans-serif;
       }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 50;
-        height: 56px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 7vw;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(0, 0, 0, 0.92);
-        color: #fff;
-      }
-
-      .logo {
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.45em;
-        text-transform: uppercase;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 34px;
-        font-size: 12px;
-        font-weight: 600;
-      }
-
-      .join-btn,
-      .dark-btn,
-      .light-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 36px;
-        border-radius: 5px;
-        font-size: 12px;
-        font-weight: 700;
-        padding: 0 16px;
-      }
-
-      .join-btn,
-      .light-btn {
-        background: #fff;
-        color: #000;
-      }
-
-      .dark-btn {
-        background: #050505;
-        color: #fff;
-      }
-
-      .hero {
+      .services-hero {
         position: relative;
-        min-height: 100vh;
-        overflow: hidden;
+        min-height: 78vh;
         display: flex;
-        align-items: flex-end;
-        padding: 124px 7vw 78px;
+        align-items: end;
+        overflow: hidden;
         background: #020202;
         color: #fff;
+        padding: 120px 0 74px;
       }
 
-      .hero::before {
-        content: "";
+      .services-hero::before {
         position: absolute;
+        content: "";
         inset: 0;
         background:
-          radial-gradient(circle at 78% 25%, rgba(255, 255, 255, 0.16), transparent 17%),
-          radial-gradient(circle at 27% 45%, rgba(255, 70, 118, 0.24), transparent 18%),
-          linear-gradient(180deg, rgba(0, 0, 0, 0.04), #000 92%),
+          radial-gradient(circle at 72% 24%, rgba(255, 255, 255, 0.13), transparent 18%),
+          radial-gradient(circle at 28% 44%, rgba(255, 78, 122, 0.16), transparent 18%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.04), #000 90%),
           linear-gradient(130deg, #050506, #17171f 46%, #040404);
       }
 
-      .hero::after {
-        content: "";
+      .services-hero::after {
         position: absolute;
+        content: "";
         right: 9vw;
-        top: 16vh;
+        top: 14vh;
         width: min(760px, 55vw);
-        height: 440px;
+        height: 390px;
         border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 16px;
         background:
-          repeating-linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.12) 0 1px,
-            transparent 1px 82px
-          ),
-          linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 82px),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
         box-shadow: 0 0 120px rgba(255, 255, 255, 0.08);
         transform: skewY(-2deg);
       }
 
-      .hero-inner {
+      .services-hero-inner {
         position: relative;
-        z-index: 2;
+        z-index: 1;
         display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: minmax(0, 1fr) minmax(320px, 0.52fr);
         gap: 72px;
         align-items: end;
-        width: 100%;
-        max-width: 1180px;
+        width: min(1180px, calc(100% - 40px));
         margin: 0 auto;
       }
 
-      .eyebrow,
-      .label {
-        margin: 0 0 18px;
-        color: rgba(255, 255, 255, 0.58);
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.42em;
-        text-transform: uppercase;
-      }
-
-      .label {
-        color: #777;
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        margin-top: 0;
-      }
-
-      .hero h1 {
+      .services-hero h1 {
         max-width: 780px;
-        margin-bottom: 24px;
-        font-size: clamp(56px, 7vw, 116px);
+        margin: 0 0 24px;
+        font-size: clamp(3.5rem, 7vw, 7.2rem);
         font-weight: 600;
         letter-spacing: -0.08em;
         line-height: 0.9;
       }
 
-      .hero p {
-        max-width: 590px;
-        margin-bottom: 0;
+      .services-hero p {
+        max-width: 620px;
         color: rgba(255, 255, 255, 0.72);
-        font-size: 16px;
-        line-height: 1.6;
+        font-size: 1rem;
+        line-height: 1.65;
       }
 
-      .hero-panel {
+      .hero-note {
         border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 18px;
+        border-radius: 16px;
         background: rgba(255, 255, 255, 0.94);
         color: #111;
         padding: 28px;
       }
 
-      .hero-panel span {
+      .hero-note span,
+      .service-card span {
         display: block;
-        margin-bottom: 44px;
-        color: #777;
-        font-size: 11px;
+        margin-bottom: 42px;
+        color: #6a6a72;
+        font-size: 0.68rem;
         font-weight: 800;
         letter-spacing: 0.22em;
         text-transform: uppercase;
       }
 
-      .hero-panel h2 {
-        margin-bottom: 14px;
-        font-size: 32px;
+      .hero-note h2 {
+        margin: 0 0 14px;
+        font-size: 2rem;
         letter-spacing: -0.07em;
         line-height: 0.98;
       }
 
-      .hero-panel p {
-        margin-bottom: 18px;
+      .hero-note p {
         color: #62626a;
-        font-size: 14px;
+        font-size: 0.9rem;
       }
 
-      .quick-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 24px 7vw 0;
+      .services-overview {
+        padding: 112px 0;
       }
 
-      .quick-links a {
-        border: 1px solid #e3e3e3;
-        border-radius: 999px;
-        background: #fff;
-        color: #222;
-        font-size: 12px;
-        font-weight: 700;
-        padding: 10px 14px;
+      .section-heading {
+        width: min(820px, calc(100% - 40px));
+        margin: 0 auto 54px;
+        text-align: center;
       }
 
-      .section {
-        padding: 112px 7vw;
-      }
-
-      .section.dark {
-        background: #050505;
-        color: #fff;
-      }
-
-      .section-intro {
-        display: grid;
-        grid-template-columns: 0.72fr 1fr;
-        gap: 70px;
-        align-items: end;
-        max-width: 1180px;
-        margin: 0 auto 42px;
-      }
-
-      .section-intro h2 {
-        margin-bottom: 0;
-        font-size: clamp(42px, 5vw, 82px);
+      .section-heading h2 {
+        margin: 0 0 18px;
+        color: #0d4650;
+        font-size: clamp(2.5rem, 5vw, 5rem);
+        font-weight: 650;
         letter-spacing: -0.08em;
         line-height: 0.94;
       }
 
-      .section-intro p {
-        margin-bottom: 0;
-        color: #666;
+      .section-heading p {
+        color: #5d6d73;
         line-height: 1.7;
       }
 
-      .section.dark .label,
-      .section.dark .section-intro p {
-        color: rgba(255, 255, 255, 0.66);
-      }
-
-      .service-grid {
+      .service-category-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-        max-width: 1180px;
+        gap: 12px;
+        width: min(1180px, calc(100% - 40px));
         margin: 0 auto;
       }
 
       .service-card {
-        min-height: 260px;
-        border: 1px solid #e8e8e8;
+        display: flex;
+        min-height: 390px;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid #e5e5e5;
         border-radius: 16px;
         background: #fff;
-        padding: 28px;
+        padding: 30px;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .service-card:hover {
+        box-shadow: 0 24px 50px rgba(13, 70, 80, 0.1);
+        transform: translateY(-4px);
       }
 
       .service-card.feature {
         color: #fff;
         background:
-          radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.64), transparent 17%),
-          radial-gradient(circle at 34% 44%, rgba(255, 188, 203, 0.64), transparent 28%),
+          radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.62), transparent 17%),
+          radial-gradient(circle at 34% 44%, rgba(255, 188, 203, 0.62), transparent 28%),
           linear-gradient(135deg, #ff315f, #ff7490);
       }
 
-      .service-card.dark-card {
+      .service-card.dark {
         background: #050505;
         color: #fff;
       }
 
-      .service-card span {
-        display: block;
-        margin-bottom: 52px;
-        color: #888;
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-      }
-
       .service-card.feature span,
-      .service-card.dark-card span {
-        color: rgba(255, 255, 255, 0.68);
+      .service-card.dark span,
+      .service-card.feature p,
+      .service-card.dark p {
+        color: rgba(255, 255, 255, 0.72);
       }
 
       .service-card h3 {
-        margin-bottom: 12px;
-        font-size: 30px;
-        letter-spacing: -0.07em;
+        margin: 0 0 14px;
+        font-size: 2.15rem;
+        letter-spacing: -0.075em;
         line-height: 0.98;
       }
 
       .service-card p {
-        margin-bottom: 22px;
-        color: #666;
-        line-height: 1.62;
+        color: #5d6d73;
+        line-height: 1.65;
       }
 
-      .service-card.feature p,
-      .service-card.dark-card p {
-        color: rgba(255, 255, 255, 0.76);
+      .service-card strong {
+        color: inherit;
+        font-size: 0.84rem;
       }
 
-      .price {
-        font-size: 14px;
-        font-weight: 800;
+      .service-card strong::after {
+        content: " ->";
       }
 
-      .section.dark .service-card {
-        border-color: rgba(255, 255, 255, 0.12);
-      }
-
-      .cta {
-        max-width: 1180px;
-        margin: 0 auto 90px;
-        border-radius: 18px;
-        background:
-          radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.16), transparent 24%),
-          linear-gradient(135deg, #020202, #1a1a1f);
-        color: #fff;
-        text-align: center;
-        padding: 86px 32px;
-      }
-
-      .cta h2 {
-        margin-bottom: 18px;
-        font-size: clamp(42px, 5vw, 82px);
-        letter-spacing: -0.08em;
-        line-height: 0.94;
-      }
-
-      .cta p {
-        max-width: 620px;
-        margin: 0 auto 28px;
-        color: rgba(255, 255, 255, 0.68);
-        line-height: 1.7;
-      }
-
-      @media (max-width: 900px) {
-        .nav {
-          padding: 0 20px;
-        }
-
-        .nav-links {
-          display: none;
-        }
-
-        .hero {
-          padding: 110px 20px 48px;
-        }
-
-        .hero-inner,
-        .section-intro {
+      @media (max-width: 1050px) {
+        .services-hero-inner {
           grid-template-columns: 1fr;
         }
 
-        .service-grid {
+        .service-category-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 700px) {
+        .services-hero {
+          padding: 96px 0 54px;
+        }
+
+        .services-hero-inner,
+        .service-category-grid,
+        .section-heading {
+          width: min(100% - 28px, 1180px);
+        }
+
+        .services-hero h1 {
+          font-size: clamp(3rem, 14vw, 5rem);
+        }
+
+        .service-category-grid {
           grid-template-columns: 1fr;
-        }
-
-        .section {
-          padding: 84px 20px;
-        }
-
-        .quick-links {
-          padding: 20px;
-        }
-
-        .hero h1 {
-          font-size: clamp(48px, 14vw, 78px);
         }
       }
     </style>
   </head>
 
   <body>
-    <header class="nav">
-      <a class="logo" href="index.html">Live Wellness</a>
-      <nav class="nav-links">
-        <a href="how-it-works.html">How It Works</a>
-        <a href="membership-options.html">Memberships</a>
-        <a href="services.html">Services</a>
-        <a href="index.html#consult">Contact</a>
+    <header class="topbar" id="top">
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="wordmark" href="index.html" aria-label="Live Wellness home">Live Wellness</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="sr-only">Toggle navigation</span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="how-it-works.html">How It Works</a>
+          <a href="longevity.html">Longevity</a>
+          <a href="membership-options.html">Memberships</a>
+          <a href="services.html">Services <span aria-hidden="true">v</span></a>
+          <a href="index.html#resources">Explore <span aria-hidden="true">v</span></a>
+        </div>
+        <div class="nav-actions">
+          <a href="index.html#consult">Login</a>
+          <a class="join-button" href="index.html#consult">Join Live Wellness</a>
+        </div>
       </nav>
-      <a class="join-btn" href="index.html#consult">Join Live Wellness</a>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-inner">
+      <section class="services-hero">
+        <div class="services-hero-inner">
           <div>
             <p class="eyebrow">A la carte services</p>
-            <h1>Advanced services for recovery, diagnostics, and longevity.</h1>
+            <h1>Choose the care you need, when you need it.</h1>
             <p>
-              Explore IV therapy, advanced labs, hormone support, weight loss,
-              house calls, urgent care, executive physicals, and specialty testing.
-              Available to members and non-members.
+              Services are organized by category so you can quickly understand how each
+              area helps, then open a dedicated page with the specific options,
+              descriptions, and pricing.
             </p>
           </div>
-
-          <div class="hero-panel">
+          <aside class="hero-note">
             <span>Member benefits</span>
-            <h2>Members receive their tier discount automatically.</h2>
+            <h2>Members receive tier discounts automatically.</h2>
             <p>
-              Services can be added to a membership plan or booked as a la carte care.
+              Book services on their own or add them to a concierge membership plan.
               HSA/FSA accepted where eligible.
             </p>
-            <a class="dark-btn" href="index.html#consult">Request a service</a>
-          </div>
+            <a class="button button-dark" href="index.html#consult">Request a service</a>
+          </aside>
         </div>
       </section>
 
-      <div class="quick-links" aria-label="Service categories">
-        <a href="#iv-therapy">IV Therapy</a>
-        <a href="#diagnostics">Diagnostics & Labs</a>
-        <a href="#hormone">Hormone & Longevity</a>
-        <a href="#weight-loss">Weight Loss</a>
-        <a href="#house-calls">House Calls</a>
-        <a href="#specialty">Executive & Specialty</a>
-      </div>
-
-      <section class="section" id="iv-therapy">
-        <div class="section-intro">
-          <div>
-            <p class="label">IV Therapy & Infusions</p>
-            <h2>Targeted infusions for energy, recovery, hydration, and immunity.</h2>
-          </div>
+      <section class="services-overview">
+        <div class="section-heading">
+          <p class="kicker">Service categories</p>
+          <h2>Explore services by goal.</h2>
           <p>
-            IV therapy can support hydration, nutrient repletion, antioxidant support,
-            cellular energy, and recovery. Protocols are selected based on your goals
-            and clinical needs.
+            Each category page explains what the service area is used for and lists
+            every individual option available within that category.
           </p>
         </div>
-        <div class="service-grid">
-          <article class="service-card feature"><span>IV 01</span><h3>Myers' Cocktail</h3><p>Classic vitamin and mineral infusion for energy and immunity.</p><strong class="price">From $189/session</strong></article>
-          <article class="service-card"><span>IV 02</span><h3>NAD+ Infusion</h3><p>Cellular energy, anti-aging, and cognitive support.</p><strong class="price">From $349/session</strong></article>
-          <article class="service-card"><span>IV 03</span><h3>High-Dose Vitamin C</h3><p>Immune boost and oxidative stress reduction.</p><strong class="price">From $229/session</strong></article>
-          <article class="service-card"><span>IV 04</span><h3>Glutathione Push</h3><p>Detox, skin brightening, antioxidant support.</p><strong class="price">From $149/session</strong></article>
-          <article class="service-card"><span>IV 05</span><h3>Hydration Drip</h3><p>Rapid rehydration, hangover relief, illness recovery.</p><strong class="price">From $149/session</strong></article>
-          <article class="service-card dark-card"><span>IV 06</span><h3>Athletic Recovery Drip</h3><p>Amino acids, electrolytes, and anti-inflammatories.</p><strong class="price">From $249/session</strong></article>
-        </div>
-      </section>
 
-      <section class="section dark" id="diagnostics">
-        <div class="section-intro">
-          <div>
-            <p class="label">Diagnostics & Labs</p>
-            <h2>Deeper testing to understand risk, function, and prevention.</h2>
-          </div>
-          <p>
-            Diagnostic services help identify metabolic, cardiovascular, hormone,
-            thyroid, gut, immune, genetic, and longevity patterns that standard care
-            can miss.
-          </p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card"><span>Lab 01</span><h3>Advanced Longevity Panel</h3><p>60+ biomarkers: hormones, inflammation, metabolic, cardiovascular.</p><strong class="price">From $399/panel</strong></article>
-          <article class="service-card"><span>Lab 02</span><h3>Comprehensive Thyroid Panel</h3><p>TSH, Free T3/T4, reverse T3, thyroid antibodies.</p><strong class="price">From $199/panel</strong></article>
-          <article class="service-card feature"><span>Lab 03</span><h3>DUTCH Hormone Test</h3><p>Dried urine complete hormone panel with metabolites.</p><strong class="price">From $349/test</strong></article>
-          <article class="service-card"><span>Lab 04</span><h3>Gut Microbiome Analysis</h3><p>Comprehensive stool testing with actionable dietary insights.</p><strong class="price">From $299/test</strong></article>
-          <article class="service-card"><span>Lab 05</span><h3>Food Sensitivity Panel</h3><p>IgG testing for 96 common food sensitivities.</p><strong class="price">From $249/panel</strong></article>
-          <article class="service-card dark-card"><span>Lab 06</span><h3>Genetic / DNA Analysis</h3><p>Disease risk, pharmacogenomics, longevity traits.</p><strong class="price">From $499/test</strong></article>
-        </div>
-      </section>
+        <div class="service-category-grid">
+          <a class="service-card feature" href="service-iv-therapy.html">
+            <div>
+              <span>Recovery & hydration</span>
+              <h3>IV Therapy & Infusions</h3>
+              <p>
+                IV therapy supports hydration, nutrient repletion, antioxidant support,
+                cellular energy, immunity, and athletic recovery.
+              </p>
+            </div>
+            <strong>View IV therapy options</strong>
+          </a>
 
-      <section class="section" id="hormone">
-        <div class="section-intro">
-          <div>
-            <p class="label">Hormone & Longevity Therapy</p>
-            <h2>Optimization protocols for hormones, peptides, thyroid, and recovery.</h2>
-          </div>
-          <p>
-            Hormone and longevity therapies begin with evaluation, lab review, goals,
-            risk assessment, and ongoing physician management when a protocol is appropriate.
-          </p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card"><span>Hormone 01</span><h3>Testosterone Therapy (TRT)</h3><p>Evaluation, protocol design, and ongoing management.</p><strong class="price">From $199/mo</strong></article>
-          <article class="service-card feature"><span>Hormone 02</span><h3>Bioidentical HRT (Women)</h3><p>Estrogen, progesterone, and testosterone optimization.</p><strong class="price">From $249/mo</strong></article>
-          <article class="service-card"><span>Hormone 03</span><h3>Peptide Therapy</h3><p>BPC-157, sermorelin, CJC-1295, ipamorelin, and more.</p><strong class="price">From $299/mo</strong></article>
-          <article class="service-card"><span>Hormone 04</span><h3>Thyroid Optimization</h3><p>T3/T4 protocol management and monitoring.</p><strong class="price">From $149/mo</strong></article>
-          <article class="service-card"><span>Hormone 05</span><h3>Adrenal & Cortisol Reset</h3><p>Adrenal fatigue assessment and nutraceutical protocol.</p><strong class="price">From $249/program</strong></article>
-          <article class="service-card dark-card"><span>Hormone 06</span><h3>Longevity Supplement Rx</h3><p>Personalized pharmaceutical-grade supplement protocol.</p><strong class="price">From $99/mo</strong></article>
-        </div>
-      </section>
+          <a class="service-card" href="service-diagnostics-labs.html">
+            <div>
+              <span>Testing & prevention</span>
+              <h3>Diagnostics & Labs</h3>
+              <p>
+                Advanced labs and diagnostics help uncover metabolic, cardiovascular,
+                hormone, gut, thyroid, genetic, and longevity patterns.
+              </p>
+            </div>
+            <strong>View diagnostics</strong>
+          </a>
 
-      <section class="section dark" id="weight-loss">
-        <div class="section-intro">
-          <div>
-            <p class="label">Weight Loss Programs</p>
-            <h2>Physician-guided metabolic care with testing and follow-up.</h2>
-          </div>
-          <p>
-            Weight loss programs are managed medically with monitoring, lab review,
-            nutrition guidance, body composition insight, and ongoing accountability.
-          </p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card feature"><span>Weight 01</span><h3>GLP-1 Weight Loss</h3><p>Physician-managed semaglutide protocol with monthly check-ins.</p><strong class="price">From $299/mo</strong></article>
-          <article class="service-card"><span>Weight 02</span><h3>Tirzepatide Program</h3><p>Mounjaro-based medical weight loss with full monitoring.</p><strong class="price">From $349/mo</strong></article>
-          <article class="service-card"><span>Weight 03</span><h3>Metabolic Reset Program</h3><p>6-week intensive: labs, nutrition, exercise, lifestyle.</p><strong class="price">From $799/program</strong></article>
-          <article class="service-card dark-card"><span>Weight 04</span><h3>Body Composition (DEXA)</h3><p>Fat mass, lean mass, and visceral fat report.</p><strong class="price">From $199/scan</strong></article>
-        </div>
-      </section>
+          <a class="service-card dark" href="service-hormone-longevity.html">
+            <div>
+              <span>Optimization</span>
+              <h3>Hormone & Longevity Therapy</h3>
+              <p>
+                Physician-guided therapy options for hormones, peptides, thyroid,
+                adrenal support, and longevity supplement protocols.
+              </p>
+            </div>
+            <strong>View hormone options</strong>
+          </a>
 
-      <section class="section" id="house-calls">
-        <div class="section-intro">
-          <div>
-            <p class="label">House Calls & Urgent Care</p>
-            <h2>Care at home, at the office, or before you travel.</h2>
-          </div>
-          <p>
-            House call and urgent care services bring physician access, diagnostics,
-            cardiac checks, lab draws, and travel planning into a more convenient care model.
-          </p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card feature"><span>Urgent 01</span><h3>Urgent Care House Call</h3><p>Same-day physician visit to your home or office.</p><strong class="price">From $350/visit</strong></article>
-          <article class="service-card"><span>Urgent 02</span><h3>In-Home Lab Draw</h3><p>Phlebotomist to your home - any lab panel.</p><strong class="price">From $99 + lab costs</strong></article>
-          <article class="service-card"><span>Urgent 03</span><h3>Mobile EKG</h3><p>In-home cardiac rhythm assessment.</p><strong class="price">From $149/visit</strong></article>
-          <article class="service-card dark-card"><span>Urgent 04</span><h3>Travel Medicine Consult</h3><p>Pre-trip vaccines, medications, and health clearance.</p><strong class="price">From $199/consult</strong></article>
-        </div>
-      </section>
+          <a class="service-card" href="service-weight-loss.html">
+            <div>
+              <span>Metabolic health</span>
+              <h3>Weight Loss Programs</h3>
+              <p>
+                Medically managed weight loss with monitoring, labs, body composition,
+                nutrition, and follow-up.
+              </p>
+            </div>
+            <strong>View weight loss</strong>
+          </a>
 
-      <section class="section dark" id="specialty">
-        <div class="section-intro">
-          <div>
-            <p class="label">Executive & Specialty</p>
-            <h2>Advanced assessments for performance, cognition, sleep, and longevity.</h2>
-          </div>
-          <p>
-            Specialty services provide deeper insight through executive physicals,
-            fitness testing, glucose monitoring, sleep evaluation, brain health, and
-            functional medicine workups.
-          </p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card feature"><span>Specialty 01</span><h3>Executive Physical</h3><p>Half-day comprehensive workup with physician-led debrief.</p><strong class="price">From $995 one-time</strong></article>
-          <article class="service-card"><span>Specialty 02</span><h3>VO2 Max Testing</h3><p>Cardiorespiratory fitness and biological age assessment.</p><strong class="price">From $249/test</strong></article>
-          <article class="service-card"><span>Specialty 03</span><h3>Continuous Glucose Monitor</h3><p>14-day CGM with physician review and metabolic insights.</p><strong class="price">From $199/cycle</strong></article>
-          <article class="service-card"><span>Specialty 04</span><h3>Sleep Study</h3><p>At-home sleep apnea testing with results review.</p><strong class="price">From $249/study</strong></article>
-          <article class="service-card"><span>Specialty 05</span><h3>Cognitive & Brain Health Panel</h3><p>Memory, focus, and neurodegenerative risk assessment.</p><strong class="price">From $349/assessment</strong></article>
-          <article class="service-card dark-card"><span>Specialty 06</span><h3>Functional Medicine Deep-Dive</h3><p>90-minute intake plus full root-cause workup plan.</p><strong class="price">From $499 one-time</strong></article>
-        </div>
-      </section>
+          <a class="service-card" href="service-house-calls.html">
+            <div>
+              <span>Care where you are</span>
+              <h3>House Calls & Urgent Care</h3>
+              <p>
+                Physician house calls, in-home lab draws, mobile EKGs, and travel
+                medicine planning.
+              </p>
+            </div>
+            <strong>View house calls</strong>
+          </a>
 
-      <section class="cta">
-        <p class="eyebrow">Next step</p>
-        <h2>Book a service or add it to your membership.</h2>
-        <p>
-          Pricing is subject to change. Members receive their tier discount
-          automatically. HSA/FSA cards accepted where eligible.
-        </p>
-        <a class="join-btn" href="index.html#consult">Request a service</a>
+          <a class="service-card feature" href="service-aesthetics-regenerative.html">
+            <div>
+              <span>Aesthetics</span>
+              <h3>Laser, Hair & Regenerative</h3>
+              <p>
+                Laser therapy, hair restoration, regenerative consults, and skin or
+                confidence-focused treatment planning.
+              </p>
+            </div>
+            <strong>View aesthetics</strong>
+          </a>
+
+          <a class="service-card dark" href="service-executive-specialty.html">
+            <div>
+              <span>Deep performance</span>
+              <h3>Executive & Specialty</h3>
+              <p>
+                Executive physicals, VO2 Max testing, CGM review, sleep studies,
+                cognitive health, and functional medicine deep dives.
+              </p>
+            </div>
+            <strong>View specialty services</strong>
+          </a>
+        </div>
       </section>
     </main>
+
+    <footer class="site-footer-rich">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html">LW</a>
+        <p>The reference in proactive health. Concierge medicine, longevity diagnostics, aesthetics, and urgent access.</p>
+      </div>
+      <nav aria-label="Footer experience">
+        <h3>Experience</h3>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="membership-options.html">Memberships</a>
+        <a href="longevity.html">Longevity</a>
+        <a href="services.html">Services</a>
+      </nav>
+      <nav aria-label="Footer treatments">
+        <h3>Treatments</h3>
+        <a href="service-iv-therapy.html">IV Therapy</a>
+        <a href="service-hormone-longevity.html">Peptides & Hormones</a>
+        <a href="service-weight-loss.html">Weight Loss</a>
+        <a href="service-aesthetics-regenerative.html">Laser & Hair</a>
+      </nav>
+      <nav aria-label="Footer explore">
+        <h3>Explore</h3>
+        <a href="index.html#resources">Resources</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#consult">Contact Us</a>
+      </nav>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Live Wellness. All rights reserved.</p>
+        <div>
+          <a href="#top">Back to top</a>
+          <a href="index.html#consult">Book consult</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
