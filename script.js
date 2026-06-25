@@ -3,6 +3,9 @@ const navLinks = document.querySelector(".nav-links");
 const filterButtons = document.querySelectorAll(".filter-button");
 const addonCards = document.querySelectorAll(".addon-card");
 const consultForm = document.querySelector(".consult-form");
+const treatmentTrack = document.querySelector("[data-treatment-track]");
+const treatmentPrev = document.querySelector("[data-carousel-prev]");
+const treatmentNext = document.querySelector("[data-carousel-next]");
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
@@ -45,4 +48,14 @@ if (consultForm) {
       button.setAttribute("disabled", "true");
     }
   });
+}
+
+if (treatmentTrack && treatmentPrev && treatmentNext) {
+  const scrollTreatments = (direction) => {
+    const amount = Math.max(treatmentTrack.clientWidth * 0.82, 320);
+    treatmentTrack.scrollBy({ left: amount * direction, behavior: "smooth" });
+  };
+
+  treatmentPrev.addEventListener("click", () => scrollTreatments(-1));
+  treatmentNext.addEventListener("click", () => scrollTreatments(1));
 }
