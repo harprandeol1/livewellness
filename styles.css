@@ -150,13 +150,45 @@ select {
   color: var(--white);
 }
 
+.hero-video {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 58%;
+  object-fit: cover;
+  opacity: 0.52;
+  filter: saturate(0.85) contrast(1.18);
+  z-index: 0;
+}
+
+.hero-video-fallback {
+  position: absolute;
+  inset: 46px 0 0;
+  background:
+    radial-gradient(circle at 55% 22%, rgba(229, 190, 126, 0.22), transparent 18%),
+    radial-gradient(circle at 77% 58%, rgba(255, 255, 255, 0.08), transparent 22%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.1), #000 88%);
+  animation: heroDrift 14s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+@keyframes heroDrift {
+  from {
+    transform: scale(1) translate3d(-1%, -1%, 0);
+    opacity: 0.46;
+  }
+
+  to {
+    transform: scale(1.08) translate3d(1%, 1%, 0);
+    opacity: 0.62;
+  }
+}
+
 .hero-image {
   position: absolute;
   inset: 46px 0 0;
   background:
-    radial-gradient(circle at 54% 28%, rgba(229, 190, 126, 0.34), transparent 18%),
-    radial-gradient(circle at 76% 58%, rgba(255, 255, 255, 0.08), transparent 22%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 43%, #000 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0.46) 38%, #000 66%),
     linear-gradient(90deg, #000 0%, #050505 26%, #10100f 48%, #070707 68%, #000 100%);
 }
 
@@ -170,8 +202,8 @@ select {
 .hero-image::before {
   inset: 0;
   background:
-    radial-gradient(ellipse at center, transparent 30%, rgba(0, 0, 0, 0.4) 58%, #000 90%),
-    linear-gradient(180deg, transparent 0 64%, rgba(0, 0, 0, 0.92) 92%);
+    radial-gradient(ellipse at center, transparent 28%, rgba(0, 0, 0, 0.42) 60%, #000 92%),
+    linear-gradient(180deg, transparent 0 42%, rgba(0, 0, 0, 0.86) 60%, #000 82%);
   z-index: 3;
 }
 
@@ -179,11 +211,11 @@ select {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 46%;
+  height: 68%;
   background:
-    linear-gradient(8deg, #020202 0 34%, rgba(16, 16, 16, 0.72) 35% 50%, transparent 51%),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 140px);
-  opacity: 0.7;
+    linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 18%, #000 42%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 140px);
+  opacity: 0.96;
   z-index: 2;
 }
 
@@ -1099,22 +1131,24 @@ blockquote {
 
 .venn-wrap {
   display: grid;
-  grid-template-columns: minmax(330px, 0.92fr) minmax(180px, 0.45fr);
+  grid-template-columns: minmax(440px, 0.92fr) minmax(180px, 0.45fr);
   gap: 28px;
   align-items: center;
 }
 
 .venn-diagram {
   position: relative;
-  min-height: 420px;
+  width: min(440px, 100%);
+  min-height: 365px;
+  margin: 0 auto;
 }
 
 .venn-circle {
   position: absolute;
   display: grid;
   place-items: center;
-  width: 230px;
-  height: 230px;
+  width: 220px;
+  height: 220px;
   border: 1.6px solid #0d4650;
   border-radius: 50%;
   color: #0d4650;
@@ -1130,13 +1164,13 @@ blockquote {
 }
 
 .primary-circle {
-  left: 16%;
-  bottom: 0;
+  left: 52px;
+  top: 132px;
 }
 
 .aesthetics-circle {
-  right: 16%;
-  bottom: 0;
+  right: 52px;
+  top: 132px;
 }
 
 .venn-center {
@@ -1148,7 +1182,7 @@ blockquote {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  background: rgba(13, 70, 80, 0.18);
+  background: rgba(13, 70, 80, 0.2);
   color: #0d4650;
   font-size: 1.2rem;
   font-weight: 700;
@@ -2227,7 +2261,7 @@ blockquote {
   }
 
   .venn-diagram {
-    min-height: 330px;
+    min-height: 365px;
     transform: scale(0.78);
     transform-origin: center;
   }
