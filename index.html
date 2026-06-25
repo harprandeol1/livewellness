@@ -15,6 +15,729 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      .button-outline {
+        border: 1px solid rgba(17, 72, 63, 0.55);
+        background: transparent;
+        color: #11483f;
+      }
+
+      .option-path-section {
+        padding: 120px 0;
+        background: #fff;
+      }
+
+      .option-path-section .section-intro {
+        width: min(650px, calc(100% - 40px));
+        margin: 0 auto 56px;
+        text-align: center;
+      }
+
+      .option-path-section .section-intro h2 {
+        margin: 0 0 18px;
+        color: #1d1d22;
+        font-size: clamp(2.15rem, 4vw, 4.05rem);
+        font-weight: 450;
+        letter-spacing: -0.065em;
+        line-height: 0.98;
+      }
+
+      .option-path-section .section-intro p {
+        margin: 0 auto 22px;
+        color: #6a6a72;
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+
+      .option-path-cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .option-path-card {
+        display: block;
+        min-width: 0;
+        border-radius: 10px;
+        outline: none;
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .option-path-card:hover,
+      .option-path-card:focus-visible {
+        opacity: 0.92;
+        transform: translateY(-3px);
+      }
+
+      .option-visual {
+        position: relative;
+        height: 454px;
+        overflow: hidden;
+        border-radius: 10px;
+        background: #111;
+      }
+
+      .option-longevity .option-visual {
+        background:
+          radial-gradient(circle at 23% 18%, rgba(255, 0, 98, 0.9), transparent 9%),
+          radial-gradient(circle at 58% 54%, rgba(108, 40, 255, 0.94), transparent 29%),
+          linear-gradient(140deg, #0d0926, #1931b0 52%, #f35c8e);
+      }
+
+      .option-longevity .option-visual::before {
+        position: absolute;
+        content: "";
+        inset: 18% 15% 0;
+        border-radius: 48% 48% 0 0;
+        background:
+          radial-gradient(circle at 48% 25%, rgba(255, 190, 207, 0.55), transparent 5%),
+          linear-gradient(180deg, rgba(16, 9, 43, 0.05), rgba(2, 2, 12, 0.86));
+        transform: rotate(-13deg);
+      }
+
+      .option-care .option-visual {
+        display: grid;
+        place-items: center;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.2), transparent 28% 72%, rgba(255, 255, 255, 0.18)),
+          radial-gradient(circle at 58% 40%, rgba(221, 176, 110, 0.52), transparent 27%),
+          linear-gradient(130deg, #54402b, #d5b479 45%, #15100b);
+      }
+
+      .option-care .option-visual::before {
+        position: absolute;
+        content: "";
+        inset: 0;
+        backdrop-filter: blur(14px);
+        background: rgba(0, 0, 0, 0.16);
+      }
+
+      .option-glass {
+        position: relative;
+        z-index: 1;
+        width: min(270px, 78%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        background: rgba(20, 20, 20, 0.38);
+        color: #fff;
+        padding: 22px;
+        backdrop-filter: blur(18px);
+      }
+
+      .option-glass small,
+      .option-glass strong,
+      .option-glass span {
+        display: block;
+      }
+
+      .option-glass small {
+        color: rgba(255, 255, 255, 0.48);
+        font-size: 0.62rem;
+        margin-bottom: 9px;
+      }
+
+      .option-glass strong {
+        max-width: 190px;
+        margin-bottom: 21px;
+        font-size: 1.05rem;
+        font-weight: 500;
+        line-height: 1.25;
+      }
+
+      .option-glass span {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin: 12px 0;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.72rem;
+      }
+
+      .option-services .option-visual {
+        background:
+          radial-gradient(circle at 75% 14%, rgba(255, 173, 117, 0.8), transparent 20%),
+          linear-gradient(160deg, #120f16, #1f1924 44%, #ff8b61);
+      }
+
+      .option-services .option-visual::before {
+        position: absolute;
+        content: "";
+        right: 18%;
+        bottom: -8%;
+        width: 180px;
+        height: 420px;
+        background:
+          linear-gradient(78deg, transparent 0 34%, #08080d 35% 46%, transparent 47%),
+          linear-gradient(104deg, transparent 0 42%, #090910 43% 57%, transparent 58%),
+          linear-gradient(180deg, transparent 0 18%, #06060a 19% 64%, transparent 65%);
+        transform: rotate(-7deg);
+      }
+
+      .light-line {
+        position: absolute;
+        left: 16%;
+        top: 3%;
+        width: 3px;
+        height: 130px;
+        background: #ff3f87;
+        box-shadow: 0 0 22px #ff3f87;
+        transform: rotate(2deg);
+      }
+
+      .option-path-card h3 {
+        margin: 18px 0 8px;
+        color: #1d1d22;
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .option-path-card p {
+        max-width: 360px;
+        margin: 0;
+        color: #6a6a72;
+        font-size: 0.74rem;
+        line-height: 1.55;
+      }
+
+      .care-model-section {
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1fr);
+        gap: clamp(40px, 7vw, 96px);
+        align-items: center;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 120px 0;
+      }
+
+      .care-model-copy h2,
+      .treatments-heading h2,
+      .consult-banner h2,
+      .faq-section-home h2 {
+        margin: 0 0 22px;
+        color: #0d4650;
+        font-size: clamp(2.6rem, 4.7vw, 5.1rem);
+        font-weight: 650;
+        letter-spacing: -0.07em;
+        line-height: 0.96;
+      }
+
+      .care-model-copy p,
+      .treatments-heading p,
+      .consult-banner p {
+        color: #5d6d73;
+        font-size: 1.02rem;
+        line-height: 1.72;
+      }
+
+      .care-actions,
+      .treatment-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 32px;
+      }
+
+      .care-actions .button-dark,
+      .treatment-actions .button-dark {
+        width: auto;
+      }
+
+      .venn-wrap {
+        display: grid;
+        grid-template-columns: minmax(330px, 0.92fr) minmax(180px, 0.45fr);
+        gap: 28px;
+        align-items: center;
+      }
+
+      .venn-diagram {
+        position: relative;
+        min-height: 420px;
+      }
+
+      .venn-circle {
+        position: absolute;
+        display: grid;
+        place-items: center;
+        width: 230px;
+        height: 230px;
+        border: 1.6px solid #0d4650;
+        border-radius: 50%;
+        color: #0d4650;
+        font-size: 1.12rem;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .longevity-circle {
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+      }
+
+      .primary-circle {
+        left: 16%;
+        bottom: 0;
+      }
+
+      .aesthetics-circle {
+        right: 16%;
+        bottom: 0;
+      }
+
+      .venn-center {
+        position: absolute;
+        left: 50%;
+        top: 55%;
+        display: grid;
+        place-items: center;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: rgba(13, 70, 80, 0.18);
+        color: #0d4650;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        transform: translate(-50%, -50%);
+      }
+
+      .pillar-list {
+        display: grid;
+        gap: 22px;
+      }
+
+      .pillar-list h3 {
+        margin: 0 0 6px;
+        color: #0d4650;
+        font-size: 1.15rem;
+        letter-spacing: -0.04em;
+      }
+
+      .pillar-list p {
+        margin: 0;
+        color: #5d6d73;
+        line-height: 1.45;
+      }
+
+      .treatments-section,
+      .resources-section,
+      .faq-section-home {
+        padding: 104px 0;
+      }
+
+      .treatments-heading {
+        width: min(820px, calc(100% - 40px));
+        margin: 0 auto 54px;
+        text-align: center;
+      }
+
+      .carousel-shell {
+        position: relative;
+        width: min(100%, 1420px);
+        margin: 0 auto;
+        padding: 0 70px;
+      }
+
+      .treatment-track {
+        display: grid;
+        grid-auto-columns: minmax(280px, 370px);
+        grid-auto-flow: column;
+        gap: 28px;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        padding: 4px 0 24px;
+        scroll-behavior: smooth;
+        scroll-snap-type: inline mandatory;
+        scrollbar-width: thin;
+      }
+
+      .treatment-card {
+        position: relative;
+        display: flex;
+        min-height: 500px;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        border-radius: 8px;
+        color: #fff;
+        padding: 34px 26px 26px;
+        scroll-snap-align: start;
+      }
+
+      .treatment-card::before {
+        position: absolute;
+        content: "";
+        inset: 0;
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.45)),
+          var(--treatment-bg);
+        transition: transform 260ms ease;
+      }
+
+      .treatment-card span,
+      .treatment-card h3,
+      .treatment-card p {
+        position: relative;
+        z-index: 1;
+      }
+
+      .treatment-card span {
+        align-self: flex-end;
+        border-radius: 4px;
+        background: #d7eef1;
+        color: #0d4650;
+        font-size: 0.9rem;
+        font-weight: 700;
+        padding: 8px 12px;
+      }
+
+      .treatment-card h3 {
+        max-width: 260px;
+        margin: 0;
+        font-size: 2rem;
+        letter-spacing: -0.06em;
+        line-height: 1.02;
+      }
+
+      .treatment-card p {
+        align-self: flex-start;
+        margin: 0;
+        border-radius: 5px;
+        background: #fff;
+        color: #25252c;
+        font-weight: 650;
+        padding: 15px 22px;
+      }
+
+      .visual-one { --treatment-bg: radial-gradient(circle at 80% 12%, rgba(255,255,255,.5), transparent 16%), linear-gradient(135deg, #4b4f55, #a3a9aa 45%, #17171d); }
+      .visual-two { --treatment-bg: radial-gradient(circle at 70% 26%, #e7c2ad, transparent 20%), linear-gradient(140deg, #9e7f6f, #dbb7a4 48%, #31231f); }
+      .visual-three { --treatment-bg: radial-gradient(circle at 82% 22%, #d7a87d, transparent 19%), linear-gradient(140deg, #5d4337, #b27a61 48%, #1d1514); }
+      .visual-four { --treatment-bg: radial-gradient(circle at 30% 22%, #92d9ff, transparent 18%), linear-gradient(135deg, #0e3040, #4da3bd 50%, #10151b); }
+      .visual-five { --treatment-bg: radial-gradient(circle at 70% 18%, #ffc8d5, transparent 18%), linear-gradient(140deg, #4a2335, #d9829c 48%, #1b1118); }
+      .visual-six { --treatment-bg: radial-gradient(circle at 26% 18%, #ff4f86, transparent 16%), linear-gradient(135deg, #190d18, #7d3250 48%, #050505); }
+      .visual-seven { --treatment-bg: radial-gradient(circle at 72% 20%, #e8d2bd, transparent 19%), linear-gradient(140deg, #2c2019, #9b7054 48%, #15100e); }
+      .visual-eight { --treatment-bg: radial-gradient(circle at 25% 18%, #b6f0ff, transparent 18%), linear-gradient(135deg, #10272d, #77aab4 45%, #101112); }
+      .visual-nine { --treatment-bg: radial-gradient(circle at 74% 24%, #9df0b1, transparent 17%), linear-gradient(140deg, #17261e, #659271 50%, #0d110f); }
+      .visual-ten { --treatment-bg: radial-gradient(circle at 78% 18%, #fff, transparent 16%), linear-gradient(135deg, #111, #4f4f58 46%, #020202); }
+      .visual-eleven { --treatment-bg: radial-gradient(circle at 30% 18%, #ff985c, transparent 18%), linear-gradient(140deg, #2b1711, #c76038 48%, #111); }
+      .visual-twelve { --treatment-bg: radial-gradient(circle at 78% 24%, #ffe082, transparent 18%), linear-gradient(135deg, #2a2411, #b08b31 45%, #10100d); }
+      .visual-thirteen { --treatment-bg: radial-gradient(circle at 70% 20%, #d6e8ff, transparent 20%), linear-gradient(140deg, #1c2734, #758aa5 48%, #11161d); }
+      .visual-fourteen { --treatment-bg: radial-gradient(circle at 30% 20%, #9fd8ff, transparent 18%), linear-gradient(135deg, #112437, #477aa2 50%, #111); }
+      .visual-fifteen { --treatment-bg: radial-gradient(circle at 76% 20%, #cbb6ff, transparent 18%), linear-gradient(140deg, #171229, #6b5ba3 48%, #07070a); }
+      .visual-sixteen { --treatment-bg: radial-gradient(circle at 26% 20%, #ffb4c7, transparent 17%), linear-gradient(135deg, #25131c, #a95d76 48%, #111); }
+      .visual-seventeen { --treatment-bg: radial-gradient(circle at 68% 17%, #f7f4dc, transparent 18%), linear-gradient(140deg, #202026, #717175 48%, #0a0a0d); }
+      .visual-eighteen { --treatment-bg: radial-gradient(circle at 30% 20%, #94f0ff, transparent 18%), linear-gradient(135deg, #0d2530, #3f8da0 48%, #080d10); }
+      .visual-nineteen { --treatment-bg: radial-gradient(circle at 75% 20%, #f4a6ff, transparent 18%), linear-gradient(140deg, #1c1024, #755083 48%, #111); }
+      .visual-twenty { --treatment-bg: radial-gradient(circle at 30% 18%, #e7f5ff, transparent 18%), linear-gradient(135deg, #1a2028, #8396aa 48%, #050607); }
+
+      .carousel-button {
+        position: absolute;
+        top: 50%;
+        z-index: 3;
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        border: 2px solid #111;
+        border-radius: 50%;
+        background: #fff;
+        color: #111;
+        cursor: pointer;
+        font-weight: 900;
+        transform: translateY(-50%);
+      }
+
+      .carousel-prev { left: 16px; }
+      .carousel-next { right: 16px; }
+
+      .consult-banner {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.5fr);
+        gap: 70px;
+        align-items: center;
+        width: min(1180px, calc(100% - 40px));
+        margin: 72px auto;
+        border-radius: 18px;
+        background:
+          radial-gradient(circle at 84% 0%, rgba(255, 255, 255, 0.18), transparent 24%),
+          linear-gradient(135deg, #020202, #162f36);
+        color: #fff;
+        padding: 72px;
+      }
+
+      .consult-banner h2,
+      .consult-banner p {
+        color: #fff;
+      }
+
+      .consult-banner p {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .resources-section {
+        background: #d9edf0;
+      }
+
+      .resource-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 32px;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .resource-card {
+        overflow: hidden;
+        border-radius: 8px;
+        background: #fff;
+      }
+
+      .resource-image {
+        min-height: 270px;
+        background: var(--resource-bg);
+      }
+
+      .resource-one { --resource-bg: radial-gradient(circle at 68% 20%, #f2d0c8, transparent 18%), linear-gradient(135deg, #9d8876, #d6b5a5 48%, #5a4a40); }
+      .resource-two { --resource-bg: radial-gradient(circle at 50% 42%, #ffffff, transparent 20%), linear-gradient(135deg, #9dc4cf, #e1f4f7 48%, #6092a0); }
+      .resource-three { --resource-bg: radial-gradient(circle at 74% 20%, #f8b66b, transparent 18%), linear-gradient(135deg, #222, #8c8c8c 46%, #f1d08b); }
+
+      .resource-body {
+        padding: 28px;
+      }
+
+      .resource-body span {
+        border-radius: 4px;
+        background: #d7eef1;
+        color: #0d4650;
+        font-size: 0.72rem;
+        font-weight: 800;
+        padding: 6px 9px;
+      }
+
+      .resource-body h3 {
+        margin: 20px 0 16px;
+        color: #222832;
+        font-size: 1.35rem;
+        letter-spacing: -0.045em;
+        line-height: 1.2;
+      }
+
+      .resource-body p {
+        min-height: 104px;
+        color: #5d6d73;
+        line-height: 1.62;
+      }
+
+      .faq-section-home {
+        background: #fff;
+      }
+
+      .faq-list-home {
+        width: min(920px, calc(100% - 40px));
+        margin: 0 auto;
+        border-top: 1px solid #e1e1e1;
+      }
+
+      .faq-list-home details {
+        border-bottom: 1px solid #e1e1e1;
+      }
+
+      .faq-list-home summary {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        cursor: pointer;
+        list-style: none;
+        padding: 26px 0;
+        color: #0d4650;
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+
+      .faq-list-home summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .faq-list-home summary::after {
+        content: "+";
+        color: #789097;
+      }
+
+      .faq-list-home details[open] summary::after {
+        content: "-";
+      }
+
+      .faq-list-home p {
+        max-width: 760px;
+        margin: -6px 0 28px;
+        color: #5d6d73;
+        line-height: 1.7;
+      }
+
+      .site-footer-rich {
+        display: grid;
+        grid-template-columns: 1.2fr repeat(3, minmax(140px, 0.7fr));
+        gap: 64px;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        padding: 86px 0 34px;
+      }
+
+      .footer-logo {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        margin-bottom: 72px;
+        border-radius: 8px;
+        background: #17171c;
+        color: #fff;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+      }
+
+      .footer-brand p,
+      .site-footer-rich a {
+        color: #6c737c;
+        font-size: 0.82rem;
+        line-height: 1.6;
+      }
+
+      .site-footer-rich nav {
+        display: grid;
+        align-content: start;
+        gap: 14px;
+      }
+
+      .site-footer-rich h3 {
+        margin: 0 0 14px;
+        color: #3a3d44;
+        font-size: 0.85rem;
+      }
+
+      .footer-bottom {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        margin-top: 42px;
+        padding-top: 28px;
+        border-top: 1px solid #e8e8e8;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+        color: #8a9098;
+        font-size: 0.78rem;
+      }
+
+      .footer-bottom div {
+        display: flex;
+        gap: 28px;
+      }
+
+      @media (max-width: 1050px) {
+        .care-model-section,
+        .consult-banner {
+          grid-template-columns: 1fr;
+        }
+
+        .venn-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .pillar-list {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .resource-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .option-path-cards {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 700px) {
+        .care-model-section {
+          width: min(100% - 28px, 1180px);
+          padding: 84px 0;
+        }
+
+        .care-model-copy h2,
+        .treatments-heading h2,
+        .consult-banner h2,
+        .faq-section-home h2 {
+          font-size: clamp(2.3rem, 12vw, 4.2rem);
+        }
+
+        .venn-diagram {
+          min-height: 330px;
+          transform: scale(0.78);
+          transform-origin: center;
+        }
+
+        .pillar-list,
+        .resource-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .option-path-section {
+          padding: 84px 0;
+        }
+
+        .option-path-cards {
+          width: min(100% - 28px, 1180px);
+          grid-template-columns: 1fr;
+        }
+
+        .option-visual {
+          height: 360px;
+        }
+
+        .carousel-shell {
+          padding: 0 14px;
+        }
+
+        .carousel-button {
+          display: none;
+        }
+
+        .treatment-track {
+          grid-auto-columns: minmax(260px, 82vw);
+        }
+
+        .treatment-card {
+          min-height: 420px;
+        }
+
+        .consult-banner {
+          width: min(100% - 28px, 1180px);
+          padding: 28px;
+          grid-template-columns: 1fr;
+        }
+
+        .site-footer-rich {
+          grid-template-columns: 1fr;
+          gap: 30px;
+          width: min(100% - 28px, 1180px);
+          padding-top: 64px;
+        }
+
+        .footer-logo {
+          margin-bottom: 28px;
+        }
+
+        .footer-bottom {
+          flex-direction: column;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="topbar" id="top">
@@ -72,6 +795,52 @@
               <span>Expert medical guidance</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section class="option-path-section" id="method" aria-labelledby="method-heading">
+        <div class="section-intro">
+          <p class="kicker">Choose your path</p>
+          <h2 id="method-heading">Choose from three options</h2>
+          <p>
+            Start with a tailored longevity package, choose concierge medicine,
+            or select an a la carte service from our advanced care menu.
+          </p>
+        </div>
+
+        <div class="option-path-cards">
+          <a class="option-path-card option-longevity" href="longevity.html">
+            <div class="option-visual">
+              <span class="light-line"></span>
+            </div>
+            <h3>1. Longevity packages</h3>
+            <p>Tailor-made health packages for health and longevity.</p>
+          </a>
+
+          <a class="option-path-card option-care" href="membership-options.html">
+            <div class="option-visual">
+              <div class="option-glass">
+                <small>Membership brief</small>
+                <strong>Choose the plan that fits you</strong>
+                <span>Basic <em>$199/mo</em></span>
+                <span>Premier <em>$799/mo</em></span>
+                <span>Elite <em>Family</em></span>
+                <span>Direct access <em>Included</em></span>
+              </div>
+            </div>
+            <h3>2. Concierge medicine</h3>
+            <p>Choose from the plan that suits your lifestyle and needs.</p>
+          </a>
+
+          <a class="option-path-card option-services" href="services.html">
+            <div class="option-visual"></div>
+            <h3>3. A la carte services</h3>
+            <p>
+              Pick a service of your choice from our wide range of options:
+              IV therapy, peptides, laser, hair restoration, hormone replacement,
+              and weight loss.
+            </p>
+          </a>
         </div>
       </section>
 
