@@ -390,6 +390,19 @@ select {
   min-width: 0;
 }
 
+.option-link-card {
+  display: block;
+  border-radius: 10px;
+  outline: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.option-link-card:hover,
+.option-link-card:focus-visible {
+  opacity: 0.92;
+  transform: translateY(-3px);
+}
+
 .method-visual {
   position: relative;
   height: 454px;
