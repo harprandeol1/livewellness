@@ -350,6 +350,59 @@
         line-height: 1.7;
       }
 
+
+
+      .services-menu {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .services-menu-trigger {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .services-dropdown {
+        position: absolute;
+        top: calc(100% + 14px);
+        left: 50%;
+        z-index: 60;
+        display: grid;
+        min-width: 238px;
+        gap: 2px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        background: rgba(8, 8, 10, 0.96);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+        opacity: 0;
+        padding: 10px;
+        pointer-events: none;
+        transform: translate(-50%, 8px);
+        transition: opacity 160ms ease, transform 160ms ease;
+      }
+
+      .services-dropdown a {
+        border-radius: 8px;
+        color: rgba(255, 255, 255, 0.82);
+        padding: 10px 12px;
+        white-space: nowrap;
+      }
+
+      .services-dropdown a:hover,
+      .services-dropdown a:focus-visible {
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+      }
+
+      .services-menu:hover .services-dropdown,
+      .services-menu:focus-within .services-dropdown {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, 0);
+      }
+
       @media (max-width: 900px) {
         .nav {
           padding: 0 20px;
@@ -391,7 +444,7 @@
         <a href="how-it-works.html">How It Works</a>
         <a href="longevity.html">Longevity</a>
         <a href="membership-options.html">Memberships</a>
-        <a href="services.html">Services</a>
+        <div class="services-menu"><a class="services-menu-trigger" href="services.html">Services <span aria-hidden="true">v</span></a><div class="services-dropdown"><a href="services.html">All Services</a><a href="service-iv-therapy.html">IV Therapy</a><a href="service-diagnostics-labs.html">Diagnostics & Labs</a><a href="service-hormone-longevity.html">Hormone & Longevity</a><a href="service-weight-loss.html">Weight Loss</a><a href="service-house-calls.html">House Calls & Urgent Care</a><a href="service-aesthetics-regenerative.html">Aesthetics & Regenerative</a><a href="service-executive-specialty.html">Executive & Specialty</a></div></div>
         <a href="index.html#consult">Contact</a>
       </nav>
       <a class="join-btn" href="index.html#consult">Join Live Wellness</a>
