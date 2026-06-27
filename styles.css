@@ -108,6 +108,57 @@ select {
   font-weight: 600;
 }
 
+.services-menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.services-menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.services-dropdown {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  z-index: 60;
+  display: grid;
+  min-width: 238px;
+  gap: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+  background: rgba(8, 8, 10, 0.96);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  padding: 10px;
+  pointer-events: none;
+  transform: translate(-50%, 8px);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.services-dropdown a {
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.82);
+  padding: 10px 12px;
+  white-space: nowrap;
+}
+
+.services-dropdown a:hover,
+.services-dropdown a:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.services-menu:hover .services-dropdown,
+.services-menu:focus-within .services-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
 .join-button {
   display: inline-flex;
   align-items: center;
@@ -1835,6 +1886,24 @@ blockquote {
   padding: 10px 14px;
 }
 
+.service-learn-more {
+  width: fit-content;
+  margin-top: 22px;
+}
+
+.service-index-list .service-scroll-item,
+.service-index-list .service-scroll-item:nth-child(even) {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.68fr);
+}
+
+.service-index-list .service-scroll-item:nth-child(even) .service-visual {
+  order: 0;
+}
+
+.service-index-list .service-scroll-item:nth-child(even) .service-visual::after {
+  background: linear-gradient(90deg, transparent 0 46%, rgba(247, 247, 247, 0.72) 78%, #f7f7f7 100%);
+}
+
 .service-bg-1 { --service-bg: radial-gradient(circle at 24% 28%, rgba(255, 78, 122, 0.75), transparent 18%), linear-gradient(135deg, #101421, #31435b 48%, #d5a08b); }
 .service-bg-2 { --service-bg: radial-gradient(circle at 72% 20%, rgba(255, 255, 255, 0.5), transparent 16%), linear-gradient(135deg, #112a36, #5e9aaa 48%, #0b1015); }
 .service-bg-3 { --service-bg: radial-gradient(circle at 30% 20%, rgba(255, 188, 203, 0.7), transparent 18%), linear-gradient(135deg, #24121c, #9f5e78 48%, #100b0e); }
@@ -2658,7 +2727,9 @@ blockquote {
   }
 
   .service-scroll-item,
-  .service-scroll-item:nth-child(even) {
+  .service-scroll-item:nth-child(even),
+  .service-index-list .service-scroll-item,
+  .service-index-list .service-scroll-item:nth-child(even) {
     grid-template-columns: 1fr;
     min-height: auto;
     padding: 34px 0;
