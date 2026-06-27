@@ -153,7 +153,8 @@ select {
 }
 
 .services-menu:hover .services-dropdown,
-.services-menu:focus-within .services-dropdown {
+.services-menu:focus-within .services-dropdown,
+.services-menu.is-open .services-dropdown {
   opacity: 1;
   pointer-events: auto;
   transform: translate(-50%, 0);
