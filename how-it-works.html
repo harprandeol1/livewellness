@@ -3,16 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="How Live Wellness concierge memberships and one-time health assessments work, from comprehensive diagnostics to personalized long-term planning."
+    />
     <title>How It Works | Live Wellness</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="stylesheet" href="styles.css" />
     <style>
+      :root {
+        --black: #020202;
+        --white: #ffffff;
+        --paper: #fafafa;
+        --ink: #1d1d22;
+        --muted: #6a6a72;
+        --faint: #e9e9ea;
+        --hot: #ff4e7a;
+        --max: 1180px;
+      }
+
       * {
         box-sizing: border-box;
       }
@@ -23,9 +37,10 @@
 
       body {
         margin: 0;
+        min-width: 320px;
+        background: var(--white);
+        color: var(--ink);
         font-family: "Inter", Arial, sans-serif;
-        color: #111;
-        background: #fff;
       }
 
       a {
@@ -33,471 +48,813 @@
         text-decoration: none;
       }
 
-      .nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 50;
-        height: 56px;
-        background: rgba(0, 0, 0, 0.92);
-        color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 7vw;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
       }
 
-      .logo {
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.45em;
+      .topbar {
+        position: fixed;
+        inset: 0 0 auto;
+        z-index: 20;
+        height: 46px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(0, 0, 0, 0.92);
+        color: var(--white);
+      }
+
+      .nav-shell {
+        display: grid;
+        grid-template-columns: 220px 1fr 220px;
+        align-items: center;
+        width: min(var(--max), calc(100% - 40px));
+        height: 46px;
+        margin: 0 auto;
+      }
+
+      .wordmark {
+        display: inline-block;
+        font-size: 0.77rem;
+        font-weight: 600;
+        letter-spacing: 0.48em;
+        line-height: 1;
         text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .nav-links,
+      .nav-actions {
+        display: flex;
+        align-items: center;
       }
 
       .nav-links {
-        display: flex;
-        gap: 34px;
-        font-size: 12px;
+        justify-content: center;
+        gap: 32px;
+      }
+
+      .nav-actions {
+        justify-content: flex-end;
+        gap: 18px;
+      }
+
+      .nav-links a,
+      .nav-actions a {
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 0.68rem;
         font-weight: 600;
       }
 
-      .join-btn {
-        background: #fff;
-        color: #000;
-        padding: 9px 16px;
-        border-radius: 5px;
-        font-size: 12px;
-        font-weight: 700;
+      .join-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 26px;
+        border-radius: 4px;
+        background: var(--white);
+        color: var(--black) !important;
+        padding: 0 14px;
       }
 
-      .hero {
-        min-height: 100vh;
-        position: relative;
-        display: flex;
-        align-items: flex-end;
-        overflow: hidden;
-        background: #030303;
-        color: #fff;
-        padding: 120px 7vw 76px;
+      .menu-toggle {
+        display: none;
+        justify-self: end;
+        width: 38px;
+        height: 34px;
+        border: 0;
+        background: transparent;
+        color: var(--white);
       }
 
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-          linear-gradient(to bottom, rgba(0,0,0,0.1), #000 92%),
-          radial-gradient(circle at 68% 28%, rgba(255,255,255,0.18), transparent 16%),
-          radial-gradient(circle at 34% 40%, rgba(255,75,120,0.22), transparent 18%),
-          linear-gradient(135deg, #08080a, #17171d 45%, #050505);
+      .menu-toggle span:not(.sr-only) {
+        display: block;
+        width: 20px;
+        height: 1px;
+        margin: 6px auto;
+        background: currentColor;
       }
 
-      .hero::after {
-        content: "";
-        position: absolute;
-        right: 10vw;
-        top: 17vh;
-        width: 55vw;
-        height: 45vh;
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 14px;
-        background:
-          repeating-linear-gradient(
-            90deg,
-            rgba(255,255,255,0.13) 0 1px,
-            transparent 1px 88px
-          ),
-          linear-gradient(120deg, rgba(255,255,255,0.08), rgba(255,255,255,0));
-        box-shadow: 0 0 120px rgba(255,255,255,0.08);
-        transform: skewY(-2deg);
+      .page-grid,
+      .section-intro,
+      .process-grid,
+      .membership-notes,
+      .assessment-section,
+      .why-grid,
+      .faq-list,
+      .how-cta,
+      .footer {
+        width: min(var(--max), calc(100% - 40px));
+        margin-inline: auto;
       }
 
-      .hero-inner {
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        max-width: 1180px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 72px;
-        align-items: end;
-      }
-
-      .eyebrow {
-        margin: 0 0 18px;
-        color: rgba(255,255,255,0.58);
-        font-size: 11px;
+      .kicker {
+        margin: 0 0 15px;
+        color: var(--muted);
+        font-size: 0.58rem;
         font-weight: 700;
         letter-spacing: 0.42em;
         text-transform: uppercase;
       }
 
-      .hero h1 {
-        max-width: 760px;
-        margin: 0 0 24px;
-        font-size: clamp(56px, 7vw, 116px);
-        line-height: 0.9;
-        letter-spacing: -0.08em;
-        font-weight: 600;
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 34px;
+        border: 0;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.72rem;
+        font-weight: 650;
+        padding: 0 18px;
       }
 
-      .hero p {
-        max-width: 560px;
-        margin: 0;
-        color: rgba(255,255,255,0.72);
-        font-size: 16px;
-        line-height: 1.6;
+      .button-light {
+        background: var(--white);
+        color: var(--black);
       }
 
-      .option-card {
-        display: block;
-        border-radius: 16px;
-        padding: 28px;
-        margin-top: 12px;
-        border: 1px solid rgba(255,255,255,0.14);
-      }
-
-      .option-card.light {
-        background: rgba(255,255,255,0.94);
-        color: #111;
-      }
-
-      .option-card.dark {
-        background: rgba(10,10,12,0.86);
-        color: #fff;
-        backdrop-filter: blur(14px);
-      }
-
-      .option-card span {
-        display: block;
-        margin-bottom: 38px;
-        color: #777;
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
-      }
-
-      .option-card h2 {
-        margin: 0 0 12px;
-        font-size: 28px;
-        line-height: 1;
-        letter-spacing: -0.06em;
-      }
-
-      .option-card p {
-        color: inherit;
-        opacity: 0.68;
-        font-size: 14px;
-      }
-
-      .section {
-        padding: 120px 7vw;
+      .section-padding {
+        padding: 120px 0;
       }
 
       .section-intro {
-        max-width: 760px;
-        margin: 0 auto 64px;
+        max-width: 720px;
+        margin-bottom: 56px;
         text-align: center;
       }
 
-      .section-intro .label {
+      .section-intro h2,
+      .assessment-copy h2,
+      .why-grid h2,
+      .how-cta h2 {
         margin: 0 0 18px;
-        color: #777;
-        font-size: 11px;
+        font-size: clamp(2.4rem, 5vw, 5.3rem);
+        font-weight: 450;
+        letter-spacing: -0.078em;
+        line-height: 0.94;
+      }
+
+      .section-intro p,
+      .assessment-copy > p,
+      .why-grid p,
+      .how-cta p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        line-height: 1.72;
+      }
+
+      .how-hero {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+        background: var(--black);
+        color: var(--white);
+      }
+
+      .how-hero-image {
+        position: absolute;
+        inset: 46px 0 0;
+        background:
+          radial-gradient(circle at 74% 24%, rgba(120, 160, 255, 0.16), transparent 18%),
+          radial-gradient(circle at 24% 50%, rgba(255, 78, 122, 0.2), transparent 18%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.14) 0%, rgba(0, 0, 0, 0.34) 45%, #000 100%),
+          linear-gradient(120deg, #040404 0%, #101014 42%, #050505 100%);
+      }
+
+      .how-hero-image::before,
+      .how-hero-image::after {
+        position: absolute;
+        content: "";
+        pointer-events: none;
+      }
+
+      .how-hero-image::before {
+        inset: 0;
+        z-index: 3;
+        background:
+          radial-gradient(ellipse at 50% 42%, transparent 25%, rgba(0, 0, 0, 0.4) 62%, #000 94%),
+          linear-gradient(180deg, transparent 0 58%, rgba(0, 0, 0, 0.92) 96%);
+      }
+
+      .how-hero-image::after {
+        inset: auto 0 0;
+        z-index: 2;
+        height: 40%;
+        background:
+          linear-gradient(8deg, #020202 0 38%, rgba(18, 18, 20, 0.76) 39% 52%, transparent 53%),
+          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 132px);
+      }
+
+      .diagnostic-suite {
+        position: absolute;
+        left: 50%;
+        top: 14%;
+        z-index: 1;
+        width: min(900px, 64vw);
+        height: 520px;
+        transform: translateX(-47%);
+      }
+
+      .glass-room {
+        position: absolute;
+        right: 5%;
+        bottom: 45px;
+        width: 66%;
+        height: 330px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 4px;
+        background:
+          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0 2px, transparent 2px 78px),
+          linear-gradient(110deg, rgba(255, 255, 255, 0.09), rgba(180, 180, 190, 0.02)),
+          linear-gradient(180deg, rgba(18, 18, 22, 0.12), rgba(0, 0, 0, 0.86));
+        box-shadow: 0 0 110px rgba(255, 255, 255, 0.08), inset 0 0 80px rgba(255, 255, 255, 0.05);
+        transform: skewY(-2deg);
+      }
+
+      .scan-ring {
+        position: absolute;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        box-shadow: inset 0 0 50px rgba(255, 255, 255, 0.08), 0 0 70px rgba(255, 78, 122, 0.12);
+      }
+
+      .scan-ring-one {
+        left: 7%;
+        top: 18%;
+        width: 260px;
+        height: 260px;
+        background:
+          radial-gradient(circle, transparent 0 38%, rgba(255, 255, 255, 0.12) 39% 44%, transparent 45%),
+          radial-gradient(circle at 50% 50%, rgba(255, 78, 122, 0.34), transparent 61%);
+      }
+
+      .scan-ring-two {
+        left: 18%;
+        top: 31%;
+        width: 120px;
+        height: 120px;
+        border-color: rgba(255, 255, 255, 0.12);
+      }
+
+      .exam-light {
+        position: absolute;
+        right: 21%;
+        top: 7%;
+        width: 260px;
+        height: 180px;
+        background:
+          radial-gradient(circle at 50% 0, rgba(255, 255, 255, 0.65), transparent 14%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.16), transparent 74%);
+        filter: blur(4px);
+        transform: skewX(-18deg);
+      }
+
+      .how-hero-content {
+        position: relative;
+        z-index: 5;
+        display: grid;
+        grid-template-columns: minmax(0, 0.88fr) minmax(360px, 0.62fr);
+        gap: 72px;
+        align-items: end;
+        min-height: 100vh;
+        padding: 120px 0 70px;
+      }
+
+      .how-hero-copy {
+        max-width: 760px;
+      }
+
+      .how-hero-copy h1 {
+        margin: 0 0 18px;
+        font-size: clamp(3.2rem, 6.6vw, 7.7rem);
+        font-weight: 500;
+        letter-spacing: -0.078em;
+        line-height: 0.92;
+      }
+
+      .how-hero-copy p {
+        max-width: 560px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.98rem;
+        line-height: 1.6;
+      }
+
+      .path-cards {
+        display: grid;
+        gap: 8px;
+      }
+
+      .path-card {
+        display: block;
+        min-height: 206px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.93);
+        color: var(--ink);
+        padding: 22px;
+      }
+
+      .path-card span,
+      .step-number {
+        display: block;
+        margin-bottom: 34px;
+        color: var(--muted);
+        font-size: 0.62rem;
         font-weight: 800;
-        letter-spacing: 0.42em;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
       }
 
-      .section-intro h2 {
-        margin: 0 0 22px;
-        font-size: clamp(42px, 5vw, 82px);
-        line-height: 0.94;
-        letter-spacing: -0.08em;
+      .path-card h2 {
+        margin: 0 0 10px;
+        font-size: 1.55rem;
+        font-weight: 500;
+        letter-spacing: -0.06em;
+        line-height: 1.04;
       }
 
-      .section-intro p {
-        color: #666;
-        line-height: 1.7;
-      }
-
-      .gray {
-        background: #f7f7f7;
-      }
-
-      .steps {
-        max-width: 1180px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-      }
-
-      .step {
-        min-height: 420px;
-        border: 1px solid #e8e8e8;
-        border-radius: 16px;
-        background: #fff;
-        padding: 30px;
-      }
-
-      .step.feature {
-        color: #fff;
-        background:
-          radial-gradient(circle at 80% 12%, rgba(255,255,255,0.6), transparent 18%),
-          linear-gradient(135deg, #ff315f, #ff7490);
-      }
-
-      .step-number {
-        display: block;
-        margin-bottom: 58px;
-        color: #888;
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 0.18em;
-      }
-
-      .step.feature .step-number {
-        color: rgba(255,255,255,0.75);
-      }
-
-      .step h3 {
-        margin: 0 0 18px;
-        font-size: 34px;
-        line-height: 0.98;
-        letter-spacing: -0.07em;
-      }
-
-      .step p {
-        color: #666;
-        line-height: 1.65;
-      }
-
-      .step.feature p {
-        color: rgba(255,255,255,0.78);
-      }
-
-      .small-link {
-        display: inline-flex;
-        margin-top: 14px;
-        border: 1px solid #ddd;
-        border-radius: 999px;
-        padding: 9px 15px;
-        font-size: 13px;
-        font-weight: 700;
-      }
-
-      .note {
-        max-width: 1180px;
-        margin: 12px auto 0;
-        border: 1px solid #e8e8e8;
-        border-radius: 16px;
-        background: #fff;
-        padding: 28px;
-        color: #666;
-        line-height: 1.7;
-      }
-
-      .assessment {
-        max-width: 1180px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 0.9fr 1fr;
-        gap: 76px;
-        align-items: center;
-      }
-
-      .assessment-art {
-        min-height: 560px;
-        border-radius: 16px;
-        position: relative;
-        overflow: hidden;
-        background:
-          radial-gradient(circle at 45% 38%, rgba(255,75,120,0.8), transparent 20%),
-          radial-gradient(circle at 78% 18%, rgba(255,255,255,0.5), transparent 13%),
-          linear-gradient(135deg, #16161d, #3b2532 55%, #ff829a);
-      }
-
-      .assessment-art::after {
-        content: "1,000+";
-        position: absolute;
-        left: 36px;
-        bottom: 36px;
-        width: 190px;
-        padding: 24px;
-        border-radius: 14px;
-        background: rgba(0,0,0,0.42);
-        color: #fff;
-        font-size: 48px;
-        letter-spacing: -0.08em;
-        backdrop-filter: blur(10px);
-      }
-
-      .assessment-copy h2 {
-        margin: 0 0 22px;
-        font-size: clamp(42px, 5vw, 82px);
-        line-height: 0.94;
-        letter-spacing: -0.08em;
-      }
-
-      .assessment-copy p {
-        color: #666;
-        line-height: 1.75;
-      }
-
-      .dark-section {
-        background: #050505;
-        color: #fff;
-      }
-
-      .why {
-        max-width: 1180px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 0.9fr 1fr;
-        gap: 80px;
-      }
-
-      .why h2 {
+      .path-card p {
         margin: 0;
-        font-size: clamp(42px, 5vw, 82px);
-        line-height: 0.94;
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.55;
+      }
+
+      .path-card-dark {
+        background: rgba(10, 10, 12, 0.86);
+        color: var(--white);
+        backdrop-filter: blur(14px);
+      }
+
+      .path-card-dark p,
+      .path-card-dark span {
+        color: rgba(255, 255, 255, 0.64);
+      }
+
+      .membership-flow,
+      .faq-section {
+        background: var(--paper);
+      }
+
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .process-step {
+        min-height: 430px;
+        border: 1px solid var(--faint);
+        border-radius: 10px;
+        background: var(--white);
+        padding: 26px;
+      }
+
+      .process-step-wide {
+        grid-column: span 2;
+      }
+
+      .process-step-hot {
+        color: var(--white);
+        background:
+          radial-gradient(circle at 78% 13%, rgba(255, 255, 255, 0.66), transparent 16%),
+          radial-gradient(circle at 34% 46%, rgba(255, 196, 208, 0.64), transparent 31%),
+          linear-gradient(140deg, #ff315f, #ff6f8b 48%, #ff9bab);
+      }
+
+      .process-step h3 {
+        max-width: 540px;
+        margin: 0 0 18px;
+        font-size: clamp(1.8rem, 3vw, 3.2rem);
+        font-weight: 450;
+        letter-spacing: -0.075em;
+        line-height: 0.98;
+      }
+
+      .process-step p {
+        max-width: 720px;
+        margin: 0 0 16px;
+        color: var(--muted);
+        font-size: 0.9rem;
+        line-height: 1.7;
+      }
+
+      .process-step-hot p,
+      .process-step-hot .step-number {
+        color: rgba(255, 255, 255, 0.78);
+      }
+
+      .mini-tab {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 32px;
+        margin-top: 12px;
+        border: 1px solid var(--faint);
+        border-radius: 999px;
+        color: var(--ink);
+        font-size: 0.7rem;
+        font-weight: 700;
+        padding: 0 14px;
+      }
+
+      .membership-notes {
+        margin-top: 12px;
+        border: 1px solid var(--faint);
+        border-radius: 10px;
+        background: var(--white);
+        padding: 24px 26px;
+      }
+
+      .membership-notes p {
+        max-width: 950px;
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+        line-height: 1.7;
+      }
+
+      .assessment-section {
+        display: grid;
+        grid-template-columns: minmax(0, 0.78fr) minmax(0, 0.9fr);
+        gap: 74px;
+        padding: 132px 0;
+      }
+
+      .assessment-visual {
+        position: relative;
+        min-height: 560px;
+        overflow: hidden;
+        border-radius: 10px;
+        background:
+          radial-gradient(circle at 44% 36%, rgba(255, 78, 122, 0.8), transparent 20%),
+          radial-gradient(circle at 78% 20%, rgba(255, 255, 255, 0.42), transparent 14%),
+          linear-gradient(140deg, #15151b, #3a2433 54%, #ff7d9a);
+      }
+
+      .assessment-visual::before {
+        position: absolute;
+        content: "";
+        inset: 46px 52px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 16px;
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 18% 80%, rgba(255, 255, 255, 0.08)),
+          repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 44px);
+        backdrop-filter: blur(4px);
+      }
+
+      .data-card {
+        position: absolute;
+        left: 44px;
+        bottom: 44px;
+        width: 220px;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 12px;
+        background: rgba(0, 0, 0, 0.38);
+        color: var(--white);
+        padding: 20px;
+        backdrop-filter: blur(14px);
+      }
+
+      .data-card span {
+        display: block;
+        margin-bottom: 52px;
+        font-size: 3rem;
+        font-weight: 450;
         letter-spacing: -0.08em;
       }
 
-      .why p {
-        color: rgba(255,255,255,0.68);
-        line-height: 1.75;
+      .data-card p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 0.76rem;
+        line-height: 1.55;
       }
 
-      .faq {
+      .assessment-copy {
+        align-self: center;
+      }
+
+      .assessment-points {
+        display: grid;
+        gap: 1px;
+        margin-top: 34px;
+        overflow: hidden;
+        border: 1px solid var(--faint);
+        border-radius: 10px;
+        background: var(--faint);
+      }
+
+      .assessment-points article {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 20px;
+        background: var(--white);
+        padding: 20px;
+      }
+
+      .assessment-points span {
+        color: var(--muted);
+        font-size: 0.78rem;
+        line-height: 1.55;
+      }
+
+      .why-section {
+        background: var(--black);
+        color: var(--white);
+      }
+
+      .why-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 0.78fr) minmax(0, 0.8fr);
+        gap: 82px;
+      }
+
+      .why-grid p {
+        color: rgba(255, 255, 255, 0.68);
+        margin: 0 0 18px;
+      }
+
+      .faq-list {
         max-width: 920px;
-        margin: 0 auto;
+        border-top: 1px solid var(--faint);
       }
 
-      details {
-        border-bottom: 1px solid #e5e5e5;
+      .faq-list details {
+        border-bottom: 1px solid var(--faint);
       }
 
-      summary {
+      .faq-list summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
         cursor: pointer;
         list-style: none;
-        padding: 28px 0;
-        font-size: 22px;
-        font-weight: 600;
+        padding: 26px 0;
+        font-size: 1.15rem;
+        font-weight: 500;
         letter-spacing: -0.04em;
       }
 
-      summary::-webkit-details-marker {
+      .faq-list summary::-webkit-details-marker {
         display: none;
       }
 
-      details p {
-        margin: -8px 0 28px;
-        color: #666;
+      .faq-list summary::after {
+        content: "+";
+        color: var(--muted);
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+
+      .faq-list details[open] summary::after {
+        content: "-";
+      }
+
+      .faq-list p {
+        max-width: 780px;
+        margin: -6px 0 28px;
+        color: var(--muted);
+        font-size: 0.9rem;
         line-height: 1.7;
       }
 
-      .cta {
-        max-width: 1180px;
-        margin: 0 auto 90px;
-        border-radius: 18px;
+      .faq-list a {
+        border-bottom: 1px solid currentColor;
+      }
+
+      .how-cta {
+        margin-bottom: 90px;
+        border-radius: 10px;
         background:
-          radial-gradient(circle at 80% 0%, rgba(255,255,255,0.16), transparent 24%),
+          radial-gradient(circle at 78% 0, rgba(255, 255, 255, 0.16), transparent 24%),
           linear-gradient(135deg, #020202, #1a1a1f);
-        color: #fff;
+        color: var(--white);
+        padding: 72px;
         text-align: center;
-        padding: 86px 32px;
       }
 
-      .cta h2 {
-        margin: 0 0 18px;
-        font-size: clamp(42px, 5vw, 82px);
-        line-height: 0.94;
-        letter-spacing: -0.08em;
-      }
-
-      .cta p {
+      .how-cta p {
         max-width: 620px;
-        margin: 0 auto 28px;
-        color: rgba(255,255,255,0.68);
-        line-height: 1.7;
+        margin: 0 auto 26px;
+        color: rgba(255, 255, 255, 0.68);
       }
 
-      @media (max-width: 900px) {
-        .nav-links {
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 34px 0;
+        border-top: 1px solid var(--faint);
+      }
+
+      .footer p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.74rem;
+      }
+
+      @media (max-width: 1050px) {
+        .nav-shell {
+          grid-template-columns: 1fr auto;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .nav-links,
+        .nav-actions {
+          position: fixed;
+          left: 20px;
+          right: 20px;
           display: none;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 0;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          background: rgba(0, 0, 0, 0.96);
+          padding: 12px;
         }
 
-        .nav {
-          padding: 0 20px;
+        .nav-links {
+          top: 55px;
         }
 
-        .hero-inner,
-        .assessment,
-        .why {
+        .nav-actions {
+          top: 235px;
+        }
+
+        .nav-links.is-open,
+        body.nav-open .nav-actions {
+          display: flex;
+        }
+
+        .nav-links a,
+        .nav-actions a {
+          padding: 13px 8px;
+          text-align: center;
+        }
+
+        .how-hero-content,
+        .assessment-section,
+        .why-grid {
           grid-template-columns: 1fr;
         }
 
-        .steps {
+        .diagnostic-suite {
+          width: 820px;
+          transform: translateX(-50%);
+        }
+
+        .path-cards {
+          max-width: 720px;
+        }
+
+        .process-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .process-step-wide {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .page-grid,
+        .section-intro,
+        .process-grid,
+        .membership-notes,
+        .assessment-section,
+        .why-grid,
+        .faq-list,
+        .how-cta,
+        .footer {
+          width: min(100% - 28px, var(--max));
+        }
+
+        .wordmark {
+          font-size: 0.68rem;
+          letter-spacing: 0.34em;
+        }
+
+        .how-hero-content {
+          padding-bottom: 34px;
+        }
+
+        .how-hero-copy h1 {
+          font-size: clamp(2.6rem, 13vw, 4.1rem);
+        }
+
+        .process-grid,
+        .assessment-points article {
           grid-template-columns: 1fr;
         }
 
-        .hero {
-          padding: 110px 20px 48px;
+        .process-step-wide {
+          grid-column: auto;
         }
 
-        .section {
-          padding: 84px 20px;
+        .diagnostic-suite {
+          top: 10%;
+          width: 610px;
+          height: 420px;
         }
 
-        .hero h1 {
-          font-size: clamp(48px, 14vw, 78px);
+        .scan-ring-one {
+          width: 190px;
+          height: 190px;
         }
 
-        .option-card h2 {
-          font-size: 24px;
+        .glass-room {
+          height: 270px;
         }
 
-        .assessment-art {
-          min-height: 380px;
+        .path-card,
+        .process-step,
+        .membership-notes,
+        .how-cta {
+          padding: 22px;
+        }
+
+        .process-step {
+          min-height: auto;
+        }
+
+        .assessment-visual {
+          min-height: 390px;
+        }
+
+        .section-padding,
+        .assessment-section,
+        .why-section {
+          padding: 84px 0;
+        }
+
+        .footer {
+          flex-direction: column;
+          align-items: flex-start;
         }
       }
     </style>
   </head>
-
-  <body>
-    <header class="nav">
-      <a class="logo" href="index.html">Live Wellness</a>
-
-      <nav class="nav-links">
-        <a href="how-it-works.html">How It Works</a>
-        <a href="index.html#plans">Memberships</a>
-        <a href="index.html#addons">Services</a>
-        <a href="#faq">FAQ</a>
+  <body class="how-page">
+    <header class="topbar" id="top">
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="wordmark" href="index.html" aria-label="Live Wellness home">Live Wellness</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="sr-only">Toggle navigation</span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="how-it-works.html">How It Works</a>
+          <a href="longevity.html">Longevity</a>
+          <a href="membership-options.html">Memberships</a>
+          <div class="services-menu"><a class="services-menu-trigger" href="services.html">Services <span aria-hidden="true">v</span></a><div class="services-dropdown"><a href="services.html">All Services</a><a href="service-iv-therapy.html">IV Therapy</a><a href="service-diagnostics-labs.html">Diagnostics & Labs</a><a href="service-hormone-longevity.html">Hormone & Longevity</a><a href="service-weight-loss.html">Weight Loss</a><a href="service-house-calls.html">House Calls & Urgent Care</a><a href="service-aesthetics-regenerative.html">Aesthetics & Regenerative</a><a href="service-executive-specialty.html">Executive & Specialty</a></div></div>
+          <a href="#faq">Explore <span aria-hidden="true">v</span></a>
+        </div>
+        <div class="nav-actions">
+          <a href="index.html#consult">Login</a>
+          <a class="join-button" href="index.html#consult">Join Live Wellness</a>
+        </div>
       </nav>
-
-      <a class="join-btn" href="index.html#consult">Join Live Wellness</a>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-inner">
-          <div>
-            <p class="eyebrow">How it works</p>
-            <h1>Let's fast forward your health and elevate your quality of life.</h1>
+      <section class="how-hero" aria-labelledby="how-hero-heading">
+        <div class="how-hero-image" aria-hidden="true">
+          <div class="diagnostic-suite">
+            <span class="scan-ring scan-ring-one"></span>
+            <span class="scan-ring scan-ring-two"></span>
+            <span class="exam-light"></span>
+            <span class="glass-room"></span>
+          </div>
+        </div>
+        <div class="how-hero-content page-grid">
+          <div class="how-hero-copy">
+            <p class="kicker">How it works</p>
+            <h1 id="how-hero-heading">Let's fast forward your health and elevate your quality of life.</h1>
             <p>
-              Choose a one-time deep-dive assessment or an ongoing concierge membership
-              built around preventive care, diagnostics, access, and long-term optimization.
+              Choose a one-time deep-dive assessment or an ongoing concierge
+              membership built around preventive care, diagnostics, access, and
+              long-term optimization.
             </p>
           </div>
-
-          <div>
-            <a class="option-card light" href="#assessment">
+          <div class="path-cards" aria-label="Care path options">
+            <a class="path-card" href="#assessment">
               <span>Option 01</span>
               <h2>One-time health assessment and planning</h2>
               <p>
@@ -505,8 +862,7 @@
                 3-, 6-, and 12-month roadmap.
               </p>
             </a>
-
-            <a class="option-card dark" href="#membership">
+            <a class="path-card path-card-dark" href="#membership-flow">
               <span>Option 02</span>
               <h2>Concierge monthly plans</h2>
               <p>
@@ -518,149 +874,191 @@
         </div>
       </section>
 
-      <section class="section gray" id="membership">
+      <section class="membership-flow section-padding" id="membership-flow" aria-labelledby="membership-flow-heading">
         <div class="section-intro">
-          <p class="label">Concierge memberships</p>
-          <h2>Membership that starts with a world-class clinic experience.</h2>
+          <p class="kicker">Concierge memberships</p>
+          <h2 id="membership-flow-heading">Membership that starts with a world-class clinic experience.</h2>
           <p>
-            Each membership plan comes with its own benefits and is tailored according
-            to your needs. We can always upgrade or downgrade your plan based on your goals.
+            Each membership has its own benefits and is tailored to your needs. Your
+            plan can be upgraded or downgraded as your goals change, and we will help
+            guide that recommendation during your health assessment.
           </p>
         </div>
 
-        <div class="steps">
-          <article class="step">
+        <div class="process-grid">
+          <article class="process-step">
             <span class="step-number">01</span>
             <h3>Choose the membership type that fits your lifestyle.</h3>
             <p>
-              Select the level of physician access, diagnostics, house calls, IV therapy,
-              and ongoing support that fits your life.
+              Start by selecting the level of access, diagnostics, house calls, IV
+              therapy, and physician support that fits how you want to manage your health.
             </p>
-            <a class="small-link" href="index.html#plans">Compare memberships</a>
+            <a class="mini-tab" href="membership-options.html#compare-memberships">Compare memberships</a>
           </article>
 
-          <article class="step">
+          <article class="process-step process-step-wide">
             <span class="step-number">02</span>
-            <h3>Start with your first physical exam.</h3>
+            <h3>Let's get started with your first physical exam.</h3>
             <p>
-              Visit the doctor for a 1- to 2-hour comprehensive intake. We review your
-              history, past records, questions, goals, physical exam, and diagnostic tests.
-              No rush - bring everything you want to improve, from sleep and fitness to
-              mental clarity and energy.
+              You visit the physician for a 1- to 2-hour comprehensive intake. We take
+              your full medical history, review your past records, complete your physical
+              exam, and perform comprehensive diagnostic testing.
+            </p>
+            <p>
+              There is no rush. Bring your questions and the parts of life you want to
+              enhance, including sleep quality, physical fitness, mental clarity,
+              energy, metabolic health, and long-term performance.
             </p>
           </article>
 
-          <article class="step feature">
+          <article class="process-step process-step-hot">
             <span class="step-number">03</span>
-            <h3>Review results and build your 3-, 6-, and 12-month goals.</h3>
+            <h3>Evaluate results and build your 3-, 6-, and 12-month goals.</h3>
             <p>
-              We evaluate your labs, imaging, and risk profile, then create a plan for
-              deeper testing, personalized exercise, nutrition, and follow-up visits.
+              We review your labs, imaging, diagnostics, and risk profile, then create a
+              practical plan with next steps, deeper testing when useful, personalized
+              exercise and nutrition, and follow-up visits scheduled to track progress.
             </p>
           </article>
         </div>
 
-        <div class="note">
-          These memberships are standalone direct-pay plans and do not work with health
-          insurance. They can replace many primary care and urgent care needs because
-          medications, specialist referrals, diagnostics, and care coordination are managed
-          like a traditional primary care practice - with more time and access.
+        <div class="membership-notes">
+          <p>
+            Memberships are standalone direct-pay plans and do not work with health
+            insurance. They can replace many primary care and urgent care needs because
+            medications, specialist referrals, diagnostics, and care coordination are
+            managed like a traditional primary care practice, with more access and time.
+          </p>
         </div>
       </section>
 
-      <section class="section" id="assessment">
-        <div class="assessment">
-          <div class="assessment-art"></div>
-
-          <div class="assessment-copy">
-            <p class="eyebrow" style="color:#777;">One-time assessment</p>
-            <h2>A focused deep dive when you want answers and a plan.</h2>
-            <p>
-              The one-time health assessment is designed for patients who want a
-              comprehensive review without starting a monthly membership. We collect a
-              deep medical history, perform a detailed physical, use advanced lab testing
-              and preventive screening exams, then turn the findings into a clear roadmap.
-            </p>
-            <p>
-              Our clinic is proactive about preventive exams and provides layers of
-              diagnostic insight - from biomarkers and advanced labs to imaging such as
-              MRI when appropriate.
-            </p>
+      <section class="assessment-section" id="assessment" aria-labelledby="assessment-heading">
+        <div class="assessment-visual" aria-hidden="true">
+          <div class="data-card">
+            <span>1,000+</span>
+            <p>Potential health data points</p>
+          </div>
+        </div>
+        <div class="assessment-copy">
+          <p class="kicker">One-time assessment</p>
+          <h2 id="assessment-heading">A focused deep dive when you want answers and a plan.</h2>
+          <p>
+            The one-time health assessment is designed for patients who want a
+            comprehensive review without starting a monthly membership. We collect
+            medical history, perform a detailed physical, use advanced lab testing and
+            screening exams, then turn the findings into a clear plan.
+          </p>
+          <div class="assessment-points">
+            <article>
+              <strong>Prevention</strong>
+              <span>Proactive screening for risk before symptoms force the issue.</span>
+            </article>
+            <article>
+              <strong>Diagnostics</strong>
+              <span>Layers of biomarkers, imaging, and testing based on your needs.</span>
+            </article>
+            <article>
+              <strong>Planning</strong>
+              <span>Specific next steps for sleep, nutrition, fitness, hormones, metabolism, and longevity.</span>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section dark-section">
-        <div class="why">
-          <h2>Why choose this?</h2>
+      <section class="why-section section-padding" aria-labelledby="why-heading">
+        <div class="why-grid">
+          <div>
+            <p class="kicker">Why choose this</p>
+            <h2 id="why-heading">A deeper model for people who want more than rushed sick care.</h2>
+          </div>
           <div>
             <p>
-              The current healthcare system is often rushed, reactive, and built around
-              treating problems after they appear. Most visits do not give enough time
-              to understand your full history, goals, habits, risks, sleep, fitness,
-              nutrition, hormones, or long-term quality of life.
+              Traditional healthcare is often built around short visits, acute problems,
+              insurance rules, and reacting after symptoms appear. That model can miss
+              the bigger picture: how you sleep, train, think, recover, age, and feel
+              every day.
             </p>
             <p>
-              We take a deeper preventive approach. It is not only about living longer -
-              it is about living healthier, happier, sharper, and with more control over
-              your future.
+              Live Wellness takes a deeper preventive approach. We look at history,
+              labs, imaging, lifestyle, risk factors, goals, and quality of life
+              together. The point is not only living longer, but living healthier,
+              happier, and with more clarity and confidence.
             </p>
           </div>
         </div>
       </section>
 
-      <section class="section gray" id="faq">
+      <section class="faq-section section-padding" id="faq" aria-labelledby="faq-heading">
         <div class="section-intro">
-          <p class="label">Questions</p>
-          <h2>Frequently asked questions</h2>
+          <p class="kicker">Questions</p>
+          <h2 id="faq-heading">Frequently asked questions</h2>
         </div>
 
-        <div class="faq">
+        <div class="faq-list">
           <details open>
-            <summary>How will it help me?</summary>
+            <summary>How will this help me?</summary>
             <p>
               We use an evidence-based precision medicine approach, collecting a broad
               picture of your health through history, physical exam, advanced labs,
-              diagnostics, screening exams, and selected imaging. The goal is to identify
-              risks early and help you take control of long-term health.
+              screening exams, and selected imaging. The goal is to identify risks early
+              across cardiovascular disease, metabolic dysfunction, cancer risk,
+              neurodegenerative disease, hormones, sleep, fitness, and quality of life,
+              then give you data and a plan to act on it.
             </p>
           </details>
 
           <details>
             <summary>Do you take health insurance?</summary>
             <p>
-              Memberships are standalone and do not work with health insurance. We do
-              offer a la carte options, and we can manage referrals like a traditional
-              healthcare practice when needed.
+              Memberships are standalone direct-pay plans and do not bill health
+              insurance. We do offer <a href="services.html">a la carte options</a>
+              for members and non-members. If you need specialist referrals, medication
+              management, or care coordination, we handle that like a traditional
+              healthcare practice.
             </p>
           </details>
 
           <details>
             <summary>Is this HSA/FSA eligible?</summary>
-            <p>Yes. HSA/FSA cards are accepted.</p>
+            <p>
+              Yes. HSA/FSA cards are accepted, and superbills are available upon request.
+            </p>
           </details>
 
           <details>
-            <summary>Do I get discounts?</summary>
+            <summary>What screening exams are done?</summary>
+            <p>
+              Our clinic is proactive about preventive exams. Depending on your needs
+              and membership level, screening may include advanced biomarkers, hormone
+              panels, metabolic and cardiovascular testing, body composition, sleep
+              assessments, genetic testing, MRI or other imaging, and additional
+              diagnostics for deeper insight.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do I get any discounts?</summary>
             <p>
               Yes. Members receive discounts on aesthetics and other services depending
-              on the membership chosen.
+              on the membership chosen. Higher-tier plans receive larger add-on discounts.
             </p>
           </details>
 
           <details>
             <summary>What is physician availability?</summary>
             <p>
-              We generally offer same-day or next-day appointments. Members receive a
-              direct line to the physician, with 24/7 access included in select plans.
+              We generally offer same-day or next-day appointments. All members receive
+              a direct line to the physician, and some membership levels include 24/7
+              access.
             </p>
           </details>
 
           <details>
             <summary>What if I am travelling?</summary>
             <p>
-              We recommend pre-travel visits for national or international travel and
-              offer telemedicine support during travel when appropriate.
+              For national or international travel, we recommend pre-travel visits to
+              review vaccines, medications, destination risks, and health planning. We
+              also offer telemedicine visits during travel when appropriate.
             </p>
           </details>
 
@@ -675,22 +1073,58 @@
           <details>
             <summary>Who are these memberships designed for?</summary>
             <p>
-              Anyone who takes healthcare seriously and wants to work with us to improve
-              the quality of their life.
+              They are designed for anyone who takes healthcare seriously and wants to
+              work with a physician-led team to improve the quality of their life, not
+              just respond to illness.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can this replace my primary care?</summary>
+            <p>
+              For many members, yes. Memberships can cover primary care needs such as
+              wellness exams, medication management, urgent visits, referrals, lab
+              review, and ongoing care coordination.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do you support functional medicine goals?</summary>
+            <p>
+              Yes. We can evaluate root causes behind fatigue, sleep issues, gut health,
+              metabolic dysfunction, hormone concerns, inflammation, and performance
+              goals using history, diagnostics, nutrition, lifestyle, and targeted
+              follow-up.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can my plan change over time?</summary>
+            <p>
+              Yes. We can upgrade or downgrade your membership as your needs change,
+              and we may recommend a different level after your assessment if it better
+              matches your goals.
             </p>
           </details>
         </div>
       </section>
 
-      <section class="cta">
-        <p class="eyebrow">Start here</p>
-        <h2>Ready to take the deeper look?</h2>
+      <section class="how-cta" aria-labelledby="how-cta-heading">
+        <p class="kicker">Start here</p>
+        <h2 id="how-cta-heading">Ready to take the deeper look?</h2>
         <p>
-          Begin with a one-time assessment or choose a concierge membership built for
-          access, prevention, and long-term optimization.
+          Begin with a one-time assessment or choose a membership built for ongoing
+          access, prevention, and optimization.
         </p>
-        <a class="join-btn" href="index.html#consult">Join us</a>
+        <a class="button button-light" href="index.html#consult">Join us</a>
       </section>
     </main>
+
+    <footer class="footer">
+      <a class="wordmark" href="index.html">Live Wellness</a>
+      <p>Direct-pay concierge medicine, longevity diagnostics, and physician-led access.</p>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
