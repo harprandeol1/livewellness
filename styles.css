@@ -1916,6 +1916,9 @@ blockquote {
 .service-bg-4 { --service-bg: radial-gradient(circle at 76% 24%, rgba(255, 224, 130, 0.7), transparent 18%), linear-gradient(135deg, #2b2110, #a67e33 48%, #0e0d0a); }
 .service-bg-5 { --service-bg: radial-gradient(circle at 28% 22%, rgba(147, 240, 255, 0.68), transparent 18%), linear-gradient(135deg, #0c2530, #3f8da0 48%, #090e11); }
 .service-bg-6 { --service-bg: radial-gradient(circle at 74% 22%, rgba(203, 182, 255, 0.72), transparent 18%), linear-gradient(135deg, #171229, #6b5ba3 48%, #07070a); }
+.service-bg-7 { --service-bg: radial-gradient(circle at 32% 24%, rgba(255, 160, 120, 0.72), transparent 18%), linear-gradient(135deg, #2a1408, #c46a3a 48%, #120a06); }
+.service-bg-8 { --service-bg: radial-gradient(circle at 68% 18%, rgba(180, 255, 210, 0.65), transparent 18%), linear-gradient(135deg, #0f2418, #3f8f63 48%, #08100b); }
+.service-bg-9 { --service-bg: radial-gradient(circle at 26% 26%, rgba(255, 210, 240, 0.75), transparent 18%), linear-gradient(135deg, #2a1024, #b86b9d 48%, #100810); }
 
 .service-detail-cta {
   width: min(var(--max), calc(100% - 40px));
