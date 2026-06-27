@@ -8,13 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   </head>
   <body>
     <header class="topbar" id="top">
       <nav class="nav-shell" aria-label="Primary navigation">
         <a class="wordmark" href="index.html" aria-label="Live Wellness home">Live Wellness</a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span class="sr-only">Toggle navigation</span><span></span><span></span></button>
-        <div class="nav-links" id="nav-links"><a href="how-it-works.html">How It Works</a><a href="longevity.html">Longevity</a><a href="membership-options.html">Memberships</a><div class="services-menu"><a class="services-menu-trigger" href="services.html">Services <span aria-hidden="true">v</span></a><div class="services-dropdown"><a href="services.html">All Services</a><a href="service-iv-therapy.html">IV Therapy</a><a href="service-diagnostics-labs.html">Diagnostics & Labs</a><a href="service-hormone-longevity.html">Hormone & Longevity</a><a href="service-weight-loss.html">Weight Loss</a><a href="service-house-calls.html">House Calls & Urgent Care</a><a href="service-aesthetics-regenerative.html">Aesthetics & Regenerative</a><a href="service-executive-specialty.html">Executive & Specialty</a></div></div><a href="index.html#resources">Explore</a></div>
+        <div class="nav-links" id="nav-links"><a href="how-it-works.html">How It Works</a><a href="longevity.html">Longevity</a><a href="membership-options.html">Memberships</a><div class="services-menu"><a class="services-menu-trigger" href="services.html">Services <span aria-hidden="true">v</span></a><div class="services-dropdown"><a href="services.html">All Services</a><a href="service-iv-therapy.html">IV Therapy</a><a href="service-hormone-replacement.html">Hormone Replacement</a><a href="service-weight-loss.html">Weight Loss</a><a href="service-longevity-packages.html">Longevity Packages</a><a href="service-wellness-packages.html">Wellness Packages</a><a href="service-peptide-therapy.html">Peptide Therapy</a><a href="service-metabolic-reset.html">Metabolic Reset Program</a><a href="service-house-calls.html">House Calls</a><a href="service-travel-medicine.html">Travel Medicine Consult</a><a href="service-skin-laser-rejuvenation.html">Skin Laser Rejuvenation</a><a href="service-hair-restoration.html">Hair Restoration</a><a href="service-executive-physical.html">Executive Physical</a><a href="service-functional-medicine.html">Functional Medicine Deep Dive</a><a href="service-concierge-medicine.html">Concierge Medicine</a></div></div><a href="index.html#resources">Explore</a></div>
         <div class="nav-actions"><a href="index.html#consult">Login</a><a class="join-button" href="index.html#consult">Join Live Wellness</a></div>
       </nav>
     </header>
@@ -28,7 +29,7 @@
       <section class="service-scroll-section">
         <div class="service-scroll-heading"><p class="kicker">Available IV options</p><h2>Choose an infusion by goal.</h2><p>Each IV option has its own focus. Members receive tier discounts automatically. Pricing is subject to change.</p></div>
         <div class="service-scroll-list">
-          <article class="service-scroll-item"><div class="service-visual service-bg-1"></div><div class="service-copy"><span>IV 01</span><h3>Myers' Cocktail</h3><p>A classic vitamin and mineral infusion designed to support energy, immunity, hydration, and general nutrient repletion. This is a foundational option for patients who want broad wellness support.</p><strong>From $189/session</strong></div></article>
+          <article class="service-scroll-item"><div class="service-visual service-bg-1"></div><div class="service-copy"><span>IV 01</span><h3>Myers' Cocktail</h3><p>A classic vitamin and mineral infusion designed to support energy, immunity, hydration, and general nutrient repletion. This is a foundational option for patients who want broad wellness support.</p><strong>From $189/session</strong><stripe-buy-button buy-button-id="buy_btn_1Tn4LRGsz6uUXkr8djNgE5Nf" publishable-key="pk_test_51Tn498Gsz6uUXkr8G1XrOv7FILe87af5DnIFs8WDtx1jnR63kONSBeXvCOjutiUbBsj9u4UFemco335dxAe1VRYV00PgA9ze2c"></stripe-buy-button></div></article>
           <article class="service-scroll-item"><div class="service-visual service-bg-2"></div><div class="service-copy"><span>IV 02</span><h3>NAD+ Infusion</h3><p>NAD+ therapy supports cellular energy, healthy aging, cognitive performance, and recovery. It is often chosen by patients focused on longevity, focus, and mitochondrial support.</p><strong>From $349/session</strong></div></article>
           <article class="service-scroll-item"><div class="service-visual service-bg-3"></div><div class="service-copy"><span>IV 03</span><h3>High-Dose Vitamin C</h3><p>High-dose vitamin C can support immune resilience and oxidative stress reduction. It may be used as part of a proactive wellness or recovery protocol after physician review.</p><strong>From $229/session</strong></div></article>
           <article class="service-scroll-item"><div class="service-visual service-bg-4"></div><div class="service-copy"><span>IV 04</span><h3>Glutathione Push</h3><p>Glutathione is an antioxidant-focused push used for detox support, skin brightening goals, and oxidative stress support. It can be used alone or paired with selected IV protocols.</p><strong>From $149/session</strong></div></article>
@@ -38,7 +39,39 @@
       </section>
       <section class="service-detail-cta"><h2>Add IV therapy to your care plan.</h2><p>Book a single session or ask your physician how IV therapy can fit into your membership and recovery goals.</p><a class="join-button" href="index.html#consult">Request a service</a></section>
     </main>
-    <footer class="site-footer-rich"><div class="footer-brand"><a class="footer-logo" href="index.html">LW</a><p>The reference in proactive health. Concierge medicine, longevity diagnostics, aesthetics, and urgent access.</p></div><nav><h3>Experience</h3><a href="how-it-works.html">How It Works</a><a href="membership-options.html">Memberships</a><a href="longevity.html">Longevity</a><a href="services.html">Services</a></nav><nav><h3>Treatments</h3><a href="service-iv-therapy.html">IV Therapy</a><a href="service-hormone-longevity.html">Peptides & Hormones</a><a href="service-weight-loss.html">Weight Loss</a><a href="service-aesthetics-regenerative.html">Laser & Hair</a></nav><nav><h3>Explore</h3><a href="index.html#resources">Resources</a><a href="index.html#faq">FAQ</a><a href="index.html#consult">Contact Us</a></nav><div class="footer-bottom"><p>&copy; 2026 Live Wellness. All rights reserved.</p><div><a href="#top">Back to top</a><a href="index.html#consult">Book consult</a></div></div></footer>
+        <footer class="site-footer-rich">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html">LW</a>
+        <p>The reference in proactive health. Concierge medicine, longevity diagnostics, aesthetics, and urgent access.</p>
+      </div>
+      <nav aria-label="Footer experience">
+        <h3>Experience</h3>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="membership-options.html">Memberships</a>
+        <a href="longevity.html">Longevity</a>
+        <a href="services.html">Services</a>
+      </nav>
+      <nav aria-label="Footer treatments">
+        <h3>Treatments</h3>
+        <a href="service-iv-therapy.html">IV Therapy</a>
+        <a href="service-hormone-longevity.html">Peptides & Hormones</a>
+        <a href="service-weight-loss.html">Weight Loss</a>
+        <a href="service-aesthetics-regenerative.html">Laser & Hair</a>
+      </nav>
+      <nav aria-label="Footer explore">
+        <h3>Explore</h3>
+        <a href="index.html#resources">Resources</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#consult">Contact Us</a>
+      </nav>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Live Wellness. All rights reserved.</p>
+        <div>
+          <a href="#top">Back to top</a>
+          <a href="index.html#consult">Book consult</a>
+        </div>
+      </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
