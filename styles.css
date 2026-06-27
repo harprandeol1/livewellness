@@ -1887,6 +1887,11 @@ blockquote {
   padding: 10px 14px;
 }
 
+.service-copy stripe-buy-button {
+  display: block;
+  margin-top: 22px;
+}
+
 .service-learn-more {
   width: fit-content;
   margin-top: 22px;
