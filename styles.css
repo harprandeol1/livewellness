@@ -1355,25 +1355,25 @@ blockquote {
 }
 
 .visual-one {  --treatment-bg: url("peptides.jpg") center / cover no-repeat;}
-.visual-two { --treatment-bg: radial-gradient(circle at 70% 26%, #e7c2ad, transparent 20%), linear-gradient(140deg, #9e7f6f, #dbb7a4 48%, #31231f); }
-.visual-three { --treatment-bg: radial-gradient(circle at 82% 22%, #d7a87d, transparent 19%), linear-gradient(140deg, #5d4337, #b27a61 48%, #1d1514); }
-.visual-four { --treatment-bg: radial-gradient(circle at 30% 22%, #92d9ff, transparent 18%), linear-gradient(135deg, #0e3040, #4da3bd 50%, #10151b); }
-.visual-five { --treatment-bg: radial-gradient(circle at 70% 18%, #ffc8d5, transparent 18%), linear-gradient(140deg, #4a2335, #d9829c 48%, #1b1118); }
-.visual-six { --treatment-bg: radial-gradient(circle at 26% 18%, #ff4f86, transparent 16%), linear-gradient(135deg, #190d18, #7d3250 48%, #050505); }
-.visual-seven { --treatment-bg: radial-gradient(circle at 72% 20%, #e8d2bd, transparent 19%), linear-gradient(140deg, #2c2019, #9b7054 48%, #15100e); }
-.visual-eight { --treatment-bg: radial-gradient(circle at 25% 18%, #b6f0ff, transparent 18%), linear-gradient(135deg, #10272d, #77aab4 45%, #101112); }
-.visual-nine { --treatment-bg: radial-gradient(circle at 74% 24%, #9df0b1, transparent 17%), linear-gradient(140deg, #17261e, #659271 50%, #0d110f); }
-.visual-ten { --treatment-bg: radial-gradient(circle at 78% 18%, #fff, transparent 16%), linear-gradient(135deg, #111, #4f4f58 46%, #020202); }
-.visual-eleven { --treatment-bg: radial-gradient(circle at 30% 18%, #ff985c, transparent 18%), linear-gradient(140deg, #2b1711, #c76038 48%, #111); }
-.visual-twelve { --treatment-bg: radial-gradient(circle at 78% 24%, #ffe082, transparent 18%), linear-gradient(135deg, #2a2411, #b08b31 45%, #10100d); }
-.visual-thirteen { --treatment-bg: radial-gradient(circle at 70% 20%, #d6e8ff, transparent 20%), linear-gradient(140deg, #1c2734, #758aa5 48%, #11161d); }
-.visual-fourteen { --treatment-bg: radial-gradient(circle at 30% 20%, #9fd8ff, transparent 18%), linear-gradient(135deg, #112437, #477aa2 50%, #111); }
-.visual-fifteen { --treatment-bg: radial-gradient(circle at 76% 20%, #cbb6ff, transparent 18%), linear-gradient(140deg, #171229, #6b5ba3 48%, #07070a); }
-.visual-sixteen { --treatment-bg: radial-gradient(circle at 26% 20%, #ffb4c7, transparent 17%), linear-gradient(135deg, #25131c, #a95d76 48%, #111); }
-.visual-seventeen { --treatment-bg: radial-gradient(circle at 68% 17%, #f7f4dc, transparent 18%), linear-gradient(140deg, #202026, #717175 48%, #0a0a0d); }
-.visual-eighteen { --treatment-bg: radial-gradient(circle at 30% 20%, #94f0ff, transparent 18%), linear-gradient(135deg, #0d2530, #3f8da0 48%, #080d10); }
-.visual-nineteen { --treatment-bg: radial-gradient(circle at 75% 20%, #f4a6ff, transparent 18%), linear-gradient(140deg, #1c1024, #755083 48%, #111); }
-.visual-twenty { --treatment-bg: radial-gradient(circle at 30% 18%, #e7f5ff, transparent 18%), linear-gradient(135deg, #1a2028, #8396aa 48%, #050607); }
+.visual-two { --treatment-bg: url("weightloss.jpg") center / cover no-repeat; }
+.visual-three { --treatment-bg: url("3.jpg") center / cover no-repeat; }
+.visual-four { --treatment-bg: url("4.jpg") center / cover no-repeat;}
+.visual-five { --treatment-bg: url("5.jpg") center / cover no-repeat; }
+.visual-six { --treatment-bg: url("6.jpg") center / cover no-repeat; }
+.visual-seven { --treatment-bg: url("7.jpg") center / cover no-repeat;}
+.visual-eight { --treatment-bg: url("8.jpg") center / cover no-repeat;}
+.visual-nine { --treatment-bg: url("9.jpg") center / cover no-repeat; }
+.visual-ten { --treatment-bg: url("10.jpg") center / cover no-repeat; }
+.visual-eleven { --treatment-bg: url("11.jpg") center / cover no-repeat; }
+.visual-twelve { --treatment-bg: url("12.jpg") center / cover no-repeat;}
+.visual-thirteen { --treatment-bg: url("13.jpg") center / cover no-repeat; }
+.visual-fourteen { --treatment-bg: url("14.jpg") center / cover no-repeat; }
+.visual-fifteen { --treatment-bg: url("15.jpg") center / cover no-repeat;}
+.visual-sixteen { --treatment-bg: url("16.jpg") center / cover no-repeat; }
+.visual-seventeen { --treatment-bg: url("17.jpg") center / cover no-repeat; }
+.visual-eighteen { --treatment-bg: url("18.jpg") center / cover no-repeat; }
+.visual-nineteen { --treatment-bg: url("19.jpg") center / cover no-repeat; }
+.visual-twenty { --treatment-bg: url("20.jpg") center / cover no-repeat; }
 
 .carousel-button {
   position: absolute;
