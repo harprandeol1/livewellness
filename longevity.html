@@ -3,97 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Live Wellness longevity packages with comprehensive health assessments, physician-led results review, and personalized plans to improve and monitor your health."
+    />
     <title>Longevity Packages | Live Wellness</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles.css" />
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <style>
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        min-width: 320px;
+      .longevity-page {
         background: #f7f7f7;
         color: #17171c;
-        font-family: "Inter", Arial, sans-serif;
       }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      .nav {
-        position: fixed;
-        inset: 0 0 auto;
-        z-index: 50;
-        height: 56px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 7vw;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        background: rgba(0, 0, 0, 0.92);
-        color: #fff;
-      }
-
-      .logo {
-        font-size: 12px;
-        font-weight: 700;
-        letter-spacing: 0.45em;
-        text-transform: uppercase;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 28px;
-        font-size: 12px;
-        font-weight: 600;
-      }
-
-      .join-btn,
-      .dark-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 36px;
-        border-radius: 5px;
-        font-size: 12px;
-        font-weight: 700;
-        padding: 0 16px;
-      }
-
-      .join-btn {
-        background: #fff;
-        color: #000;
-      }
-
-      .dark-btn {
-        background: #050505;
-        color: #fff;
-      }
-
-      .hero {
+      .longevity-hero {
         position: relative;
-        min-height: 100vh;
-        overflow: hidden;
+        min-height: 92vh;
         display: flex;
         align-items: flex-end;
-        padding: 124px 7vw 78px;
+        padding: 132px 0 78px;
         background: #020202;
         color: #fff;
+        overflow: hidden;
       }
 
-      .hero::before {
+      .longevity-hero::before {
         content: "";
         position: absolute;
         inset: 0;
@@ -104,40 +44,34 @@
           linear-gradient(130deg, #050506, #17171f 46%, #040404);
       }
 
-      .hero::after {
+      .longevity-hero::after {
         content: "";
         position: absolute;
-        right: 9vw;
-        top: 16vh;
+        right: 8vw;
+        top: 14vh;
         width: min(760px, 55vw);
         height: 440px;
         border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 16px;
         background:
-          repeating-linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.12) 0 1px,
-            transparent 1px 82px
-          ),
+          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 82px),
           linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
         box-shadow: 0 0 120px rgba(255, 255, 255, 0.08);
         transform: skewY(-2deg);
       }
 
-      .hero-inner {
+      .longevity-hero-inner {
         position: relative;
         z-index: 2;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
         display: grid;
         grid-template-columns: 1.1fr 0.9fr;
         gap: 72px;
         align-items: end;
-        width: 100%;
-        max-width: 1180px;
-        margin: 0 auto;
       }
 
-      .eyebrow,
-      .label {
+      .longevity-eyebrow {
         margin: 0 0 18px;
         color: rgba(255, 255, 255, 0.58);
         font-size: 11px;
@@ -146,34 +80,24 @@
         text-transform: uppercase;
       }
 
-      .label {
-        color: #777;
-      }
-
-      h1,
-      h2,
-      h3,
-      p {
-        margin-top: 0;
-      }
-
-      .hero h1 {
+      .longevity-hero h1 {
         max-width: 790px;
-        margin-bottom: 24px;
+        margin: 0 0 24px;
         font-size: clamp(56px, 7vw, 116px);
         font-weight: 600;
         letter-spacing: -0.08em;
         line-height: 0.9;
       }
 
-      .hero p {
+      .longevity-hero .lead {
         max-width: 590px;
+        margin: 0 0 28px;
         color: rgba(255, 255, 255, 0.72);
         font-size: 16px;
         line-height: 1.6;
       }
 
-      .hero-panel {
+      .longevity-hero-panel {
         border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 18px;
         background: rgba(255, 255, 255, 0.94);
@@ -181,7 +105,7 @@
         padding: 28px;
       }
 
-      .hero-panel span {
+      .longevity-hero-panel span {
         display: block;
         margin-bottom: 44px;
         color: #777;
@@ -191,92 +115,148 @@
         text-transform: uppercase;
       }
 
-      .hero-panel h2 {
-        margin-bottom: 14px;
+      .longevity-hero-panel h2 {
+        margin: 0 0 14px;
         font-size: 32px;
         letter-spacing: -0.07em;
         line-height: 0.98;
       }
 
-      .hero-panel p {
+      .longevity-hero-panel p {
+        margin: 0 0 22px;
         color: #62626a;
         font-size: 14px;
+        line-height: 1.65;
       }
 
-      .section {
-        padding: 112px 7vw;
+      .longevity-hero-panel .price {
+        display: block;
+        margin-bottom: 18px;
+        font-size: 42px;
+        font-weight: 600;
+        letter-spacing: -0.06em;
       }
 
-      .section.dark {
+      .longevity-hero-panel stripe-buy-button {
+        display: block;
+      }
+
+      .longevity-stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        background: #e8e8e8;
+        border-top: 1px solid #e8e8e8;
+        border-bottom: 1px solid #e8e8e8;
+      }
+
+      .longevity-stat {
+        background: #fff;
+        padding: 42px 28px;
+        text-align: center;
+      }
+
+      .longevity-stat strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 600;
+        letter-spacing: -0.06em;
+      }
+
+      .longevity-stat span {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .longevity-section {
+        padding: 112px 0;
+      }
+
+      .longevity-section.dark {
         background: #050505;
         color: #fff;
       }
 
-      .section-intro {
+      .longevity-section-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .longevity-intro {
         display: grid;
         grid-template-columns: 0.72fr 1fr;
         gap: 70px;
         align-items: end;
-        max-width: 1180px;
-        margin: 0 auto 42px;
+        margin-bottom: 42px;
       }
 
-      .section-intro h2,
-      .cta h2 {
-        margin-bottom: 0;
+      .longevity-label {
+        margin: 0 0 18px;
+        color: #777;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+      }
+
+      .longevity-section.dark .longevity-label {
+        color: rgba(255, 255, 255, 0.58);
+      }
+
+      .longevity-intro h2,
+      .longevity-cta h2 {
+        margin: 0;
         font-size: clamp(42px, 5vw, 82px);
         letter-spacing: -0.08em;
         line-height: 0.94;
       }
 
-      .section-intro p {
-        margin-bottom: 0;
+      .longevity-intro p {
+        margin: 0;
         color: #666;
         line-height: 1.7;
       }
 
-      .section.dark .label,
-      .section.dark .section-intro p {
+      .longevity-section.dark .longevity-intro p {
         color: rgba(255, 255, 255, 0.66);
       }
 
-      .package-grid,
-      .step-grid {
+      .method-flow {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 10px;
-        max-width: 1180px;
-        margin: 0 auto;
       }
 
-      .package-card,
-      .step-card {
-        min-height: 360px;
+      .method-step {
+        min-height: 420px;
         border: 1px solid #e8e8e8;
         border-radius: 16px;
         background: #fff;
-        padding: 30px;
+        padding: 28px;
+        display: flex;
+        flex-direction: column;
       }
 
-      .package-card.feature,
-      .step-card.feature {
+      .method-step.feature {
         color: #fff;
         background:
           radial-gradient(circle at 82% 12%, rgba(255, 255, 255, 0.64), transparent 17%),
           radial-gradient(circle at 34% 44%, rgba(255, 188, 203, 0.64), transparent 28%),
           linear-gradient(135deg, #ff315f, #ff7490);
+        border-color: transparent;
       }
 
-      .package-card.dark-card,
-      .step-card.dark-card {
+      .method-step.dark-card {
         background: #050505;
         color: #fff;
+        border-color: rgba(255, 255, 255, 0.12);
       }
 
-      .package-card span,
-      .step-card span {
+      .method-step .step-num {
         display: block;
-        margin-bottom: 58px;
+        margin-bottom: 24px;
         color: #888;
         font-size: 11px;
         font-weight: 800;
@@ -284,51 +264,321 @@
         text-transform: uppercase;
       }
 
-      .package-card.feature span,
-      .package-card.dark-card span,
-      .step-card.feature span,
-      .step-card.dark-card span {
+      .method-step.feature .step-num,
+      .method-step.dark-card .step-num {
         color: rgba(255, 255, 255, 0.68);
       }
 
-      .package-card h3,
-      .step-card h3 {
+      .method-visual-mini {
+        flex: 1;
+        min-height: 180px;
+        margin-bottom: 24px;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .method-step.feature .method-visual-mini,
+      .method-step.dark-card .method-visual-mini {
+        border-color: rgba(255, 255, 255, 0.14);
+      }
+
+      .visual-assessment {
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.42)),
+          linear-gradient(135deg, #d7dce5, #8ea0b8);
+      }
+
+      .visual-assessment::before {
+        content: "30+ Advanced Assessments";
+        position: absolute;
+        left: 16px;
+        bottom: 16px;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .visual-results {
+        background: #f4f4f4;
+        padding: 16px;
+      }
+
+      .visual-results .mock-header {
         margin-bottom: 14px;
-        font-size: 34px;
-        letter-spacing: -0.07em;
+        font-size: 11px;
+        font-weight: 700;
+        color: #333;
+      }
+
+      .visual-results .risk-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 8px;
+        padding: 8px 10px;
+        border-radius: 8px;
+        background: #fff;
+        font-size: 10px;
+      }
+
+      .visual-results .risk-row em {
+        font-style: normal;
+        color: #888;
+      }
+
+      .visual-improve {
+        background:
+          radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.5), transparent 18%),
+          linear-gradient(135deg, #112a36, #5e9aaa 48%, #0b1015);
+        padding: 16px;
+        color: #fff;
+      }
+
+      .visual-improve .plan-item {
+        margin-bottom: 10px;
+        padding: 10px 12px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        font-size: 10px;
+        line-height: 1.5;
+      }
+
+      .visual-monitor {
+        background:
+          radial-gradient(circle at 30% 20%, rgba(203, 182, 255, 0.72), transparent 18%),
+          linear-gradient(135deg, #171229, #6b5ba3 48%, #07070a);
+        padding: 16px;
+        color: #fff;
+      }
+
+      .visual-monitor .chart {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 6px;
+        align-items: end;
+        height: 120px;
+        margin-top: 12px;
+      }
+
+      .visual-monitor .bar {
+        border-radius: 4px 4px 0 0;
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .method-step h3 {
+        margin: 0 0 12px;
+        font-size: 28px;
+        letter-spacing: -0.06em;
         line-height: 0.98;
       }
 
-      .package-card p,
-      .step-card p,
-      .package-card li {
+      .method-step p {
+        margin: 0;
         color: #666;
+        font-size: 14px;
         line-height: 1.65;
       }
 
-      .package-card.feature p,
-      .package-card.feature li,
-      .package-card.dark-card p,
-      .package-card.dark-card li,
-      .step-card.feature p,
-      .step-card.dark-card p {
+      .method-step.feature p,
+      .method-step.dark-card p {
         color: rgba(255, 255, 255, 0.76);
       }
 
-      .package-card ul {
+      .pillar-grid {
         display: grid;
-        gap: 9px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .pillar-card {
+        min-height: 280px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 30px;
+      }
+
+      .pillar-card .pillar-stat {
+        display: block;
+        margin-bottom: 18px;
+        color: rgba(255, 255, 255, 0.58);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .pillar-card h3 {
+        margin: 0 0 12px;
+        font-size: 30px;
+        letter-spacing: -0.06em;
+      }
+
+      .pillar-card p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.65;
+      }
+
+      .tests-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .test-card {
+        min-height: 160px;
+        border: 1px solid #e8e8e8;
+        border-radius: 14px;
+        background: #fff;
+        padding: 22px;
+      }
+
+      .test-card h3 {
+        margin: 0 0 10px;
+        font-size: 15px;
+        letter-spacing: -0.03em;
+      }
+
+      .test-card p {
+        margin: 0;
+        color: #666;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .package-offer {
+        display: grid;
+        grid-template-columns: 1fr 0.9fr;
+        gap: 24px;
+        align-items: stretch;
+        margin-top: 42px;
+      }
+
+      .package-offer-copy,
+      .package-offer-buy {
+        border-radius: 18px;
+        padding: 36px;
+      }
+
+      .package-offer-copy {
+        background: #fff;
+        border: 1px solid #e8e8e8;
+      }
+
+      .package-offer-copy h3 {
+        margin: 0 0 14px;
+        font-size: 34px;
+        letter-spacing: -0.07em;
+      }
+
+      .package-offer-copy ul {
+        display: grid;
+        gap: 10px;
         margin: 22px 0 0;
         padding: 0;
         list-style: none;
       }
 
-      .package-card li::before {
-        content: "+ ";
+      .package-offer-copy li {
+        color: #666;
+        line-height: 1.6;
+        font-size: 14px;
       }
 
-      .cta {
-        max-width: 1180px;
+      .package-offer-copy li::before {
+        content: "+ ";
+        color: #111;
+        font-weight: 700;
+      }
+
+      .package-offer-buy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background:
+          radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.16), transparent 24%),
+          linear-gradient(135deg, #020202, #1a1a1f);
+        color: #fff;
+        text-align: center;
+      }
+
+      .package-offer-buy .price {
+        display: block;
+        margin: 0 0 8px;
+        font-size: clamp(48px, 6vw, 72px);
+        font-weight: 600;
+        letter-spacing: -0.07em;
+      }
+
+      .package-offer-buy p {
+        margin: 0 0 24px;
+        color: rgba(255, 255, 255, 0.68);
+        line-height: 1.65;
+      }
+
+      .package-offer-buy stripe-buy-button {
+        display: block;
+        margin: 0 auto;
+      }
+
+      .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .impact-card {
+        border: 1px solid #e8e8e8;
+        border-radius: 16px;
+        background: #fff;
+        padding: 30px;
+      }
+
+      .impact-card strong {
+        display: block;
+        margin-bottom: 12px;
+        font-size: clamp(32px, 4vw, 48px);
+        letter-spacing: -0.06em;
+      }
+
+      .impact-card p {
+        margin: 0;
+        color: #666;
+        line-height: 1.65;
+      }
+
+      .longevity-faq {
+        display: grid;
+        gap: 10px;
+      }
+
+      .longevity-faq details {
+        border: 1px solid #e8e8e8;
+        border-radius: 14px;
+        background: #fff;
+        padding: 18px 22px;
+      }
+
+      .longevity-faq summary {
+        cursor: pointer;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      .longevity-faq p {
+        margin: 14px 0 0;
+        color: #666;
+        line-height: 1.65;
+        font-size: 14px;
+      }
+
+      .longevity-cta {
+        width: min(1180px, calc(100% - 40px));
         margin: 0 auto 90px;
         border-radius: 18px;
         background:
@@ -339,318 +589,416 @@
         padding: 86px 32px;
       }
 
-      .cta h2 {
-        margin-bottom: 18px;
-      }
-
-      .cta p {
+      .longevity-cta p {
         max-width: 620px;
-        margin: 0 auto 28px;
+        margin: 18px auto 28px;
         color: rgba(255, 255, 255, 0.68);
         line-height: 1.7;
       }
 
-
-
-      .services-menu {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-      }
-
-      .services-menu-trigger {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-      }
-
-      .services-dropdown {
-        position: absolute;
-        top: calc(100% + 14px);
-        left: 50%;
-        z-index: 60;
-        display: grid;
-        min-width: 238px;
-        gap: 2px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 12px;
-        background: rgba(8, 8, 10, 0.96);
-        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
-        opacity: 0;
-        padding: 10px;
-        pointer-events: none;
-        transform: translate(-50%, 8px);
-        transition: opacity 160ms ease, transform 160ms ease;
-      }
-
-      .services-dropdown a {
-        border-radius: 8px;
-        color: rgba(255, 255, 255, 0.82);
-        padding: 10px 12px;
-        white-space: nowrap;
-      }
-
-      .services-dropdown a:hover,
-      .services-dropdown a:focus-visible {
-        background: rgba(255, 255, 255, 0.08);
-        color: #fff;
-      }
-
-      .services-menu:hover .services-dropdown,
-      .services-menu:focus-within .services-dropdown,
-      .services-menu.is-open .services-dropdown {
-        opacity: 1;
-        pointer-events: auto;
-        transform: translate(-50%, 0);
-      }
-
-
-
-      .site-footer-rich {
-        display: grid;
-        grid-template-columns: 1.2fr repeat(3, minmax(140px, 0.7fr));
-        gap: 64px;
-        max-width: 1180px;
-        width: calc(100% - 40px);
-        margin: 0 auto;
-        padding: 86px 0 34px;
-      }
-
-      .footer-logo {
-        display: grid;
-        place-items: center;
-        width: 38px;
-        height: 38px;
-        margin-bottom: 72px;
-        border-radius: 8px;
-        background: #17171c;
-        color: #fff;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-      }
-
-      .footer-brand p,
-      .site-footer-rich a {
-        color: #6c737c;
-        font-size: 0.82rem;
-        line-height: 1.6;
-      }
-
-      .site-footer-rich nav {
-        display: grid;
-        align-content: start;
-        gap: 14px;
-      }
-
-      .site-footer-rich h3 {
-        margin: 0 0 14px;
-        color: #3a3d44;
-        font-size: 0.85rem;
-      }
-
-      .footer-bottom {
-        grid-column: 1 / -1;
-        display: flex;
-        justify-content: space-between;
-        gap: 24px;
-        margin-top: 42px;
-        padding-top: 28px;
-        border-top: 1px solid #e8e8e8;
-      }
-
-      .footer-bottom p {
-        margin: 0;
-        color: #8a9098;
-        font-size: 0.78rem;
-      }
-
-      .footer-bottom div {
-        display: flex;
-        gap: 28px;
+      @media (max-width: 1100px) {
+        .method-flow,
+        .tests-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
       }
 
       @media (max-width: 900px) {
-        .site-footer-rich {
+        .longevity-hero {
+          padding: 110px 0 48px;
+        }
+
+        .longevity-hero-inner,
+        .longevity-intro,
+        .package-offer,
+        .pillar-grid {
           grid-template-columns: 1fr;
-          gap: 30px;
-          width: calc(100% - 28px);
-          padding-top: 64px;
         }
 
-        .footer-logo {
-          margin-bottom: 28px;
-        }
-
-        .footer-bottom {
-          flex-direction: column;
-        }
-      }
-
-      @media (max-width: 900px) {
-        .nav {
-          padding: 0 20px;
-        }
-
-        .nav-links {
+        .longevity-hero::after {
           display: none;
         }
 
-        .hero {
-          padding: 110px 20px 48px;
-        }
-
-        .hero-inner,
-        .section-intro {
+        .longevity-stats,
+        .method-flow,
+        .tests-grid,
+        .impact-grid {
           grid-template-columns: 1fr;
         }
 
-        .package-grid,
-        .step-grid {
-          grid-template-columns: 1fr;
+        .longevity-section {
+          padding: 84px 0;
         }
 
-        .section {
-          padding: 84px 20px;
-        }
-
-        .hero h1 {
+        .longevity-hero h1 {
           font-size: clamp(48px, 14vw, 78px);
         }
       }
     </style>
   </head>
-
-  <body>
-    <header class="nav" id="top">
-      <a class="logo" href="index.html">Live Wellness</a>
-      <nav class="nav-links">
-        <a href="how-it-works.html">How It Works</a>
-        <a href="longevity.html">Longevity</a>
-        <a href="membership-options.html">Memberships</a>
-        <div class="services-menu"><a class="services-menu-trigger" href="services.html">Services <span aria-hidden="true">v</span></a><div class="services-dropdown"><a href="services.html">All Services</a><a href="service-iv-therapy.html">IV Therapy</a><a href="service-hormone-replacement.html">Hormone Replacement</a><a href="service-weight-loss.html">Weight Loss</a><a href="service-longevity-packages.html">Longevity Packages</a><a href="service-wellness-packages.html">Wellness Packages</a><a href="service-peptide-therapy.html">Peptide Therapy</a><a href="service-metabolic-reset.html">Metabolic Reset Program</a><a href="service-house-calls.html">House Calls</a><a href="service-travel-medicine.html">Travel Medicine Consult</a><a href="service-skin-laser-rejuvenation.html">Skin Laser Rejuvenation</a><a href="service-hair-restoration.html">Hair Restoration</a><a href="service-executive-physical.html">Executive Physical</a><a href="service-functional-medicine.html">Functional Medicine Deep Dive</a><a href="service-concierge-medicine.html">Concierge Medicine</a></div></div>
-        <a href="index.html#consult">Contact</a>
+  <body class="longevity-page">
+    <header class="topbar" id="top">
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="wordmark" href="index.html" aria-label="Live Wellness home">Live Wellness</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="sr-only">Toggle navigation</span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="how-it-works.html">How It Works</a>
+          <a href="longevity.html">Longevity</a>
+          <a href="membership-options.html">Memberships</a>
+          <div class="services-menu">
+            <a class="services-menu-trigger" href="services.html">Services <span aria-hidden="true">v</span></a>
+            <div class="services-dropdown">
+              <a href="services.html">All Services</a>
+              <a href="service-iv-therapy.html">IV Therapy</a>
+              <a href="service-hormone-replacement.html">Hormone Replacement</a>
+              <a href="service-weight-loss.html">Weight Loss</a>
+              <a href="service-longevity-packages.html">Longevity Packages</a>
+              <a href="service-wellness-packages.html">Wellness Packages</a>
+              <a href="service-peptide-therapy.html">Peptide Therapy</a>
+              <a href="service-metabolic-reset.html">Metabolic Reset Program</a>
+              <a href="service-house-calls.html">House Calls</a>
+              <a href="service-travel-medicine.html">Travel Medicine Consult</a>
+              <a href="service-skin-laser-rejuvenation.html">Skin Laser Rejuvenation</a>
+              <a href="service-hair-restoration.html">Hair Restoration</a>
+              <a href="service-executive-physical.html">Executive Physical</a>
+              <a href="service-functional-medicine.html">Functional Medicine Deep Dive</a>
+              <a href="service-concierge-medicine.html">Concierge Medicine</a>
+            </div>
+          </div>
+          <a href="index.html#resources">Explore</a>
+        </div>
+        <div class="nav-actions">
+          <a href="index.html#consult">Login</a>
+          <a class="join-button" href="#package">Join Live Wellness</a>
+        </div>
       </nav>
-      <a class="join-btn" href="index.html#consult">Join Live Wellness</a>
     </header>
 
     <main>
-      <section class="hero">
-        <div class="hero-inner">
+      <section class="longevity-hero" aria-labelledby="longevity-hero-heading">
+        <div class="longevity-hero-inner">
           <div>
-            <p class="eyebrow">Longevity packages</p>
-            <h1>Tailor-made health packages for health and longevity.</h1>
+            <p class="longevity-eyebrow">Longevity packages</p>
+            <h1 id="longevity-hero-heading">Act now, live longer.</h1>
+            <p class="lead">
+              In a single day, we collect comprehensive health data to uncover hidden
+              risks and deliver personalized insights to optimize your long-term health.
+            </p>
+            <a class="button button-light" href="#how-packages-work">See how it works</a>
+          </div>
+
+          <aside class="longevity-hero-panel" id="package">
+            <span>Complete longevity package</span>
+            <h2>The most comprehensive health assessment, all in one visit.</h2>
             <p>
-              Build a proactive plan around diagnostics, advanced biomarkers,
-              performance, hormones, metabolism, imaging, recovery, and long-term
-              quality of life.
+              Advanced diagnostics, physician-led review, and a personalized plan to
+              improve and monitor your health over time.
+            </p>
+            <strong class="price">$3,500</strong>
+            <stripe-buy-button
+              buy-button-id="buy_btn_1Tn695Gsz6uUXkr8mnAw5NWo"
+              publishable-key="pk_test_51Tn498Gsz6uUXkr8G1XrOv7FILe87af5DnIFs8WDtx1jnR63kONSBeXvCOjutiUbBsj9u4UFemco335dxAe1VRYV00PgA9ze2c"
+            ></stripe-buy-button>
+          </aside>
+        </div>
+      </section>
+
+      <div class="longevity-stats" aria-label="Program highlights">
+        <div class="longevity-stat">
+          <strong>30+</strong>
+          <span>Advanced assessments completed in a single day</span>
+        </div>
+        <div class="longevity-stat">
+          <strong>1 in 6</strong>
+          <span>Members discover urgent or important findings</span>
+        </div>
+        <div class="longevity-stat">
+          <strong>Physician-led</strong>
+          <span>Expert medical guidance from start to finish</span>
+        </div>
+      </div>
+
+      <section class="longevity-section" id="how-packages-work" aria-labelledby="how-packages-heading">
+        <div class="longevity-section-inner">
+          <div class="longevity-intro">
+            <div>
+              <p class="longevity-label">Our method</p>
+              <h2 id="how-packages-heading">How our packages work</h2>
+            </div>
+            <p>
+              Live Wellness delivers the most advanced approach to preventive care,
+              translating deep diagnostics into personalized insights and pairing them
+              with expert-led support built around you.
             </p>
           </div>
 
-          <div class="hero-panel">
-            <span>Precision health</span>
-            <h2>Designed around your goals, risks, and current baseline.</h2>
+          <div class="method-flow">
+            <article class="method-step">
+              <span class="step-num">Step 01</span>
+              <div class="method-visual-mini visual-assessment" aria-hidden="true"></div>
+              <h3>Complete health assessment</h3>
+              <p>
+                This is not an annual physical. It is the most complete health
+                evaluation available, with 30+ advanced diagnostics completed in a
+                single day.
+              </p>
+            </article>
+
+            <article class="method-step feature">
+              <span class="step-num">Step 02</span>
+              <div class="method-visual-mini visual-results" aria-hidden="true">
+                <div class="mock-header">Your health overview</div>
+                <div class="risk-row"><span>Heart disease</span><em>Review with physician</em></div>
+                <div class="risk-row"><span>Metabolic health</span><em>Personalized plan</em></div>
+                <div class="risk-row"><span>Cancer risk</span><em>Early insight</em></div>
+              </div>
+              <h3>Review results and make a plan</h3>
+              <p>
+                Our team translates your results into a detailed risk profile, which
+                you review one-on-one with a Live Wellness physician after your visit.
+              </p>
+            </article>
+
+            <article class="method-step dark-card">
+              <span class="step-num">Step 03</span>
+              <div class="method-visual-mini visual-improve" aria-hidden="true">
+                <div class="plan-item">Conditioning: 15 min high-intensity weekly</div>
+                <div class="plan-item">Stabilize blood sugar: 40g protein at breakfast</div>
+                <div class="plan-item">Follow-up labs at 6 months</div>
+              </div>
+              <h3>Improve your health</h3>
+              <p>
+                Your personalized plan continues with expert guidance on exercise,
+                nutrition, therapies, and follow-up testing tailored to your risk profile.
+              </p>
+            </article>
+
+            <article class="method-step">
+              <span class="step-num">Step 04</span>
+              <div class="method-visual-mini visual-monitor" aria-hidden="true">
+                <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;">Biomarker check-in</div>
+                <div class="chart">
+                  <span class="bar" style="height: 42%;"></span>
+                  <span class="bar" style="height: 58%;"></span>
+                  <span class="bar" style="height: 64%;"></span>
+                  <span class="bar" style="height: 72%;"></span>
+                  <span class="bar" style="height: 80%;"></span>
+                  <span class="bar" style="height: 88%;"></span>
+                </div>
+              </div>
+              <h3>Monitor your health</h3>
+              <p>
+                Track progress over time with follow-up labs, physician reviews, and
+                adjustments as your goals change so prevention stays proactive.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="longevity-section dark" aria-labelledby="pillars-heading">
+        <div class="longevity-section-inner">
+          <div class="longevity-intro">
+            <div>
+              <p class="longevity-label">What we measure</p>
+              <h2 id="pillars-heading">The four pillars of chronic disease</h2>
+            </div>
             <p>
-              Start with a comprehensive assessment, then choose focused testing,
-              coaching, and therapies based on what you want to improve.
+              These four disease categories account for the majority of preventable
+              illness and premature death, yet they often develop silently for years.
             </p>
-            <a class="dark-btn" href="index.html#consult">Start with a consult</a>
+          </div>
+
+          <div class="pillar-grid">
+            <article class="pillar-card">
+              <span class="pillar-stat">Nº1 cause of death</span>
+              <h3>Heart disease</h3>
+              <p>
+                Heart attacks and strokes lead globally. Our advanced imaging detects
+                arterial disease early, before symptoms or standard tests.
+              </p>
+            </article>
+            <article class="pillar-card">
+              <span class="pillar-stat">71% of cancer deaths</span>
+              <h3>Cancer risk</h3>
+              <p>
+                Many cancers grow silently for years. We use deep diagnostics to uncover
+                risk early, when intervention can be most effective.
+              </p>
+            </article>
+            <article class="pillar-card">
+              <span class="pillar-stat">1 in 3 adults</span>
+              <h3>Metabolic dysfunction</h3>
+              <p>
+                Metabolic health shapes energy and lifespan. We assess insulin
+                resistance, body composition, and key drivers of chronic disease.
+              </p>
+            </article>
+            <article class="pillar-card">
+              <span class="pillar-stat">42% over age 55</span>
+              <h3>Neurodegenerative disease</h3>
+              <p>
+                Cognitive decline can begin decades early. Our assessments detect early
+                signals and guide strategies to protect brain function.
+              </p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section">
-        <div class="section-intro">
-          <div>
-            <p class="label">Choose your focus</p>
-            <h2>Packages built for prevention, optimization, and performance.</h2>
+      <section class="longevity-section" aria-labelledby="tests-heading">
+        <div class="longevity-section-inner">
+          <div class="longevity-intro">
+            <div>
+              <p class="longevity-label">Our tests</p>
+              <h2 id="tests-heading">The most comprehensive health assessment</h2>
+            </div>
+            <p>
+              A single test does not tell the full story. That is why we bring together
+              MRI, blood biomarkers, cardiac imaging, body composition, and more — all
+              in one day.
+            </p>
           </div>
-          <p>
-            Longevity care is not one-size-fits-all. Packages can combine diagnostics,
-            physician review, lifestyle planning, and selected therapies to support
-            how you want to feel, function, and age.
-          </p>
-        </div>
 
-        <div class="package-grid">
-          <article class="package-card">
-            <span>Package 01</span>
-            <h3>Longevity baseline</h3>
-            <p>A foundation for patients who want a deeper view of current health and future risk.</p>
-            <ul>
-              <li>Advanced biomarker review</li>
-              <li>Metabolic and cardiovascular risk</li>
-              <li>Sleep, nutrition, and fitness goals</li>
-              <li>3-, 6-, and 12-month action plan</li>
-            </ul>
-          </article>
+          <div class="tests-grid">
+            <article class="test-card"><h3>Whole Body MRI</h3><p>Detects abnormalities across the body.</p></article>
+            <article class="test-card"><h3>Advanced Blood Panel</h3><p>In-depth blood analysis across key biomarkers.</p></article>
+            <article class="test-card"><h3>VO2 Max Testing</h3><p>Measures oxygen uptake and endurance.</p></article>
+            <article class="test-card"><h3>DEXA Body Composition</h3><p>Analyzes body fat, muscle, and bone density.</p></article>
+            <article class="test-card"><h3>CT Coronary Angiography</h3><p>Assesses coronary blockages and heart risk.</p></article>
+            <article class="test-card"><h3>Hereditary Disease Screening</h3><p>Screens genetic disease risk.</p></article>
+            <article class="test-card"><h3>Continuous Glucose Monitoring</h3><p>Tracks blood sugar continuously.</p></article>
+            <article class="test-card"><h3>Low-Dose Lung CT</h3><p>Detects early lung cancer signs.</p></article>
+            <article class="test-card"><h3>Multi-Cancer Early Detection</h3><p>Detects early signals across cancers.</p></article>
+            <article class="test-card"><h3>Neurocognitive Testing</h3><p>Assesses memory and cognition.</p></article>
+            <article class="test-card"><h3>At-Home Sleep Testing</h3><p>Evaluates sleep patterns and quality.</p></article>
+            <article class="test-card"><h3>Up to 30+ Assessments</h3><p>Additional diagnostics selected for your profile.</p></article>
+          </div>
 
-          <article class="package-card feature">
-            <span>Package 02</span>
-            <h3>Performance optimization</h3>
-            <p>For patients focused on strength, energy, recovery, body composition, and performance.</p>
-            <ul>
-              <li>VO2 Max and fitness testing</li>
-              <li>DEXA body composition</li>
-              <li>Hormone and thyroid review</li>
-              <li>Nutrition, supplement, and recovery plan</li>
-            </ul>
-          </article>
-
-          <article class="package-card dark-card">
-            <span>Package 03</span>
-            <h3>Deep diagnostics</h3>
-            <p>For patients who want broader screening and more data to guide preventive decisions.</p>
-            <ul>
-              <li>Expanded longevity labs</li>
-              <li>Genetic and precision health options</li>
-              <li>Gut, hormone, and inflammation testing</li>
-              <li>Imaging recommendations when appropriate</li>
-            </ul>
-          </article>
+          <div class="package-offer">
+            <div class="package-offer-copy">
+              <p class="longevity-label">Complete package</p>
+              <h3>Everything included for $3,500</h3>
+              <p>
+                One comprehensive longevity visit with advanced diagnostics, physician
+                review, and a personalized plan to improve and monitor your health.
+              </p>
+              <ul>
+                <li>30+ advanced assessments in a single day</li>
+                <li>Whole-body MRI and advanced blood panel</li>
+                <li>Cardiac imaging and body composition testing</li>
+                <li>1:1 physician-led results review</li>
+                <li>Personalized exercise and nutrition guidance</li>
+                <li>Follow-up testing and biomarker monitoring plan</li>
+              </ul>
+            </div>
+            <div class="package-offer-buy">
+              <p class="longevity-eyebrow" style="margin-bottom: 12px;">Buy now</p>
+              <strong class="price">$3,500</strong>
+              <p>Secure your comprehensive longevity assessment and start your preventive care plan today.</p>
+              <stripe-buy-button
+                buy-button-id="buy_btn_1Tn695Gsz6uUXkr8mnAw5NWo"
+                publishable-key="pk_test_51Tn498Gsz6uUXkr8G1XrOv7FILe87af5DnIFs8WDtx1jnR63kONSBeXvCOjutiUbBsj9u4UFemco335dxAe1VRYV00PgA9ze2c"
+              ></stripe-buy-button>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section class="section dark">
-        <div class="section-intro">
-          <div>
-            <p class="label">How it works</p>
-            <h2>From data to a plan you can actually follow.</h2>
+      <section class="longevity-section" style="padding-top: 0;" aria-labelledby="impact-heading">
+        <div class="longevity-section-inner">
+          <div class="longevity-intro">
+            <div>
+              <p class="longevity-label">Why it matters</p>
+              <h2 id="impact-heading">Prevention that changes outcomes</h2>
+            </div>
+            <p>
+              Members use Live Wellness to catch silent disease early, build a plan they
+              can follow, and stay on track with physician-guided monitoring.
+            </p>
           </div>
-          <p>
-            We collect the right information, interpret it with your goals in mind,
-            and translate the findings into a practical plan for healthier aging.
-          </p>
-        </div>
 
-        <div class="step-grid">
-          <article class="step-card">
-            <span>01</span>
-            <h3>Assess</h3>
-            <p>Review history, goals, lifestyle, previous testing, baseline biomarkers, and risk factors.</p>
-          </article>
-          <article class="step-card feature">
-            <span>02</span>
-            <h3>Personalize</h3>
-            <p>Choose diagnostics, imaging, therapies, nutrition, exercise, and recovery strategies based on your needs.</p>
-          </article>
-          <article class="step-card dark-card">
-            <span>03</span>
-            <h3>Optimize</h3>
-            <p>Track progress over time with follow-up labs, physician reviews, and adjustments as your goals change.</p>
-          </article>
+          <div class="impact-grid">
+            <article class="impact-card">
+              <strong>96%</strong>
+              <p>Returning members report measurable progress toward their health goals.</p>
+            </article>
+            <article class="impact-card">
+              <strong>1 in 6</strong>
+              <p>Members discover urgent or life-threatening findings across cancer, cardiovascular, and neurodegenerative disease.</p>
+            </article>
+            <article class="impact-card">
+              <strong>2 of 3</strong>
+              <p>Patients who received cardiac and brain imaging showed vascular issues not seen on blood results alone.</p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section class="cta">
-        <p class="eyebrow">Start here</p>
-        <h2>Build your longevity package.</h2>
+      <section class="longevity-section" style="padding-top: 0;" aria-labelledby="faq-heading">
+        <div class="longevity-section-inner">
+          <div class="longevity-intro">
+            <div>
+              <p class="longevity-label">FAQ</p>
+              <h2 id="faq-heading">Frequently asked questions</h2>
+            </div>
+            <p>
+              Can't find the right answer here? <a href="index.html#consult">Contact our team</a>
+              and we will help you decide if a longevity package is right for you.
+            </p>
+          </div>
+
+          <div class="longevity-faq">
+            <details>
+              <summary>How is this different from a regular doctor or concierge practice?</summary>
+              <p>
+                Live Wellness complements your primary care by focusing on advanced
+                diagnostics and prevention. We synthesize your results into a clear risk
+                profile and actionable plan you review one-on-one with a physician.
+              </p>
+            </details>
+            <details>
+              <summary>I feel healthy. What additional insights can this provide?</summary>
+              <p>
+                Many serious conditions develop silently. Our advanced testing can
+                identify potential concerns long before symptoms appear, even when you
+                feel completely fine.
+              </p>
+            </details>
+            <details>
+              <summary>What happens if something concerning is found?</summary>
+              <p>
+                A Live Wellness physician will reach out promptly, explain your results,
+                and guide next steps including referrals to specialists when needed.
+              </p>
+            </details>
+            <details>
+              <summary>What is included in the $3,500 package?</summary>
+              <p>
+                The complete longevity assessment includes 30+ advanced diagnostics in one
+                day, physician-led results review, and a personalized plan to improve and
+                monitor your health over time.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="longevity-cta" aria-labelledby="cta-heading">
+        <p class="longevity-eyebrow">Start here</p>
+        <h2 id="cta-heading">Live healthier for longer.</h2>
         <p>
-          Schedule a discovery call and we will help match your goals to the right
-          diagnostics, package, and follow-up plan.
+          A proactive approach to long-term health, designed around you. Secure your
+          comprehensive assessment and begin your longevity plan today.
         </p>
-        <a class="join-btn" href="index.html#consult">Join us</a>
+        <a class="button button-light" href="#package">Get the $3,500 package</a>
       </section>
     </main>
+
     <footer class="site-footer-rich">
       <div class="footer-brand">
         <a class="footer-logo" href="index.html">LW</a>
@@ -680,7 +1028,7 @@
         <p>&copy; 2026 Live Wellness. All rights reserved.</p>
         <div>
           <a href="#top">Back to top</a>
-          <a href="index.html#consult">Book consult</a>
+          <a href="#package">Buy package</a>
         </div>
       </div>
     </footer>
