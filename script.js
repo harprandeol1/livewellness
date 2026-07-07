@@ -6,6 +6,7 @@ const consultForm = document.querySelector(".consult-form");
 const treatmentTrack = document.querySelector("[data-treatment-track]");
 const treatmentPrev = document.querySelector("[data-carousel-prev]");
 const treatmentNext = document.querySelector("[data-carousel-next]");
+const servicesMenus = document.querySelectorAll(".services-menu");
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
@@ -15,7 +16,8 @@ if (menuToggle && navLinks) {
   });
 
   navLinks.addEventListener("click", (event) => {
-    if (event.target instanceof HTMLAnchorElement) {
+    const target = event.target;
+    if (target instanceof HTMLAnchorElement && !target.classList.contains("services-menu-trigger")) {
       navLinks.classList.remove("is-open");
       document.body.classList.remove("nav-open");
       menuToggle.setAttribute("aria-expanded", "false");
@@ -59,3 +61,64 @@ if (treatmentTrack && treatmentPrev && treatmentNext) {
   treatmentPrev.addEventListener("click", () => scrollTreatments(-1));
   treatmentNext.addEventListener("click", () => scrollTreatments(1));
 }
+
+servicesMenus.forEach((menu) => {
+  const trigger = menu.querySelector(".services-menu-trigger");
+
+  if (!(trigger instanceof HTMLAnchorElement)) {
+    return;
+  }
+
+  trigger.setAttribute("aria-haspopup", "true");
+  trigger.setAttribute("aria-expanded", "false");
+
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    const willOpen = !menu.classList.contains("is-open");
+
+    servicesMenus.forEach((item) => {
+      item.classList.remove("is-open");
+      const itemTrigger = item.querySelector(".services-menu-trigger");
+      if (itemTrigger) {
+        itemTrigger.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    menu.classList.toggle("is-open", willOpen);
+    trigger.setAttribute("aria-expanded", String(willOpen));
+  });
+});
+
+document.addEventListener("click", (event) => {
+  const target = event.target;
+
+  if (!(target instanceof Node)) {
+    return;
+  }
+
+  if ([...servicesMenus].some((menu) => menu.contains(target))) {
+    return;
+  }
+
+  servicesMenus.forEach((menu) => {
+    menu.classList.remove("is-open");
+    const trigger = menu.querySelector(".services-menu-trigger");
+    if (trigger) {
+      trigger.setAttribute("aria-expanded", "false");
+    }
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  servicesMenus.forEach((menu) => {
+    menu.classList.remove("is-open");
+    const trigger = menu.querySelector(".services-menu-trigger");
+    if (trigger) {
+      trigger.setAttribute("aria-expanded", "false");
+    }
+  });
+});
