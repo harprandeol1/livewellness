@@ -64,6 +64,7 @@ if (treatmentTrack && treatmentPrev && treatmentNext) {
 
 servicesMenus.forEach((menu) => {
   const trigger = menu.querySelector(".services-menu-trigger");
+  let closeTimer;
 
   if (!(trigger instanceof HTMLAnchorElement)) {
     return;
@@ -71,6 +72,28 @@ servicesMenus.forEach((menu) => {
 
   trigger.setAttribute("aria-haspopup", "true");
   trigger.setAttribute("aria-expanded", "false");
+
+  const openMenu = () => {
+    clearTimeout(closeTimer);
+    menu.classList.add("is-open");
+    trigger.setAttribute("aria-expanded", "true");
+  };
+
+  const closeMenu = () => {
+    closeTimer = window.setTimeout(() => {
+      menu.classList.remove("is-open");
+      trigger.setAttribute("aria-expanded", "false");
+    }, 220);
+  };
+
+  menu.addEventListener("mouseenter", openMenu);
+  menu.addEventListener("mouseleave", closeMenu);
+  menu.addEventListener("focusin", openMenu);
+  menu.addEventListener("focusout", (event) => {
+    if (!menu.contains(event.relatedTarget)) {
+      closeMenu();
+    }
+  });
 
   trigger.addEventListener("click", (event) => {
     event.preventDefault();
@@ -84,8 +107,12 @@ servicesMenus.forEach((menu) => {
       }
     });
 
-    menu.classList.toggle("is-open", willOpen);
-    trigger.setAttribute("aria-expanded", String(willOpen));
+    if (willOpen) {
+      openMenu();
+    } else {
+      menu.classList.remove("is-open");
+      trigger.setAttribute("aria-expanded", "false");
+    }
   });
 });
 

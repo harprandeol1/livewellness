@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Membership Options | Live Wellness</title>
+    <title>Concierge Medicine | Live Wellness</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="styles.css" />
     <style>
       * {
         box-sizing: border-box;
@@ -834,42 +835,46 @@
   </head>
 
   <body>
-    <header class="nav" id="top">
-      <a class="logo" href="index.html">Live Wellness</a>
-      <nav class="nav-links">
-        <a href="how-it-works.html">How It Works</a>
-        <a href="longevity.html">Longevity</a>
-        <a href="membership-options.html">Memberships</a>
-        <div class="services-menu">
-          <a class="services-menu-trigger" href="services.html">Services <span aria-hidden="true">v</span></a>
-          <div class="services-dropdown">
-            <a href="services.html">All Services</a>
-            <a href="service-iv-therapy.html">IV Therapy</a>
-            <a href="service-hormone-replacement.html">Hormone Replacement</a>
-            <a href="service-weight-loss.html">Weight Loss</a>
-            <a href="service-longevity-packages.html">Longevity Packages</a>
-            <a href="service-wellness-packages.html">Wellness Packages</a>
-            <a href="service-peptide-therapy.html">Peptide Therapy</a>
-            <a href="service-metabolic-reset.html">Metabolic Reset Program</a>
-            <a href="service-house-calls.html">House Calls</a>
-            <a href="service-travel-medicine.html">Travel Medicine Consult</a>
-            <a href="service-skin-laser-rejuvenation.html">Skin Laser Rejuvenation</a>
-            <a href="service-hair-restoration.html">Hair Restoration</a>
-            <a href="service-executive-physical.html">Executive Physical</a>
-            <a href="service-functional-medicine.html">Functional Medicine Deep Dive</a>
-            <a href="service-concierge-medicine.html">Concierge Medicine</a>
+    <header class="topbar" id="top">
+      <nav class="nav-shell" aria-label="Primary navigation">
+        <a class="wordmark" href="index.html" aria-label="Live Wellness home">Live Wellness</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="sr-only">Toggle navigation</span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="how-it-works.html">How It Works</a>
+          <a href="longevity.html">Longevity</a>
+          <a href="membership-options.html">Concierge Medicine</a>
+          <a href="about-us.html">About Us</a>
+          <div class="services-menu">
+            <a class="services-menu-trigger" href="services.html">Services <span aria-hidden="true">v</span></a>
+            <div class="services-dropdown">
+              <a href="services.html">All Services</a>
+              <a href="service-iv-therapy.html">IV Therapy</a>
+              <a href="service-diagnostics-labs.html">Diagnostics &amp; Labs</a>
+              <a href="service-hormone-longevity.html">Hormone &amp; Longevity</a>
+              <a href="service-weight-loss.html">Weight Loss</a>
+              <a href="service-house-calls.html">House Calls &amp; Urgent Care</a>
+              <a href="service-aesthetics-regenerative.html">Aesthetics &amp; Regenerative</a>
+              <a href="service-executive-specialty.html">Executive &amp; Specialty</a>
+            </div>
           </div>
+          <a href="index.html#resources">Articles</a>
         </div>
-        <a href="#schedule-call">Contact</a>
+        <div class="nav-actions">
+          <a href="index.html#consult">Login</a>
+          <a class="join-button" href="index.html#consult">Join Live Wellness</a>
+        </div>
       </nav>
-      <a class="join-btn" href="#schedule-call">Join Live Wellness</a>
     </header>
 
     <main>
       <section class="hero">
         <div class="hero-inner">
           <div>
-            <p class="eyebrow">Membership options</p>
+            <p class="eyebrow">Concierge medicine</p>
             <h1>Choose the care model that fits your lifestyle.</h1>
             <p>
               Start with foundational access or step into a concierge membership
@@ -882,9 +887,9 @@
             <span>Compare plans</span>
             <h2>See every tier, benefit, and monthly price.</h2>
             <p>
-              Review Premier, Executive, Elite, and Family Elite memberships side by side.
+              Review Premier, Executive, Elite, and Family Elite concierge plans side by side.
             </p>
-            <a class="dark-btn" href="#compare-memberships">Compare memberships</a>
+            <a class="dark-btn" href="#compare-memberships">Compare concierge plans</a>
           </div>
         </div>
       </section>
@@ -917,22 +922,22 @@
 
         <div class="compare-strip">
           <div>
-            <h3>Ready to compare every membership?</h3>
+            <h3>Ready to compare every concierge plan?</h3>
             <p>
               View pricing, included benefits, discounts, and sign up for the tier
               that fits your lifestyle.
             </p>
           </div>
-          <a class="dark-btn" href="#compare-memberships">Compare memberships</a>
+          <a class="dark-btn" href="#compare-memberships">Compare concierge plans</a>
         </div>
       </section>
 
       <section class="section" id="compare-memberships">
-        <div class="section-intro">
-          <p class="label">Compare memberships</p>
+          <div class="section-intro">
+          <p class="label">Compare plans</p>
           <h2>Choose your level of care.</h2>
           <p>
-            Direct-pay memberships. HSA/FSA accepted. Superbills provided. Free
+            Direct-pay concierge medicine. HSA/FSA accepted. Superbills provided. Free
             15-minute discovery call to help you find the best fit.
           </p>
         </div>
@@ -1063,7 +1068,7 @@
             <p class="label">Find your fit</p>
             <h2>Schedule a free 15-minute call.</h2>
             <p>
-              Not sure which membership is right for you? Share your name, phone,
+              Not sure which concierge plan is right for you? Share your name, phone,
               and email and we will schedule a 15-minute call to help you find the
               best fit for your lifestyle and health goals.
             </p>
@@ -1092,7 +1097,7 @@
           <h2>Direct-pay care designed to replace rushed healthcare.</h2>
           <div>
             <p>
-              These memberships are standalone and do not work with health insurance.
+              These concierge plans are standalone and do not work with health insurance.
               They can replace many primary care and urgent care needs because
               medications, specialist referrals, diagnostics, and care coordination are
               managed like a traditional primary care practice.
@@ -1107,12 +1112,12 @@
 
       <section class="cta">
         <p class="eyebrow">Next step</p>
-        <h2>Compare the memberships side by side.</h2>
+        <h2>Compare concierge medicine tiers side by side.</h2>
         <p>
-          See every tier and choose the membership that fits your lifestyle,
+          See every tier and choose the plan that fits your lifestyle,
           health goals, and desired level of physician access.
         </p>
-        <a class="join-btn" href="#compare-memberships">Compare memberships</a>
+        <a class="join-btn" href="#compare-memberships">Compare concierge plans</a>
       </section>
     </main>
 
@@ -1120,23 +1125,30 @@
       <div class="footer-brand">
         <a class="footer-logo" href="index.html">LW</a>
         <p>The reference in proactive health. Concierge medicine, longevity diagnostics, aesthetics, and urgent access.</p>
+        <address class="footer-address">
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=6839+Five+Star+Blvd+Suite+F+Rocklin+CA+95677" target="_blank" rel="noopener noreferrer">
+            6839 Five Star Blvd, Suite F<br />
+            Rocklin, California 95677
+          </a>
+        </address>
       </div>
       <nav aria-label="Footer experience">
         <h3>Experience</h3>
         <a href="how-it-works.html">How It Works</a>
-        <a href="membership-options.html">Memberships</a>
+        <a href="membership-options.html">Concierge Medicine</a>
         <a href="longevity.html">Longevity</a>
+        <a href="about-us.html">About Us</a>
         <a href="services.html">Services</a>
       </nav>
       <nav aria-label="Footer treatments">
         <h3>Treatments</h3>
         <a href="service-iv-therapy.html">IV Therapy</a>
-        <a href="service-hormone-longevity.html">Peptides & Hormones</a>
+        <a href="service-hormone-longevity.html">Peptides &amp; Hormones</a>
         <a href="service-weight-loss.html">Weight Loss</a>
-        <a href="service-aesthetics-regenerative.html">Laser & Hair</a>
+        <a href="service-aesthetics-regenerative.html">Laser &amp; Hair</a>
       </nav>
-      <nav aria-label="Footer explore">
-        <h3>Explore</h3>
+      <nav aria-label="Footer articles">
+        <h3>Articles</h3>
         <a href="index.html#resources">Resources</a>
         <a href="index.html#faq">FAQ</a>
         <a href="#schedule-call">Contact Us</a>
