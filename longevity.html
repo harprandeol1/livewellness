@@ -18,8 +18,8 @@
     <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <style>
       .longevity-page {
-        background: #f3f3f4;
-        color: #4a4d54;
+        background: #f7f7f7;
+        color: #17171c;
       }
 
       .longevity-hero {
@@ -28,8 +28,8 @@
         display: flex;
         align-items: flex-end;
         padding: 132px 0 78px;
-        background: #3d4148;
-        color: #f7f7f8;
+        background: #020202;
+        color: #fff;
         overflow: hidden;
       }
 
@@ -38,10 +38,10 @@
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(circle at 72% 22%, rgba(255, 255, 255, 0.12), transparent 16%),
-          radial-gradient(circle at 25% 46%, rgba(255, 120, 150, 0.14), transparent 18%),
-          linear-gradient(180deg, rgba(61, 65, 72, 0.1), #3d4148 92%),
-          linear-gradient(130deg, #454952, #5a5f68 46%, #3a3e45);
+          radial-gradient(circle at 72% 22%, rgba(255, 255, 255, 0.18), transparent 16%),
+          radial-gradient(circle at 25% 46%, rgba(255, 70, 118, 0.24), transparent 18%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.04), #000 92%),
+          linear-gradient(130deg, #050506, #17171f 46%, #040404);
       }
 
       .longevity-hero::after {
@@ -83,10 +83,10 @@
       .longevity-hero h1 {
         max-width: 790px;
         margin: 0 0 24px;
-        font-size: clamp(48px, 6vw, 88px);
-        font-weight: 450;
-        letter-spacing: -0.06em;
-        line-height: 0.96;
+        font-size: clamp(56px, 7vw, 116px);
+        font-weight: 600;
+        letter-spacing: -0.08em;
+        line-height: 0.9;
       }
 
       .longevity-hero .lead {
@@ -98,46 +98,43 @@
       }
 
       .longevity-hero-panel {
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 18px;
-        background: rgba(255, 255, 255, 0.96);
-        color: #5a5e66;
+        background: rgba(255, 255, 255, 0.94);
+        color: #111;
         padding: 28px;
-      }
-
-      .longevity-hero-panel h2 {
-        margin: 0 0 14px;
-        font-size: 28px;
-        font-weight: 450;
-        letter-spacing: -0.05em;
-        line-height: 1.02;
-        color: #4a4d54;
-      }
-
-      .longevity-hero-panel .price {
-        display: block;
-        margin-bottom: 18px;
-        font-size: 38px;
-        font-weight: 450;
-        letter-spacing: -0.05em;
-        color: #5a5e66;
       }
 
       .longevity-hero-panel span {
         display: block;
         margin-bottom: 44px;
-        color: #8a8f97;
+        color: #777;
         font-size: 11px;
-        font-weight: 700;
+        font-weight: 800;
         letter-spacing: 0.22em;
         text-transform: uppercase;
       }
 
+      .longevity-hero-panel h2 {
+        margin: 0 0 14px;
+        font-size: 32px;
+        letter-spacing: -0.07em;
+        line-height: 0.98;
+      }
+
       .longevity-hero-panel p {
         margin: 0 0 22px;
-        color: #7a8088;
+        color: #62626a;
         font-size: 14px;
         line-height: 1.65;
+      }
+
+      .longevity-hero-panel .price {
+        display: block;
+        margin-bottom: 18px;
+        font-size: 42px;
+        font-weight: 600;
+        letter-spacing: -0.06em;
       }
 
       .longevity-hero-panel stripe-buy-button {
@@ -162,14 +159,13 @@
       .longevity-stat strong {
         display: block;
         margin-bottom: 10px;
-        font-size: clamp(26px, 4vw, 38px);
-        font-weight: 450;
-        letter-spacing: -0.05em;
-        color: #5a5e66;
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 600;
+        letter-spacing: -0.06em;
       }
 
       .longevity-stat span {
-        color: #7a8088;
+        color: #666;
         font-size: 14px;
         line-height: 1.5;
       }
@@ -178,44 +174,53 @@
         padding: 112px 0;
       }
 
-      .longevity-section.soft {
-        background: #ececee;
-        color: #5a5e66;
+      .longevity-section.dark {
+        background: #050505;
+        color: #fff;
+      }
+
+      .longevity-section-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .longevity-intro {
+        display: grid;
+        grid-template-columns: 0.72fr 1fr;
+        gap: 70px;
+        align-items: end;
+        margin-bottom: 42px;
       }
 
       .longevity-label {
         margin: 0 0 18px;
-        color: #8a8f97;
+        color: #777;
         font-size: 11px;
-        font-weight: 700;
+        font-weight: 800;
         letter-spacing: 0.42em;
         text-transform: uppercase;
       }
 
-      .longevity-section.soft .longevity-label {
-        color: #8a8f97;
+      .longevity-section.dark .longevity-label {
+        color: rgba(255, 255, 255, 0.58);
       }
 
       .longevity-intro h2,
-      .longevity-cta h2,
-      .impact-expanded h2,
-      .package-final h3 {
+      .longevity-cta h2 {
         margin: 0;
-        font-size: clamp(36px, 4.5vw, 64px);
-        font-weight: 450;
-        letter-spacing: -0.06em;
-        line-height: 0.98;
-        color: #5a5e66;
+        font-size: clamp(42px, 5vw, 82px);
+        letter-spacing: -0.08em;
+        line-height: 0.94;
       }
 
       .longevity-intro p {
         margin: 0;
-        color: #7a8088;
+        color: #666;
         line-height: 1.7;
       }
 
-      .longevity-section.soft .longevity-intro p {
-        color: #7a8088;
+      .longevity-section.dark .longevity-intro p {
+        color: rgba(255, 255, 255, 0.66);
       }
 
       .method-flow {
@@ -244,9 +249,9 @@
       }
 
       .method-step.dark-card {
-        background: #dfe1e5;
-        color: #5a5e66;
-        border-color: #d0d3d8;
+        background: #050505;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.12);
       }
 
       .method-step .step-num {
@@ -261,7 +266,7 @@
 
       .method-step.feature .step-num,
       .method-step.dark-card .step-num {
-        color: #8a8f97;
+        color: rgba(255, 255, 255, 0.68);
       }
 
       .method-visual-mini {
@@ -366,45 +371,27 @@
 
       .method-step h3 {
         margin: 0 0 12px;
-        font-size: 24px;
-        font-weight: 450;
-        letter-spacing: -0.04em;
-        line-height: 1.02;
-        color: #5a5e66;
+        font-size: 28px;
+        letter-spacing: -0.06em;
+        line-height: 0.98;
       }
 
       .method-step p {
         margin: 0;
-        color: #7a8088;
+        color: #666;
         font-size: 14px;
         line-height: 1.65;
       }
 
-      .method-step.feature p {
-        color: rgba(255, 255, 255, 0.88);
-      }
-
+      .method-step.feature p,
       .method-step.dark-card p {
-        color: #7a8088;
-      }
-
-      .longevity-section-inner {
-        width: min(1180px, calc(100% - 40px));
-        margin: 0 auto;
-      }
-
-      .longevity-intro {
-        display: grid;
-        grid-template-columns: 0.72fr 1fr;
-        gap: 70px;
-        align-items: end;
-        margin-bottom: 48px;
+        color: rgba(255, 255, 255, 0.76);
       }
 
       .pillar-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 14px;
+        gap: 10px;
       }
 
       .pillar-card {
@@ -510,33 +497,30 @@
 
       .pillar-card .pillar-stat {
         display: block;
-        margin-bottom: 14px;
-        color: #8a8f97;
+        margin-bottom: 18px;
+        color: rgba(255, 255, 255, 0.58);
         font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.16em;
+        font-weight: 800;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
       }
 
       .pillar-card h3 {
         margin: 0 0 12px;
-        font-size: 28px;
-        font-weight: 450;
-        letter-spacing: -0.05em;
-        color: #5a5e66;
+        font-size: 30px;
+        letter-spacing: -0.06em;
       }
 
       .pillar-card p {
         margin: 0;
-        color: #7a8088;
-        line-height: 1.68;
-        font-size: 15px;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.65;
       }
 
       .tests-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 14px;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
       }
 
       .test-card {
@@ -570,18 +554,16 @@
       }
 
       .test-card h3 {
-        margin: 0 0 8px;
-        font-size: 17px;
-        font-weight: 450;
+        margin: 0 0 10px;
+        font-size: 15px;
         letter-spacing: -0.03em;
-        color: #5a5e66;
       }
 
       .test-card p {
         margin: 0;
-        color: #7a8088;
+        color: #666;
         font-size: 13px;
-        line-height: 1.58;
+        line-height: 1.55;
       }
 
       .impact-expanded {
@@ -589,8 +571,70 @@
         background: #e1e3e7;
       }
 
-      .impact-expanded-inner {
-        width: min(1180px, calc(100% - 40px));
+      .package-offer-copy,
+      .package-offer-buy {
+        border-radius: 18px;
+        padding: 36px;
+      }
+
+      .package-offer-copy {
+        background: #fff;
+        border: 1px solid #e8e8e8;
+      }
+
+      .package-offer-copy h3 {
+        margin: 0 0 14px;
+        font-size: 34px;
+        letter-spacing: -0.07em;
+      }
+
+      .package-offer-copy ul {
+        display: grid;
+        gap: 10px;
+        margin: 22px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .package-offer-copy li {
+        color: #666;
+        line-height: 1.6;
+        font-size: 14px;
+      }
+
+      .package-offer-copy li::before {
+        content: "+ ";
+        color: #111;
+        font-weight: 700;
+      }
+
+      .package-offer-buy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background:
+          radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.16), transparent 24%),
+          linear-gradient(135deg, #020202, #1a1a1f);
+        color: #fff;
+        text-align: center;
+      }
+
+      .package-offer-buy .price {
+        display: block;
+        margin: 0 0 8px;
+        font-size: clamp(48px, 6vw, 72px);
+        font-weight: 600;
+        letter-spacing: -0.07em;
+      }
+
+      .package-offer-buy p {
+        margin: 0 0 24px;
+        color: rgba(255, 255, 255, 0.68);
+        line-height: 1.65;
+      }
+
+      .package-offer-buy stripe-buy-button {
+        display: block;
         margin: 0 auto;
       }
 
@@ -615,7 +659,7 @@
       .impact-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 18px;
+        gap: 10px;
       }
 
       .impact-card {
@@ -628,11 +672,9 @@
 
       .impact-card strong {
         display: block;
-        margin-bottom: 16px;
-        font-size: clamp(36px, 4vw, 52px);
-        font-weight: 450;
-        letter-spacing: -0.05em;
-        color: #5a5e66;
+        margin-bottom: 12px;
+        font-size: clamp(32px, 4vw, 48px);
+        letter-spacing: -0.06em;
       }
 
       .impact-card p {
@@ -712,12 +754,6 @@
         margin: 0 0 24px;
         color: #7a8088;
         line-height: 1.65;
-        font-size: 15px;
-      }
-
-      .package-final-buy stripe-buy-button {
-        display: block;
-        margin: 0 auto;
       }
 
       .longevity-faq {
@@ -732,50 +768,42 @@
         padding: 18px 22px;
       }
 
-      .longevity-faq p {
-        margin: 14px 0 0;
-        color: #7a8088;
-        line-height: 1.65;
-        font-size: 14px;
-      }
-
       .longevity-faq summary {
         cursor: pointer;
-        font-weight: 500;
+        font-weight: 600;
         letter-spacing: -0.02em;
-        color: #5a5e66;
+      }
+
+      .longevity-faq p {
+        margin: 14px 0 0;
+        color: #666;
+        line-height: 1.65;
+        font-size: 14px;
       }
 
       .longevity-cta {
         width: min(1180px, calc(100% - 40px));
         margin: 0 auto 90px;
         border-radius: 18px;
-        background: #e3e4e7;
-        color: #5a5e66;
+        background:
+          radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.16), transparent 24%),
+          linear-gradient(135deg, #020202, #1a1a1f);
+        color: #fff;
         text-align: center;
         padding: 86px 32px;
-        border: 1px solid #d5d7db;
       }
 
       .longevity-cta p {
         max-width: 620px;
         margin: 18px auto 28px;
-        color: #7a8088;
+        color: rgba(255, 255, 255, 0.68);
         line-height: 1.7;
-      }
-
-      .longevity-cta .longevity-eyebrow {
-        color: #8a8f97;
       }
 
       @media (max-width: 1100px) {
         .method-flow,
         .tests-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
-        .package-final-inner {
-          grid-template-columns: 1fr;
         }
       }
 
@@ -786,7 +814,7 @@
 
         .longevity-hero-inner,
         .longevity-intro,
-        .package-final-inner,
+        .package-offer,
         .pillar-grid {
           grid-template-columns: 1fr;
         }
@@ -976,7 +1004,7 @@
         </div>
       </section>
 
-      <section class="longevity-section soft" aria-labelledby="pillars-heading">
+      <section class="longevity-section dark" aria-labelledby="pillars-heading">
         <div class="longevity-section-inner">
           <div class="longevity-intro">
             <div>
@@ -1170,16 +1198,16 @@
         </div>
       </section>
 
-      <section class="impact-expanded" aria-labelledby="impact-heading">
-        <div class="impact-expanded-inner">
-          <div class="impact-expanded-header">
-            <p class="longevity-label">Why it matters</p>
-            <h2 id="impact-heading">Prevention that changes outcomes</h2>
+      <section class="longevity-section" style="padding-top: 0;" aria-labelledby="impact-heading">
+        <div class="longevity-section-inner">
+          <div class="longevity-intro">
+            <div>
+              <p class="longevity-label">Why it matters</p>
+              <h2 id="impact-heading">Prevention that changes outcomes</h2>
+            </div>
             <p>
               Members use Live Wellness to catch silent disease early, build a plan they
-              can follow, and stay on track with physician-guided monitoring. The goal is
-              not only to live longer, but to live with more clarity, energy, and confidence
-              in your health trajectory.
+              can follow, and stay on track with physician-guided monitoring.
             </p>
           </div>
 
@@ -1249,36 +1277,6 @@
         </div>
       </section>
 
-      <section class="package-final" id="package-offer" aria-labelledby="package-final-heading">
-        <div class="package-final-inner">
-          <div class="package-final-copy">
-            <p class="longevity-label">Complete package</p>
-            <h3 id="package-final-heading">Everything included for $3,500</h3>
-            <p>
-              One comprehensive longevity visit with advanced diagnostics, physician
-              review, and a personalized plan to improve and monitor your health.
-            </p>
-            <ul>
-              <li>30+ advanced assessments in a single day</li>
-              <li>Whole-body MRI and advanced blood panel</li>
-              <li>Cardiac imaging and body composition testing</li>
-              <li>1:1 physician-led results review</li>
-              <li>Personalized exercise and nutrition guidance</li>
-              <li>Follow-up testing and biomarker monitoring plan</li>
-            </ul>
-          </div>
-          <div class="package-final-buy">
-            <p class="longevity-label">Buy now</p>
-            <strong class="price">$3,500</strong>
-            <p>Secure your comprehensive longevity assessment and start your preventive care plan today.</p>
-            <stripe-buy-button
-              buy-button-id="buy_btn_1Tn695Gsz6uUXkr8mnAw5NWo"
-              publishable-key="pk_test_51Tn498Gsz6uUXkr8G1XrOv7FILe87af5DnIFs8WDtx1jnR63kONSBeXvCOjutiUbBsj9u4UFemco335dxAe1VRYV00PgA9ze2c"
-            ></stripe-buy-button>
-          </div>
-        </div>
-      </section>
-
       <section class="longevity-cta" aria-labelledby="cta-heading">
         <p class="longevity-eyebrow">Start here</p>
         <h2 id="cta-heading">Live healthier for longer.</h2>
@@ -1286,7 +1284,7 @@
           A proactive approach to long-term health, designed around you. Secure your
           comprehensive assessment and begin your longevity plan today.
         </p>
-        <a class="button button-dark" href="#package-offer">Get the $3,500 package</a>
+        <a class="button button-light" href="#package">Get the $3,500 package</a>
       </section>
     </main>
 
