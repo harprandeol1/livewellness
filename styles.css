@@ -1580,6 +1580,23 @@ blockquote {
   color: #1d1d22;
 }
 
+.footer-phone {
+  margin: 18px 0 0;
+}
+
+.footer-phone a {
+  display: inline-block;
+  color: #3a3d44;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.footer-phone a:hover,
+.footer-phone a:focus-visible {
+  color: #1d1d22;
+}
+
 .site-footer-rich nav {
   display: grid;
   align-content: start;

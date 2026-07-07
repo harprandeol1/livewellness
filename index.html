@@ -304,13 +304,113 @@
       }
 
       .care-model-section {
-        display: grid;
-        grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1fr);
-        gap: clamp(40px, 7vw, 96px);
-        align-items: center;
+        background: #ececee;
+        padding: 120px 0;
+      }
+
+      .care-model-inner {
         width: min(1180px, calc(100% - 40px));
         margin: 0 auto;
-        padding: 120px 0;
+      }
+
+      .care-model-intro {
+        max-width: 720px;
+        margin: 0 auto 64px;
+        text-align: center;
+      }
+
+      .care-model-intro .kicker {
+        margin-bottom: 18px;
+        color: #8a8f97;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+      }
+
+      .care-model-intro h2 {
+        margin: 0 0 22px;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+        font-weight: 400;
+        letter-spacing: -0.04em;
+        line-height: 1.02;
+        color: #4a4e56;
+      }
+
+      .care-model-intro p {
+        margin: 0 auto;
+        color: #7a8088;
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+
+      .pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .pillar-card {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        border: 1px solid #d0d3d8;
+        border-radius: 20px;
+        background: #f7f7f8;
+        min-height: 100%;
+      }
+
+      .pillar-card-media {
+        min-height: 180px;
+        background:
+          radial-gradient(circle at 72% 28%, rgba(255, 150, 170, 0.16), transparent 28%),
+          linear-gradient(135deg, #d5d8de, #b0b6c0 55%, #9aa1ab);
+      }
+
+      .pillar-card-body {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 28px 30px 32px;
+      }
+
+      .pillar-card-body span {
+        margin-bottom: 12px;
+        color: #8a8f97;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .pillar-card-body h3 {
+        margin: 0 0 12px;
+        font-size: 1.5rem;
+        font-weight: 450;
+        letter-spacing: -0.04em;
+        line-height: 1.1;
+        color: #5a5e66;
+      }
+
+      .pillar-card-body p {
+        margin: 0 0 24px;
+        flex: 1;
+        color: #7a8088;
+        line-height: 1.65;
+        font-size: 0.95rem;
+      }
+
+      .pillar-card-body .button-outline {
+        align-self: flex-start;
+      }
+
+      .care-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 48px;
       }
 
       .care-model-copy h2,
@@ -325,7 +425,6 @@
         line-height: 0.96;
       }
 
-      .care-model-copy p,
       .treatments-heading p,
       .consult-banner p {
         color: #5d6d73;
@@ -333,96 +432,16 @@
         line-height: 1.72;
       }
 
-      .care-actions,
       .treatment-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 14px;
         margin-top: 32px;
+        justify-content: center;
       }
 
-      .care-actions .button-dark,
       .treatment-actions .button-dark {
         width: auto;
-      }
-
-      .venn-wrap {
-        display: grid;
-        grid-template-columns: minmax(440px, 0.92fr) minmax(180px, 0.45fr);
-        gap: 28px;
-        align-items: center;
-      }
-
-      .venn-diagram {
-        position: relative;
-        width: min(440px, 100%);
-        min-height: 365px;
-        margin: 0 auto;
-      }
-
-      .venn-circle {
-        position: absolute;
-        display: grid;
-        place-items: center;
-        width: 220px;
-        height: 220px;
-        border: 1.6px solid #0d4650;
-        border-radius: 50%;
-        color: #0d4650;
-        font-size: 1.12rem;
-        font-weight: 600;
-        text-align: center;
-      }
-
-      .longevity-circle {
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
-      }
-
-      .primary-circle {
-        left: 52px;
-        top: 132px;
-      }
-
-      .aesthetics-circle {
-        right: 52px;
-        top: 132px;
-      }
-
-      .venn-center {
-        position: absolute;
-        left: 50%;
-        top: 55%;
-        display: grid;
-        place-items: center;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background: rgba(13, 70, 80, 0.2);
-        color: #0d4650;
-        font-size: 1.2rem;
-        font-weight: 700;
-        letter-spacing: 0.12em;
-        transform: translate(-50%, -50%);
-      }
-
-      .pillar-list {
-        display: grid;
-        gap: 22px;
-      }
-
-      .pillar-list h3 {
-        margin: 0 0 6px;
-        color: #0d4650;
-        font-size: 1.15rem;
-        letter-spacing: -0.04em;
-      }
-
-      .pillar-list p {
-        margin: 0;
-        color: #5d6d73;
-        line-height: 1.45;
       }
 
       .treatments-section,
@@ -743,17 +762,12 @@
       }
 
       @media (max-width: 1050px) {
-        .care-model-section,
+        .pillars-grid {
+          grid-template-columns: 1fr;
+        }
+
         .consult-banner {
           grid-template-columns: 1fr;
-        }
-
-        .venn-wrap {
-          grid-template-columns: 1fr;
-        }
-
-        .pillar-list {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
         }
 
         .resource-grid {
@@ -767,24 +781,16 @@
 
       @media (max-width: 700px) {
         .care-model-section {
-          width: min(100% - 28px, 1180px);
           padding: 84px 0;
         }
 
-        .care-model-copy h2,
         .treatments-heading h2,
         .consult-banner h2,
         .faq-section-home h2 {
           font-size: clamp(2.3rem, 12vw, 4.2rem);
         }
 
-        .venn-diagram {
-          min-height: 365px;
-          transform: scale(0.78);
-          transform-origin: center;
-        }
-
-        .pillar-list,
+        .pillars-grid,
         .resource-grid {
           grid-template-columns: 1fr;
         }
@@ -856,7 +862,7 @@
       <a href="membership-options.html">Concierge Medicine</a>
       <a href="about-us.html">About Us</a>
       <div class="services-menu">
-        <a class="services-menu-trigger" href="services.html">Services <span aria-hidden="true">v</span></a>
+        <a class="services-menu-trigger" href="services.html">Services</a>
         <div class="services-dropdown">
           <a href="services.html">All Services</a>
           <a href="service-iv-therapy.html">IV Therapy</a>
@@ -868,10 +874,10 @@
           <a href="service-executive-specialty.html">Executive &amp; Specialty</a>
         </div>
       </div>
-      <a href="index.html#resources">Articles</a>
+      <a href="articles.html">Articles</a>
     </div>
     <div class="nav-actions">
-      <a href="index.html#consult">Login</a>
+      <a href="tel:+19169642003">Call now</a>
       <a class="join-button" href="index.html#consult">Join Live Wellness</a>
     </div>
   </nav>
@@ -968,44 +974,52 @@
       </section>
 
       <section class="care-model-section" id="care-model" aria-labelledby="care-model-heading">
-        <div class="care-model-copy">
-          <p class="kicker">Three pillars</p>
-          <h2 id="care-model-heading">Redefining concierge medicine through comprehensive care.</h2>
-          <p>
-            Traditional healthcare is reactive and one-size-fits-all. Live Wellness
-            brings together advanced longevity care, proactive primary care, urgent
-            access, and aesthetics so your health plan can follow you at home, on the
-            go, or wherever you need us.
-          </p>
-          <p>
-            Concierge medicine and a la carte services give you physician-led care, precision
-            diagnostics, and flexible treatment options in one coordinated model.
-          </p>
+        <div class="care-model-inner">
+          <div class="care-model-intro">
+            <p class="kicker">Three pillars</p>
+            <h2 id="care-model-heading">Redefining concierge medicine through comprehensive care.</h2>
+            <p>
+              Traditional healthcare is reactive and one-size-fits-all. Live Wellness brings
+              together longevity, proactive primary care, and aesthetics in one physician-led
+              model — at the clinic, at home, or wherever you need us.
+            </p>
+          </div>
+
+          <div class="pillars-grid">
+            <article class="pillar-card">
+              <div class="pillar-card-media" aria-hidden="true"></div>
+              <div class="pillar-card-body">
+                <span>Pillar 01</span>
+                <h3>Longevity</h3>
+                <p>Optimize healthspan, biomarkers, prevention, and long-term performance with advanced packages and testing.</p>
+                <a class="button button-outline" href="longevity.html">Explore longevity</a>
+              </div>
+            </article>
+
+            <article class="pillar-card">
+              <div class="pillar-card-media" aria-hidden="true"></div>
+              <div class="pillar-card-body">
+                <span>Pillar 02</span>
+                <h3>Primary Care</h3>
+                <p>Concierge access with same-day visits, direct physician communication, and coordinated care wherever you are.</p>
+                <a class="button button-outline" href="membership-options.html">Explore concierge medicine</a>
+              </div>
+            </article>
+
+            <article class="pillar-card">
+              <div class="pillar-card-media" aria-hidden="true"></div>
+              <div class="pillar-card-body">
+                <span>Pillar 03</span>
+                <h3>Aesthetics</h3>
+                <p>Laser, hair restoration, hormones, skin, and regenerative options under physician guidance.</p>
+                <a class="button button-outline" href="service-aesthetics-regenerative.html">Explore aesthetics</a>
+              </div>
+            </article>
+          </div>
+
           <div class="care-actions">
-            <a class="button button-dark" href="membership-options.html">Explore concierge medicine</a>
-            <a class="button button-outline" href="#consult">Free consultation</a>
-          </div>
-        </div>
-        <div class="venn-wrap" aria-label="Live Wellness care pillars">
-          <div class="venn-diagram">
-            <span class="venn-circle longevity-circle">Longevity</span>
-            <span class="venn-circle primary-circle">Primary Care</span>
-            <span class="venn-circle aesthetics-circle">Aesthetics</span>
-            <span class="venn-center">LW</span>
-          </div>
-          <div class="pillar-list">
-            <article>
-              <h3>Longevity</h3>
-              <p>Optimize healthspan, lifespan, biomarkers, and performance.</p>
-            </article>
-            <article>
-              <h3>Primary Care</h3>
-              <p>Medical care at home, virtually, in-office, or on the go.</p>
-            </article>
-            <article>
-              <h3>Aesthetics</h3>
-              <p>Laser, hair restoration, hormones, skin, and regenerative options.</p>
-            </article>
+            <a class="button button-dark" href="how-it-works.html">How it works</a>
+            <a class="button button-outline" href="tel:+19169642003">Call (916) 964-2003</a>
           </div>
         </div>
       </section>
@@ -1081,6 +1095,10 @@
           <p class="kicker">Health resources</p>
           <h2 id="resources-heading">Articles for proactive health</h2>
           <p>Learn how diagnostics, weight loss, IV therapy, hormones, and longevity care can support better decisions.</p>
+          <div class="treatment-actions">
+            <a class="button button-dark" href="articles.html">View all articles</a>
+            <a class="button button-outline" href="index.html#faq">Read FAQ</a>
+          </div>
         </div>
         <div class="resource-grid">
           <article class="resource-card">
@@ -1089,7 +1107,7 @@
               <span>Featured</span>
               <h3>How does medical weight loss work?</h3>
               <p>Understand physician-managed protocols, safety, labs, and how monthly check-ins support progress.</p>
-              <a class="button button-outline" href="service-weight-loss.html">Read more</a>
+              <a class="button button-outline" href="articles.html">Read more</a>
             </div>
           </article>
           <article class="resource-card">
@@ -1098,7 +1116,7 @@
               <span>Featured</span>
               <h3>Which peptides support recovery and aging?</h3>
               <p>Explore how peptide therapy is evaluated, monitored, and personalized through physician-led care.</p>
-              <a class="button button-outline" href="service-hormone-longevity.html">Read more</a>
+              <a class="button button-outline" href="articles.html">Read more</a>
             </div>
           </article>
           <article class="resource-card">
@@ -1107,7 +1125,7 @@
               <span>Featured</span>
               <h3>What should you expect from your first IV?</h3>
               <p>Learn how IV therapy can support hydration, nutrient repletion, recovery, and immune resilience.</p>
-              <a class="button button-outline" href="service-iv-therapy.html">Read more</a>
+              <a class="button button-outline" href="articles.html">Read more</a>
             </div>
           </article>
         </div>
@@ -1153,6 +1171,9 @@
         Rocklin, California 95677
       </a>
     </address>
+    <p class="footer-phone">
+      <a href="tel:+19169642003">Call now: (916) 964-2003</a>
+    </p>
   </div>
   <nav aria-label="Footer experience">
     <h3>Experience</h3>
@@ -1171,14 +1192,16 @@
   </nav>
   <nav aria-label="Footer articles">
     <h3>Articles</h3>
-    <a href="index.html#resources">Resources</a>
+    <a href="articles.html">All articles</a>
+    <a href="index.html#resources">Health resources</a>
     <a href="index.html#faq">FAQ</a>
-    <a href="index.html#consult">Contact Us</a>
+    <a href="tel:+19169642003">Contact Us</a>
   </nav>
   <div class="footer-bottom">
     <p>&copy; 2026 Live Wellness. All rights reserved.</p>
     <div>
       <a href="#top">Back to top</a>
+      <a href="tel:+19169642003">Call (916) 964-2003</a>
       <a href="index.html#consult">Book consult</a>
     </div>
   </div>
