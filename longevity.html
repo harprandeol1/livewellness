@@ -18,8 +18,8 @@
     <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <style>
       .longevity-page {
-        background: #f7f7f7;
-        color: #17171c;
+        background: #f3f3f4;
+        color: #4a4d54;
       }
 
       .longevity-hero {
@@ -28,8 +28,8 @@
         display: flex;
         align-items: flex-end;
         padding: 132px 0 78px;
-        background: #020202;
-        color: #fff;
+        background: #3d4148;
+        color: #f7f7f8;
         overflow: hidden;
       }
 
@@ -38,10 +38,10 @@
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(circle at 72% 22%, rgba(255, 255, 255, 0.18), transparent 16%),
-          radial-gradient(circle at 25% 46%, rgba(255, 70, 118, 0.24), transparent 18%),
-          linear-gradient(180deg, rgba(0, 0, 0, 0.04), #000 92%),
-          linear-gradient(130deg, #050506, #17171f 46%, #040404);
+          radial-gradient(circle at 72% 22%, rgba(255, 255, 255, 0.12), transparent 16%),
+          radial-gradient(circle at 25% 46%, rgba(255, 120, 150, 0.14), transparent 18%),
+          linear-gradient(180deg, rgba(61, 65, 72, 0.1), #3d4148 92%),
+          linear-gradient(130deg, #454952, #5a5f68 46%, #3a3e45);
       }
 
       .longevity-hero::after {
@@ -83,10 +83,10 @@
       .longevity-hero h1 {
         max-width: 790px;
         margin: 0 0 24px;
-        font-size: clamp(56px, 7vw, 116px);
-        font-weight: 600;
-        letter-spacing: -0.08em;
-        line-height: 0.9;
+        font-size: clamp(48px, 6vw, 88px);
+        font-weight: 450;
+        letter-spacing: -0.06em;
+        line-height: 0.96;
       }
 
       .longevity-hero .lead {
@@ -98,43 +98,46 @@
       }
 
       .longevity-hero-panel {
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.18);
         border-radius: 18px;
-        background: rgba(255, 255, 255, 0.94);
-        color: #111;
+        background: rgba(255, 255, 255, 0.96);
+        color: #5a5e66;
         padding: 28px;
-      }
-
-      .longevity-hero-panel span {
-        display: block;
-        margin-bottom: 44px;
-        color: #777;
-        font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.22em;
-        text-transform: uppercase;
       }
 
       .longevity-hero-panel h2 {
         margin: 0 0 14px;
-        font-size: 32px;
-        letter-spacing: -0.07em;
-        line-height: 0.98;
-      }
-
-      .longevity-hero-panel p {
-        margin: 0 0 22px;
-        color: #62626a;
-        font-size: 14px;
-        line-height: 1.65;
+        font-size: 28px;
+        font-weight: 450;
+        letter-spacing: -0.05em;
+        line-height: 1.02;
+        color: #4a4d54;
       }
 
       .longevity-hero-panel .price {
         display: block;
         margin-bottom: 18px;
-        font-size: 42px;
-        font-weight: 600;
-        letter-spacing: -0.06em;
+        font-size: 38px;
+        font-weight: 450;
+        letter-spacing: -0.05em;
+        color: #5a5e66;
+      }
+
+      .longevity-hero-panel span {
+        display: block;
+        margin-bottom: 44px;
+        color: #8a8f97;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .longevity-hero-panel p {
+        margin: 0 0 22px;
+        color: #7a8088;
+        font-size: 14px;
+        line-height: 1.65;
       }
 
       .longevity-hero-panel stripe-buy-button {
@@ -159,13 +162,14 @@
       .longevity-stat strong {
         display: block;
         margin-bottom: 10px;
-        font-size: clamp(28px, 4vw, 42px);
-        font-weight: 600;
-        letter-spacing: -0.06em;
+        font-size: clamp(26px, 4vw, 38px);
+        font-weight: 450;
+        letter-spacing: -0.05em;
+        color: #5a5e66;
       }
 
       .longevity-stat span {
-        color: #666;
+        color: #7a8088;
         font-size: 14px;
         line-height: 1.5;
       }
@@ -174,53 +178,44 @@
         padding: 112px 0;
       }
 
-      .longevity-section.dark {
-        background: #050505;
-        color: #fff;
-      }
-
-      .longevity-section-inner {
-        width: min(1180px, calc(100% - 40px));
-        margin: 0 auto;
-      }
-
-      .longevity-intro {
-        display: grid;
-        grid-template-columns: 0.72fr 1fr;
-        gap: 70px;
-        align-items: end;
-        margin-bottom: 42px;
+      .longevity-section.soft {
+        background: #ececee;
+        color: #5a5e66;
       }
 
       .longevity-label {
         margin: 0 0 18px;
-        color: #777;
+        color: #8a8f97;
         font-size: 11px;
-        font-weight: 800;
+        font-weight: 700;
         letter-spacing: 0.42em;
         text-transform: uppercase;
       }
 
-      .longevity-section.dark .longevity-label {
-        color: rgba(255, 255, 255, 0.58);
+      .longevity-section.soft .longevity-label {
+        color: #8a8f97;
       }
 
       .longevity-intro h2,
-      .longevity-cta h2 {
+      .longevity-cta h2,
+      .impact-expanded h2,
+      .package-final h3 {
         margin: 0;
-        font-size: clamp(42px, 5vw, 82px);
-        letter-spacing: -0.08em;
-        line-height: 0.94;
+        font-size: clamp(36px, 4.5vw, 64px);
+        font-weight: 450;
+        letter-spacing: -0.06em;
+        line-height: 0.98;
+        color: #5a5e66;
       }
 
       .longevity-intro p {
         margin: 0;
-        color: #666;
+        color: #7a8088;
         line-height: 1.7;
       }
 
-      .longevity-section.dark .longevity-intro p {
-        color: rgba(255, 255, 255, 0.66);
+      .longevity-section.soft .longevity-intro p {
+        color: #7a8088;
       }
 
       .method-flow {
@@ -249,9 +244,9 @@
       }
 
       .method-step.dark-card {
-        background: #050505;
-        color: #fff;
-        border-color: rgba(255, 255, 255, 0.12);
+        background: #dfe1e5;
+        color: #5a5e66;
+        border-color: #d0d3d8;
       }
 
       .method-step .step-num {
@@ -266,7 +261,7 @@
 
       .method-step.feature .step-num,
       .method-step.dark-card .step-num {
-        color: rgba(255, 255, 255, 0.68);
+        color: #8a8f97;
       }
 
       .method-visual-mini {
@@ -371,185 +366,323 @@
 
       .method-step h3 {
         margin: 0 0 12px;
-        font-size: 28px;
-        letter-spacing: -0.06em;
-        line-height: 0.98;
+        font-size: 24px;
+        font-weight: 450;
+        letter-spacing: -0.04em;
+        line-height: 1.02;
+        color: #5a5e66;
       }
 
       .method-step p {
         margin: 0;
-        color: #666;
+        color: #7a8088;
         font-size: 14px;
         line-height: 1.65;
       }
 
-      .method-step.feature p,
+      .method-step.feature p {
+        color: rgba(255, 255, 255, 0.88);
+      }
+
       .method-step.dark-card p {
-        color: rgba(255, 255, 255, 0.76);
+        color: #7a8088;
+      }
+
+      .longevity-section-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .longevity-intro {
+        display: grid;
+        grid-template-columns: 0.72fr 1fr;
+        gap: 70px;
+        align-items: end;
+        margin-bottom: 48px;
       }
 
       .pillar-grid {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 14px;
       }
 
       .pillar-card {
-        min-height: 280px;
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.04);
-        padding: 30px;
+        position: relative;
+        overflow: hidden;
+        min-height: 420px;
+        border: 1px solid #dddfe3;
+        border-radius: 18px;
+        background: #f7f7f8;
+      }
+
+      .pillar-media {
+        position: relative;
+        height: 260px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .pillar-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(247, 247, 248, 0) 18%, rgba(247, 247, 248, 0.72) 58%, #f7f7f8 100%);
+      }
+
+      .pillar-media-heart {
+        background-image:
+          linear-gradient(180deg, rgba(90, 94, 102, 0.08), rgba(90, 94, 102, 0.22)),
+          radial-gradient(circle at 68% 28%, rgba(255, 130, 150, 0.35), transparent 24%),
+          linear-gradient(135deg, #b8bcc4, #8e949e 52%, #6d737c);
+      }
+
+      .pillar-media-cancer {
+        background-image:
+          linear-gradient(180deg, rgba(90, 94, 102, 0.08), rgba(90, 94, 102, 0.22)),
+          radial-gradient(circle at 30% 24%, rgba(255, 190, 210, 0.4), transparent 22%),
+          linear-gradient(135deg, #c4b8bc, #a08e96 52%, #7a6d72);
+      }
+
+      .pillar-media-metabolic {
+        background-image:
+          linear-gradient(180deg, rgba(90, 94, 102, 0.08), rgba(90, 94, 102, 0.22)),
+          radial-gradient(circle at 72% 20%, rgba(180, 220, 255, 0.42), transparent 22%),
+          linear-gradient(135deg, #b0bcc8, #7f95a8 52%, #5f7384);
+      }
+
+      .pillar-media-neuro {
+        background-image:
+          linear-gradient(180deg, rgba(90, 94, 102, 0.08), rgba(90, 94, 102, 0.22)),
+          radial-gradient(circle at 26% 22%, rgba(210, 190, 255, 0.42), transparent 22%),
+          linear-gradient(135deg, #b8b0c8, #8e84a8 52%, #6d6484);
+      }
+
+      .pillar-copy {
+        position: relative;
+        margin-top: -72px;
+        padding: 0 30px 34px;
+        z-index: 1;
       }
 
       .pillar-card .pillar-stat {
         display: block;
-        margin-bottom: 18px;
-        color: rgba(255, 255, 255, 0.58);
+        margin-bottom: 14px;
+        color: #8a8f97;
         font-size: 11px;
-        font-weight: 800;
-        letter-spacing: 0.18em;
+        font-weight: 700;
+        letter-spacing: 0.16em;
         text-transform: uppercase;
       }
 
       .pillar-card h3 {
         margin: 0 0 12px;
-        font-size: 30px;
-        letter-spacing: -0.06em;
+        font-size: 28px;
+        font-weight: 450;
+        letter-spacing: -0.05em;
+        color: #5a5e66;
       }
 
       .pillar-card p {
         margin: 0;
-        color: rgba(255, 255, 255, 0.72);
-        line-height: 1.65;
+        color: #7a8088;
+        line-height: 1.68;
+        font-size: 15px;
       }
 
       .tests-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
       }
 
       .test-card {
-        min-height: 160px;
-        border: 1px solid #e8e8e8;
-        border-radius: 14px;
-        background: #fff;
-        padding: 22px;
+        position: relative;
+        overflow: hidden;
+        min-height: 280px;
+        border: 1px solid #dddfe3;
+        border-radius: 18px;
+        background: #f7f7f8;
+        padding: 0;
+      }
+
+      .test-media {
+        position: relative;
+        height: 170px;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .test-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(247, 247, 248, 0) 10%, rgba(247, 247, 248, 0.8) 72%, #f7f7f8 100%);
+      }
+
+      .test-media-mri { background-image: linear-gradient(135deg, #c8ccd2, #949aa4 55%, #6f7680); }
+      .test-media-blood { background-image: linear-gradient(135deg, #d0c4c8, #a89498 55%, #887478); }
+      .test-media-vo2 { background-image: linear-gradient(135deg, #bcc8d4, #8ea0b0 55%, #6a7c8c); }
+      .test-media-dexa { background-image: linear-gradient(135deg, #d4ccc0, #b0a494 55%, #8c8070); }
+      .test-media-cardiac { background-image: linear-gradient(135deg, #c8c0d0, #9a90aa 55%, #746a84); }
+      .test-media-genetic { background-image: linear-gradient(135deg, #c0d0c8, #94a89c 55%, #708478); }
+      .test-media-cgm { background-image: linear-gradient(135deg, #d4d0c4, #b0a890 55%, #8c8870); }
+      .test-media-lung { background-image: linear-gradient(135deg, #c4ccd4, #98a4b0 55%, #74808c); }
+      .test-media-cancer { background-image: linear-gradient(135deg, #d0c4cc, #a894a0 55%, #887480); }
+      .test-media-neuro { background-image: linear-gradient(135deg, #ccc4d4, #a498b0 55%, #807488); }
+      .test-media-sleep { background-image: linear-gradient(135deg, #c8ccd8, #9aa0b4 55%, #767c90); }
+      .test-media-more { background-image: linear-gradient(135deg, #d0d0d0, #a8a8a8 55%, #848484); }
+
+      .test-copy {
+        position: relative;
+        margin-top: -48px;
+        padding: 0 22px 24px;
+        z-index: 1;
       }
 
       .test-card h3 {
-        margin: 0 0 10px;
-        font-size: 15px;
+        margin: 0 0 8px;
+        font-size: 17px;
+        font-weight: 450;
         letter-spacing: -0.03em;
+        color: #5a5e66;
       }
 
       .test-card p {
         margin: 0;
-        color: #666;
+        color: #7a8088;
         font-size: 13px;
-        line-height: 1.55;
+        line-height: 1.58;
       }
 
-      .package-offer {
-        display: grid;
-        grid-template-columns: 1fr 0.9fr;
-        gap: 24px;
-        align-items: stretch;
-        margin-top: 42px;
+      .impact-expanded {
+        padding: 140px 0;
+        background: #e7e8eb;
       }
 
-      .package-offer-copy,
-      .package-offer-buy {
-        border-radius: 18px;
-        padding: 36px;
-      }
-
-      .package-offer-copy {
-        background: #fff;
-        border: 1px solid #e8e8e8;
-      }
-
-      .package-offer-copy h3 {
-        margin: 0 0 14px;
-        font-size: 34px;
-        letter-spacing: -0.07em;
-      }
-
-      .package-offer-copy ul {
-        display: grid;
-        gap: 10px;
-        margin: 22px 0 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      .package-offer-copy li {
-        color: #666;
-        line-height: 1.6;
-        font-size: 14px;
-      }
-
-      .package-offer-copy li::before {
-        content: "+ ";
-        color: #111;
-        font-weight: 700;
-      }
-
-      .package-offer-buy {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background:
-          radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.16), transparent 24%),
-          linear-gradient(135deg, #020202, #1a1a1f);
-        color: #fff;
-        text-align: center;
-      }
-
-      .package-offer-buy .price {
-        display: block;
-        margin: 0 0 8px;
-        font-size: clamp(48px, 6vw, 72px);
-        font-weight: 600;
-        letter-spacing: -0.07em;
-      }
-
-      .package-offer-buy p {
-        margin: 0 0 24px;
-        color: rgba(255, 255, 255, 0.68);
-        line-height: 1.65;
-      }
-
-      .package-offer-buy stripe-buy-button {
-        display: block;
+      .impact-expanded-inner {
+        width: min(1180px, calc(100% - 40px));
         margin: 0 auto;
+      }
+
+      .impact-expanded-header {
+        max-width: 820px;
+        margin-bottom: 64px;
+      }
+
+      .impact-expanded-header p {
+        max-width: 640px;
+        margin: 0;
+        color: #7a8088;
+        font-size: 17px;
+        line-height: 1.75;
       }
 
       .impact-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
+        gap: 18px;
       }
 
       .impact-card {
-        border: 1px solid #e8e8e8;
-        border-radius: 16px;
-        background: #fff;
-        padding: 30px;
+        border: 1px solid #d8dadf;
+        border-radius: 18px;
+        background: #f3f3f5;
+        padding: 42px 34px;
+        min-height: 260px;
       }
 
       .impact-card strong {
         display: block;
-        margin-bottom: 12px;
-        font-size: clamp(32px, 4vw, 48px);
-        letter-spacing: -0.06em;
+        margin-bottom: 16px;
+        font-size: clamp(36px, 4vw, 52px);
+        font-weight: 450;
+        letter-spacing: -0.05em;
+        color: #5a5e66;
       }
 
       .impact-card p {
         margin: 0;
-        color: #666;
+        color: #7a8088;
+        font-size: 15px;
+        line-height: 1.72;
+      }
+
+      .package-final {
+        padding: 120px 0 100px;
+        background: #f3f3f4;
+      }
+
+      .package-final-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .package-final-copy,
+      .package-final-buy {
+        border: 1px solid #dddfe3;
+        border-radius: 20px;
+        background: #f7f7f8;
+        padding: 40px;
+      }
+
+      .package-final-copy > p {
+        color: #7a8088;
+        line-height: 1.7;
+        font-size: 15px;
+      }
+
+      .package-final-copy ul {
+        display: grid;
+        gap: 10px;
+        margin: 24px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .package-final-copy li {
+        color: #7a8088;
+        line-height: 1.62;
+        font-size: 14px;
+      }
+
+      .package-final-copy li::before {
+        content: "+ ";
+        color: #8a8f97;
+        font-weight: 500;
+      }
+
+      .package-final-buy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        background: #ececee;
+      }
+
+      .package-final-buy .price {
+        display: block;
+        margin: 0 0 10px;
+        font-size: clamp(42px, 5vw, 60px);
+        font-weight: 450;
+        letter-spacing: -0.05em;
+        color: #5a5e66;
+      }
+
+      .package-final-buy p {
+        margin: 0 0 24px;
+        color: #7a8088;
         line-height: 1.65;
+        font-size: 15px;
+      }
+
+      .package-final-buy stripe-buy-button {
+        display: block;
+        margin: 0 auto;
       }
 
       .longevity-faq {
@@ -564,42 +697,50 @@
         padding: 18px 22px;
       }
 
-      .longevity-faq summary {
-        cursor: pointer;
-        font-weight: 600;
-        letter-spacing: -0.02em;
-      }
-
       .longevity-faq p {
         margin: 14px 0 0;
-        color: #666;
+        color: #7a8088;
         line-height: 1.65;
         font-size: 14px;
+      }
+
+      .longevity-faq summary {
+        cursor: pointer;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        color: #5a5e66;
       }
 
       .longevity-cta {
         width: min(1180px, calc(100% - 40px));
         margin: 0 auto 90px;
         border-radius: 18px;
-        background:
-          radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.16), transparent 24%),
-          linear-gradient(135deg, #020202, #1a1a1f);
-        color: #fff;
+        background: #e3e4e7;
+        color: #5a5e66;
         text-align: center;
         padding: 86px 32px;
+        border: 1px solid #d5d7db;
       }
 
       .longevity-cta p {
         max-width: 620px;
         margin: 18px auto 28px;
-        color: rgba(255, 255, 255, 0.68);
+        color: #7a8088;
         line-height: 1.7;
+      }
+
+      .longevity-cta .longevity-eyebrow {
+        color: #8a8f97;
       }
 
       @media (max-width: 1100px) {
         .method-flow,
         .tests-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .package-final-inner {
+          grid-template-columns: 1fr;
         }
       }
 
@@ -610,7 +751,7 @@
 
         .longevity-hero-inner,
         .longevity-intro,
-        .package-offer,
+        .package-final-inner,
         .pillar-grid {
           grid-template-columns: 1fr;
         }
@@ -800,7 +941,7 @@
         </div>
       </section>
 
-      <section class="longevity-section dark" aria-labelledby="pillars-heading">
+      <section class="longevity-section soft" aria-labelledby="pillars-heading">
         <div class="longevity-section-inner">
           <div class="longevity-intro">
             <div>
@@ -815,36 +956,48 @@
 
           <div class="pillar-grid">
             <article class="pillar-card">
-              <span class="pillar-stat">Nº1 cause of death</span>
-              <h3>Heart disease</h3>
-              <p>
-                Heart attacks and strokes lead globally. Our advanced imaging detects
-                arterial disease early, before symptoms or standard tests.
-              </p>
+              <div class="pillar-media pillar-media-heart" role="img" aria-label="Heart disease"></div>
+              <div class="pillar-copy">
+                <span class="pillar-stat">Nº1 cause of death</span>
+                <h3>Heart disease</h3>
+                <p>
+                  Heart attacks and strokes lead globally. Our advanced imaging detects
+                  arterial disease early, before symptoms or standard tests.
+                </p>
+              </div>
             </article>
             <article class="pillar-card">
-              <span class="pillar-stat">71% of cancer deaths</span>
-              <h3>Cancer risk</h3>
-              <p>
-                Many cancers grow silently for years. We use deep diagnostics to uncover
-                risk early, when intervention can be most effective.
-              </p>
+              <div class="pillar-media pillar-media-cancer" role="img" aria-label="Cancer risk"></div>
+              <div class="pillar-copy">
+                <span class="pillar-stat">71% of cancer deaths</span>
+                <h3>Cancer risk</h3>
+                <p>
+                  Many cancers grow silently for years. We use deep diagnostics to uncover
+                  risk early, when intervention can be most effective.
+                </p>
+              </div>
             </article>
             <article class="pillar-card">
-              <span class="pillar-stat">1 in 3 adults</span>
-              <h3>Metabolic dysfunction</h3>
-              <p>
-                Metabolic health shapes energy and lifespan. We assess insulin
-                resistance, body composition, and key drivers of chronic disease.
-              </p>
+              <div class="pillar-media pillar-media-metabolic" role="img" aria-label="Metabolic dysfunction"></div>
+              <div class="pillar-copy">
+                <span class="pillar-stat">1 in 3 adults</span>
+                <h3>Metabolic dysfunction</h3>
+                <p>
+                  Metabolic health shapes energy and lifespan. We assess insulin
+                  resistance, body composition, and key drivers of chronic disease.
+                </p>
+              </div>
             </article>
             <article class="pillar-card">
-              <span class="pillar-stat">42% over age 55</span>
-              <h3>Neurodegenerative disease</h3>
-              <p>
-                Cognitive decline can begin decades early. Our assessments detect early
-                signals and guide strategies to protect brain function.
-              </p>
+              <div class="pillar-media pillar-media-neuro" role="img" aria-label="Neurodegenerative disease"></div>
+              <div class="pillar-copy">
+                <span class="pillar-stat">42% over age 55</span>
+                <h3>Neurodegenerative disease</h3>
+                <p>
+                  Cognitive decline can begin decades early. Our assessments detect early
+                  signals and guide strategies to protect brain function.
+                </p>
+              </div>
             </article>
           </div>
         </div>
@@ -865,60 +1018,68 @@
           </div>
 
           <div class="tests-grid">
-            <article class="test-card"><h3>Whole Body MRI</h3><p>Detects abnormalities across the body.</p></article>
-            <article class="test-card"><h3>Advanced Blood Panel</h3><p>In-depth blood analysis across key biomarkers.</p></article>
-            <article class="test-card"><h3>VO2 Max Testing</h3><p>Measures oxygen uptake and endurance.</p></article>
-            <article class="test-card"><h3>DEXA Body Composition</h3><p>Analyzes body fat, muscle, and bone density.</p></article>
-            <article class="test-card"><h3>CT Coronary Angiography</h3><p>Assesses coronary blockages and heart risk.</p></article>
-            <article class="test-card"><h3>Hereditary Disease Screening</h3><p>Screens genetic disease risk.</p></article>
-            <article class="test-card"><h3>Continuous Glucose Monitoring</h3><p>Tracks blood sugar continuously.</p></article>
-            <article class="test-card"><h3>Low-Dose Lung CT</h3><p>Detects early lung cancer signs.</p></article>
-            <article class="test-card"><h3>Multi-Cancer Early Detection</h3><p>Detects early signals across cancers.</p></article>
-            <article class="test-card"><h3>Neurocognitive Testing</h3><p>Assesses memory and cognition.</p></article>
-            <article class="test-card"><h3>At-Home Sleep Testing</h3><p>Evaluates sleep patterns and quality.</p></article>
-            <article class="test-card"><h3>Up to 30+ Assessments</h3><p>Additional diagnostics selected for your profile.</p></article>
-          </div>
-
-          <div class="package-offer">
-            <div class="package-offer-copy">
-              <p class="longevity-label">Complete package</p>
-              <h3>Everything included for $3,500</h3>
-              <p>
-                One comprehensive longevity visit with advanced diagnostics, physician
-                review, and a personalized plan to improve and monitor your health.
-              </p>
-              <ul>
-                <li>30+ advanced assessments in a single day</li>
-                <li>Whole-body MRI and advanced blood panel</li>
-                <li>Cardiac imaging and body composition testing</li>
-                <li>1:1 physician-led results review</li>
-                <li>Personalized exercise and nutrition guidance</li>
-                <li>Follow-up testing and biomarker monitoring plan</li>
-              </ul>
-            </div>
-            <div class="package-offer-buy">
-              <p class="longevity-eyebrow" style="margin-bottom: 12px;">Buy now</p>
-              <strong class="price">$3,500</strong>
-              <p>Secure your comprehensive longevity assessment and start your preventive care plan today.</p>
-              <stripe-buy-button
-                buy-button-id="buy_btn_1Tn695Gsz6uUXkr8mnAw5NWo"
-                publishable-key="pk_test_51Tn498Gsz6uUXkr8G1XrOv7FILe87af5DnIFs8WDtx1jnR63kONSBeXvCOjutiUbBsj9u4UFemco335dxAe1VRYV00PgA9ze2c"
-              ></stripe-buy-button>
-            </div>
+            <article class="test-card">
+              <div class="test-media test-media-mri" role="img" aria-label="Whole Body MRI"></div>
+              <div class="test-copy"><h3>Whole Body MRI</h3><p>Detects abnormalities across the body.</p></div>
+            </article>
+            <article class="test-card">
+              <div class="test-media test-media-blood" role="img" aria-label="Advanced Blood Panel"></div>
+              <div class="test-copy"><h3>Advanced Blood Panel</h3><p>In-depth blood analysis across key biomarkers.</p></div>
+            </article>
+            <article class="test-card">
+              <div class="test-media test-media-vo2" role="img" aria-label="VO2 Max Testing"></div>
+              <div class="test-copy"><h3>VO2 Max Testing</h3><p>Measures oxygen uptake and endurance.</p></div>
+            </article>
+            <article class="test-card">
+              <div class="test-media test-media-dexa" role="img" aria-label="DEXA Body Composition"></div>
+              <div class="test-copy"><h3>DEXA Body Composition</h3><p>Analyzes body fat, muscle, and bone density.</p></div>
+            </article>
+            <article class="test-card">
+              <div class="test-media test-media-cardiac" role="img" aria-label="CT Coronary Angiography"></div>
+              <div class="test-copy"><h3>CT Coronary Angiography</h3><p>Assesses coronary blockages and heart risk.</p></div>
+            </article>
+            <article class="test-card">
+              <div class="test-media test-media-genetic" role="img" aria-label="Hereditary Disease Screening"></div>
+              <div class="test-copy"><h3>Hereditary Disease Screening</h3><p>Screens genetic disease risk.</p></div>
+            </article>
+            <article class="test-card">
+              <div class="test-media test-media-cgm" role="img" aria-label="Continuous Glucose Monitoring"></div>
+              <div class="test-copy"><h3>Continuous Glucose Monitoring</h3><p>Tracks blood sugar continuously.</p></div>
+            </article>
+            <article class="test-card">
+              <div class="test-media test-media-lung" role="img" aria-label="Low-Dose Lung CT"></div>
+              <div class="test-copy"><h3>Low-Dose Lung CT</h3><p>Detects early lung cancer signs.</p></div>
+            </article>
+            <article class="test-card">
+              <div class="test-media test-media-cancer" role="img" aria-label="Multi-Cancer Early Detection"></div>
+              <div class="test-copy"><h3>Multi-Cancer Early Detection</h3><p>Detects early signals across cancers.</p></div>
+            </article>
+            <article class="test-card">
+              <div class="test-media test-media-neuro" role="img" aria-label="Neurocognitive Testing"></div>
+              <div class="test-copy"><h3>Neurocognitive Testing</h3><p>Assesses memory and cognition.</p></div>
+            </article>
+            <article class="test-card">
+              <div class="test-media test-media-sleep" role="img" aria-label="At-Home Sleep Testing"></div>
+              <div class="test-copy"><h3>At-Home Sleep Testing</h3><p>Evaluates sleep patterns and quality.</p></div>
+            </article>
+            <article class="test-card">
+              <div class="test-media test-media-more" role="img" aria-label="Up to 30+ Assessments"></div>
+              <div class="test-copy"><h3>Up to 30+ Assessments</h3><p>Additional diagnostics selected for your profile.</p></div>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="longevity-section" style="padding-top: 0;" aria-labelledby="impact-heading">
-        <div class="longevity-section-inner">
-          <div class="longevity-intro">
-            <div>
-              <p class="longevity-label">Why it matters</p>
-              <h2 id="impact-heading">Prevention that changes outcomes</h2>
-            </div>
+      <section class="impact-expanded" aria-labelledby="impact-heading">
+        <div class="impact-expanded-inner">
+          <div class="impact-expanded-header">
+            <p class="longevity-label">Why it matters</p>
+            <h2 id="impact-heading">Prevention that changes outcomes</h2>
             <p>
               Members use Live Wellness to catch silent disease early, build a plan they
-              can follow, and stay on track with physician-guided monitoring.
+              can follow, and stay on track with physician-guided monitoring. The goal is
+              not only to live longer, but to live with more clarity, energy, and confidence
+              in your health trajectory.
             </p>
           </div>
 
@@ -988,6 +1149,36 @@
         </div>
       </section>
 
+      <section class="package-final" id="package-offer" aria-labelledby="package-final-heading">
+        <div class="package-final-inner">
+          <div class="package-final-copy">
+            <p class="longevity-label">Complete package</p>
+            <h3 id="package-final-heading">Everything included for $3,500</h3>
+            <p>
+              One comprehensive longevity visit with advanced diagnostics, physician
+              review, and a personalized plan to improve and monitor your health.
+            </p>
+            <ul>
+              <li>30+ advanced assessments in a single day</li>
+              <li>Whole-body MRI and advanced blood panel</li>
+              <li>Cardiac imaging and body composition testing</li>
+              <li>1:1 physician-led results review</li>
+              <li>Personalized exercise and nutrition guidance</li>
+              <li>Follow-up testing and biomarker monitoring plan</li>
+            </ul>
+          </div>
+          <div class="package-final-buy">
+            <p class="longevity-label">Buy now</p>
+            <strong class="price">$3,500</strong>
+            <p>Secure your comprehensive longevity assessment and start your preventive care plan today.</p>
+            <stripe-buy-button
+              buy-button-id="buy_btn_1Tn695Gsz6uUXkr8mnAw5NWo"
+              publishable-key="pk_test_51Tn498Gsz6uUXkr8G1XrOv7FILe87af5DnIFs8WDtx1jnR63kONSBeXvCOjutiUbBsj9u4UFemco335dxAe1VRYV00PgA9ze2c"
+            ></stripe-buy-button>
+          </div>
+        </div>
+      </section>
+
       <section class="longevity-cta" aria-labelledby="cta-heading">
         <p class="longevity-eyebrow">Start here</p>
         <h2 id="cta-heading">Live healthier for longer.</h2>
@@ -995,7 +1186,7 @@
           A proactive approach to long-term health, designed around you. Secure your
           comprehensive assessment and begin your longevity plan today.
         </p>
-        <a class="button button-light" href="#package">Get the $3,500 package</a>
+        <a class="button button-dark" href="#package-offer">Get the $3,500 package</a>
       </section>
     </main>
 
