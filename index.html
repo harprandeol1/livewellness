@@ -314,13 +314,13 @@
       }
 
       .care-model-intro {
-        max-width: 720px;
+        max-width: 700px;
         margin: 0 auto 64px;
         text-align: center;
       }
 
       .care-model-intro .kicker {
-        margin-bottom: 18px;
+        margin: 0 0 18px;
         color: #8a8f97;
         font-size: 11px;
         font-weight: 700;
@@ -329,17 +329,17 @@
       }
 
       .care-model-intro h2 {
-        margin: 0 0 22px;
+        margin: 0 0 20px;
         font-family: "Libre Baskerville", Georgia, serif;
-        font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+        font-size: clamp(2rem, 4.2vw, 3.4rem);
         font-weight: 400;
         letter-spacing: -0.04em;
-        line-height: 1.02;
+        line-height: 1.05;
         color: #4a4e56;
       }
 
       .care-model-intro p {
-        margin: 0 auto;
+        margin: 0;
         color: #7a8088;
         font-size: 1rem;
         line-height: 1.75;
@@ -358,51 +358,109 @@
         border: 1px solid #d0d3d8;
         border-radius: 20px;
         background: #f7f7f8;
-        min-height: 100%;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .pillar-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 48px rgba(58, 61, 68, 0.08);
       }
 
       .pillar-card-media {
-        min-height: 180px;
+        position: relative;
+        min-height: 200px;
+        overflow: hidden;
+        border-bottom: 1px solid #d8dbe0;
+      }
+
+      .pillar-card-media img {
+        width: 100%;
+        height: 100%;
+        min-height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .pillar-card-media img[src=""] {
+        display: none;
+      }
+
+      .pillar-card-media .media-placeholder {
+        position: absolute;
+        inset: 16px;
+        display: grid;
+        place-items: center;
+        border: 2px dashed #aeb4be;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.45);
+        color: #6f7680;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        pointer-events: none;
+      }
+
+      .pillar-card-media.has-image .media-placeholder {
+        display: none;
+      }
+
+      .pillar-card--longevity .pillar-card-media {
         background:
-          radial-gradient(circle at 72% 28%, rgba(255, 150, 170, 0.16), transparent 28%),
-          linear-gradient(135deg, #d5d8de, #b0b6c0 55%, #9aa1ab);
+          radial-gradient(circle at 24% 22%, rgba(255, 78, 122, 0.28), transparent 24%),
+          linear-gradient(145deg, #4a3d6b, #8b6fa8 52%, #c98aa8);
+      }
+
+      .pillar-card--primary .pillar-card-media {
+        background:
+          radial-gradient(circle at 72% 28%, rgba(140, 190, 210, 0.3), transparent 28%),
+          linear-gradient(145deg, #5a6a78, #8fa3b0 55%, #b8c8d0);
+      }
+
+      .pillar-card--aesthetics .pillar-card-media {
+        background:
+          radial-gradient(circle at 68% 24%, rgba(255, 190, 160, 0.35), transparent 26%),
+          linear-gradient(145deg, #7a6058, #b09088 55%, #d4b0a8);
       }
 
       .pillar-card-body {
         display: flex;
         flex: 1;
         flex-direction: column;
-        padding: 28px 30px 32px;
+        padding: 28px 28px 32px;
       }
 
       .pillar-card-body span {
-        margin-bottom: 12px;
+        margin-bottom: 10px;
         color: #8a8f97;
         font-size: 11px;
         font-weight: 700;
-        letter-spacing: 0.18em;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
       }
 
       .pillar-card-body h3 {
         margin: 0 0 12px;
-        font-size: 1.5rem;
-        font-weight: 450;
-        letter-spacing: -0.04em;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: 1.55rem;
+        font-weight: 400;
+        letter-spacing: -0.03em;
         line-height: 1.1;
-        color: #5a5e66;
+        color: #4a4e56;
       }
 
       .pillar-card-body p {
-        margin: 0 0 24px;
+        margin: 0 0 22px;
         flex: 1;
         color: #7a8088;
+        font-size: 0.94rem;
         line-height: 1.65;
-        font-size: 0.95rem;
       }
 
       .pillar-card-body .button-outline {
         align-self: flex-start;
+        border-color: #b8bdc6;
+        color: #5a5e66;
       }
 
       .care-actions {
@@ -413,7 +471,6 @@
         margin-top: 48px;
       }
 
-      .care-model-copy h2,
       .treatments-heading h2,
       .consult-banner h2,
       .faq-section-home h2 {
@@ -764,6 +821,8 @@
       @media (max-width: 1050px) {
         .pillars-grid {
           grid-template-columns: 1fr;
+          max-width: 520px;
+          margin: 0 auto;
         }
 
         .consult-banner {
@@ -986,8 +1045,11 @@
           </div>
 
           <div class="pillars-grid">
-            <article class="pillar-card">
-              <div class="pillar-card-media" aria-hidden="true"></div>
+            <article class="pillar-card pillar-card--longevity">
+              <div class="pillar-card-media">
+                <img src="" alt="Longevity care at Live Wellness" />
+                <span class="media-placeholder">Add photo</span>
+              </div>
               <div class="pillar-card-body">
                 <span>Pillar 01</span>
                 <h3>Longevity</h3>
@@ -996,8 +1058,11 @@
               </div>
             </article>
 
-            <article class="pillar-card">
-              <div class="pillar-card-media" aria-hidden="true"></div>
+            <article class="pillar-card pillar-card--primary">
+              <div class="pillar-card-media">
+                <img src="" alt="Concierge primary care" />
+                <span class="media-placeholder">Add photo</span>
+              </div>
               <div class="pillar-card-body">
                 <span>Pillar 02</span>
                 <h3>Primary Care</h3>
@@ -1006,8 +1071,11 @@
               </div>
             </article>
 
-            <article class="pillar-card">
-              <div class="pillar-card-media" aria-hidden="true"></div>
+            <article class="pillar-card pillar-card--aesthetics">
+              <div class="pillar-card-media">
+                <img src="" alt="Aesthetics and regenerative care" />
+                <span class="media-placeholder">Add photo</span>
+              </div>
               <div class="pillar-card-body">
                 <span>Pillar 03</span>
                 <h3>Aesthetics</h3>
@@ -1209,7 +1277,7 @@
 
     <script src="script.js"></script>
     <script>
-      document.querySelectorAll(".hero-image-slot img").forEach(function (img) {
+      document.querySelectorAll(".hero-image-slot img, .pillar-card-media img").forEach(function (img) {
         if (img.getAttribute("src") && img.getAttribute("src").trim() !== "") {
           img.parentElement.classList.add("has-image");
         }
