@@ -182,14 +182,123 @@
         max-width: none;
       }
 
+      .visit-section {
+        padding: 100px 0 120px;
+        background: #f3f3f4;
+      }
+
+      .visit-grid {
+        display: grid;
+        grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .visit-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid #d0d3d8;
+        border-radius: 20px;
+        background: #f7f7f8;
+        padding: 40px;
+      }
+
+      .visit-copy .kicker {
+        margin: 0 0 18px;
+        color: #8a8f97;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+      }
+
+      .visit-copy h2 {
+        margin: 0 0 18px;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+        font-weight: 400;
+        letter-spacing: -0.04em;
+        line-height: 1.05;
+        color: #4a4e56;
+      }
+
+      .visit-copy > p {
+        max-width: none;
+        margin: 0 0 28px;
+      }
+
+      .visit-details {
+        display: grid;
+        gap: 18px;
+        margin: 0 0 32px;
+        padding: 0;
+        list-style: none;
+      }
+
+      .visit-details li {
+        padding: 16px 18px;
+        border-radius: 12px;
+        background: #eceef1;
+      }
+
+      .visit-details strong {
+        display: block;
+        margin-bottom: 6px;
+        color: #5a5e66;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .visit-details a,
+      .visit-details span {
+        color: #7a8088;
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      .visit-details a:hover,
+      .visit-details a:focus-visible {
+        color: #4a4e56;
+      }
+
+      .visit-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .visit-map-wrap {
+        overflow: hidden;
+        border: 1px solid #d0d3d8;
+        border-radius: 20px;
+        background: #e3e5e9;
+        min-height: 420px;
+      }
+
+      .visit-map-wrap iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 420px;
+        border: 0;
+      }
+
       @media (max-width: 900px) {
         .about-hero-inner,
-        .leadership-grid {
+        .leadership-grid,
+        .visit-grid {
           grid-template-columns: 1fr;
         }
 
         .about-visual {
           min-height: 280px;
+        }
+
+        .visit-map-wrap iframe {
+          min-height: 320px;
         }
       }
     </style>
@@ -294,18 +403,50 @@
         </div>
       </section>
 
-      <section class="about-section">
+      <section class="visit-section" id="visit">
         <div class="about-section-inner">
-          <h2>Visit us</h2>
-          <p>
-            <a href="https://www.google.com/maps/search/?api=1&amp;query=6839+Five+Star+Blvd+Suite+F+Rocklin+CA+95677" target="_blank" rel="noopener noreferrer">
-              6839 Five Star Blvd, Suite F, Rocklin, California 95677
-            </a>
-          </p>
-          <p>
-            <a class="button button-dark" href="index.html#consult">Schedule a consultation</a>
-            <a class="button button-outline" href="membership-options.html" style="margin-left: 12px;">Explore concierge medicine</a>
-          </p>
+          <div class="visit-grid">
+            <div class="visit-copy">
+              <p class="kicker">Visit us</p>
+              <h2>Find Live Wellness in Rocklin</h2>
+              <p>
+                We welcome patients for concierge medicine, longevity care, diagnostics, and
+                a la carte services at our Rocklin clinic.
+              </p>
+              <ul class="visit-details">
+                <li>
+                  <strong>Address</strong>
+                  <a href="https://www.google.com/maps/search/?api=1&amp;query=6839+Five+Star+Blvd+Suite+F+Rocklin+CA+95677" target="_blank" rel="noopener noreferrer">
+                    6839 Five Star Blvd, Suite F<br />
+                    Rocklin, California 95677
+                  </a>
+                </li>
+                <li>
+                  <strong>Phone</strong>
+                  <a href="tel:+19169642003">(916) 964-2003</a>
+                </li>
+                <li>
+                  <strong>Directions</strong>
+                  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=6839+Five+Star+Blvd+Suite+F+Rocklin+CA+95677" target="_blank" rel="noopener noreferrer">
+                    Get directions on Google Maps
+                  </a>
+                </li>
+              </ul>
+              <div class="visit-actions">
+                <a class="button button-dark" href="index.html#consult">Schedule a consultation</a>
+                <a class="button button-outline" href="tel:+19169642003">Call now</a>
+              </div>
+            </div>
+            <div class="visit-map-wrap" aria-label="Live Wellness location on Google Maps">
+              <iframe
+                title="Live Wellness clinic location"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=6839+Five+Star+Blvd,+Suite+F,+Rocklin,+CA+95677&amp;hl=en&amp;z=15&amp;output=embed"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
         </div>
       </section>
     </main>
