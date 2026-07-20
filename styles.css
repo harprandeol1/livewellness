@@ -1151,16 +1151,173 @@ blockquote {
 }
 
 .care-model-section {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1fr);
-  gap: clamp(40px, 7vw, 96px);
-  align-items: center;
-  width: min(var(--max), calc(100% - 40px));
-  margin: 0 auto;
+  background: #ececee;
   padding: 120px 0;
 }
 
-.care-model-copy h2,
+.care-model-inner {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.care-model-intro {
+  max-width: 700px;
+  margin: 0 auto 64px;
+  text-align: center;
+}
+
+.care-model-intro .kicker {
+  margin: 0 0 18px;
+  color: #8a8f97;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+}
+
+.care-model-intro h2 {
+  margin: 0 0 20px;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: #4a4e56;
+}
+
+.care-model-intro p {
+  margin: 0;
+  color: #7a8088;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.pillar-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #d0d3d8;
+  border-radius: 20px;
+  background: #f7f7f8;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.pillar-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 48px rgba(58, 61, 68, 0.08);
+}
+
+.pillar-card-media {
+  position: relative;
+  min-height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid #d8dbe0;
+}
+
+.pillar-card-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.pillar-card-media img[src=""] {
+  display: none;
+}
+
+.pillar-card-media .media-placeholder {
+  position: absolute;
+  inset: 16px;
+  display: grid;
+  place-items: center;
+  border: 2px dashed #aeb4be;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.45);
+  color: #6f7680;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+.pillar-card-media.has-image .media-placeholder {
+  display: none;
+}
+
+.pillar-card--longevity .pillar-card-media {
+  background:
+    radial-gradient(circle at 24% 22%, rgba(255, 78, 122, 0.28), transparent 24%),
+    linear-gradient(145deg, #4a3d6b, #8b6fa8 52%, #c98aa8);
+}
+
+.pillar-card--primary .pillar-card-media {
+  background:
+    radial-gradient(circle at 72% 28%, rgba(140, 190, 210, 0.3), transparent 28%),
+    linear-gradient(145deg, #5a6a78, #8fa3b0 55%, #b8c8d0);
+}
+
+.pillar-card--aesthetics .pillar-card-media {
+  background:
+    radial-gradient(circle at 68% 24%, rgba(255, 190, 160, 0.35), transparent 26%),
+    linear-gradient(145deg, #7a6058, #b09088 55%, #d4b0a8);
+}
+
+.pillar-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 28px 28px 32px;
+}
+
+.pillar-card-body span {
+  margin-bottom: 10px;
+  color: #8a8f97;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.pillar-card-body h3 {
+  margin: 0 0 12px;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: #4a4e56;
+}
+
+.pillar-card-body p {
+  margin: 0 0 22px;
+  flex: 1;
+  color: #7a8088;
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.pillar-card-body .button-outline {
+  align-self: flex-start;
+  border-color: #b8bdc6;
+  color: #5a5e66;
+}
+
+.care-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 48px;
+}
+
 .treatments-heading h2,
 .consult-banner h2,
 .faq-section-home h2 {
@@ -1172,7 +1329,6 @@ blockquote {
   line-height: 0.96;
 }
 
-.care-model-copy p,
 .treatments-heading p,
 .consult-banner p {
   color: #5d6d73;
@@ -1180,96 +1336,16 @@ blockquote {
   line-height: 1.72;
 }
 
-.care-actions,
 .treatment-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 32px;
+  justify-content: center;
 }
 
-.care-actions .button-dark,
 .treatment-actions .button-dark {
   width: auto;
-}
-
-.venn-wrap {
-  display: grid;
-  grid-template-columns: minmax(440px, 0.92fr) minmax(180px, 0.45fr);
-  gap: 28px;
-  align-items: center;
-}
-
-.venn-diagram {
-  position: relative;
-  width: min(440px, 100%);
-  min-height: 365px;
-  margin: 0 auto;
-}
-
-.venn-circle {
-  position: absolute;
-  display: grid;
-  place-items: center;
-  width: 220px;
-  height: 220px;
-  border: 1.6px solid #0d4650;
-  border-radius: 50%;
-  color: #0d4650;
-  font-size: 1.12rem;
-  font-weight: 600;
-  text-align: center;
-}
-
-.longevity-circle {
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-}
-
-.primary-circle {
-  left: 52px;
-  top: 132px;
-}
-
-.aesthetics-circle {
-  right: 52px;
-  top: 132px;
-}
-
-.venn-center {
-  position: absolute;
-  left: 50%;
-  top: 55%;
-  display: grid;
-  place-items: center;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: rgba(13, 70, 80, 0.2);
-  color: #0d4650;
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  transform: translate(-50%, -50%);
-}
-
-.pillar-list {
-  display: grid;
-  gap: 22px;
-}
-
-.pillar-list h3 {
-  margin: 0 0 6px;
-  color: #0d4650;
-  font-size: 1.15rem;
-  letter-spacing: -0.04em;
-}
-
-.pillar-list p {
-  margin: 0;
-  color: #5d6d73;
-  line-height: 1.45;
 }
 
 .treatments-section,
@@ -2516,7 +2592,6 @@ blockquote {
   .hero-content,
   .service-detail-inner,
   .service-scroll-item,
-  .care-model-section,
   .consult-banner,
   .how-hero-content,
   .assessment-section,
@@ -2530,12 +2605,10 @@ blockquote {
     max-width: 620px;
   }
 
-  .venn-wrap {
+  .pillars-grid {
     grid-template-columns: 1fr;
-  }
-
-  .pillar-list {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 520px;
+    margin: 0 auto;
   }
 
   .clinic-building {
@@ -2628,6 +2701,7 @@ blockquote {
   .process-grid,
   .resource-grid,
   .pillar-list,
+  .pillars-grid,
   .plans-grid,
   .plan-wide ul,
   .addon-grid,
@@ -2718,21 +2792,19 @@ blockquote {
     padding: 84px 0;
   }
 
-  .care-model-copy h2,
+  .pillars-grid {
+    max-width: none;
+  }
+
   .treatments-heading h2,
   .consult-banner h2,
   .faq-section-home h2 {
     font-size: clamp(2.3rem, 12vw, 4.2rem);
   }
 
-  .venn-diagram {
-    min-height: 365px;
-    transform: scale(0.78);
-    transform-origin: center;
-  }
-
-  .venn-wrap {
-    gap: 0;
+  .pillars-grid,
+  .resource-grid {
+    grid-template-columns: 1fr;
   }
 
   .carousel-shell {
