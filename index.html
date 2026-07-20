@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260720" />
     <style>
       .button-outline {
         border: 1px solid rgba(17, 72, 63, 0.55);
@@ -303,9 +303,25 @@
         line-height: 1.55;
       }
 
+      /* Three pillars — inline so layout works even if styles.css cache is stale */
       .care-model-section {
+        display: block !important;
+        width: auto !important;
+        max-width: none !important;
+        margin: 0 !important;
+        grid-template-columns: none !important;
+        gap: 0 !important;
+        align-items: stretch !important;
         background: #ececee;
         padding: 120px 0;
+      }
+
+      .venn-wrap,
+      .venn-diagram,
+      .venn-circle,
+      .venn-center,
+      .pillar-list {
+        display: none !important;
       }
 
       .care-model-inner {
