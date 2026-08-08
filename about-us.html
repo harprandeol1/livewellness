@@ -71,10 +71,19 @@
           linear-gradient(135deg, #c8ccd4, #9aa1ab 52%, #7a818a);
       }
 
+      .about-visual.has-image {
+        min-height: 0;
+        aspect-ratio: 641 / 420;
+        background: #f3f3f4;
+      }
+
       .about-visual img {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center;
         display: block;
       }
 
@@ -297,7 +306,11 @@
           grid-template-columns: 1fr;
         }
 
-        .about-visual {
+        .about-visual.has-image {
+          aspect-ratio: 4 / 3;
+        }
+
+        .about-visual:not(.has-image) {
           min-height: 280px;
         }
 
@@ -355,7 +368,7 @@
               focused on prevention, performance, and long-term wellbeing.
             </p>
           </div>
-          <div class="about-visual">
+          <div class="about-visual has-image">
             <img src="clinic.jpg" alt="Live Wellness clinic" />
             <span class="media-placeholder">Add clinic photo here</span>
           </div>
