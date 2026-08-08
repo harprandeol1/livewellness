@@ -1942,6 +1942,15 @@ blockquote {
   box-shadow: 0 24px 70px rgba(13, 70, 80, 0.12);
 }
 
+.service-visual.service-visual-photo {
+  box-shadow: none;
+}
+
+.service-visual.service-visual-photo::before,
+.service-visual.service-visual-photo::after {
+  display: none;
+}
+
 .service-visual::before {
   position: absolute;
   content: "";
