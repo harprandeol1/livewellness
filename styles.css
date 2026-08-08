@@ -2893,3 +2893,111 @@ blockquote {
     padding: 48px 24px;
   }
 }
+
+/* Readable display typography — applies site-wide, including page inline styles */
+:root {
+  --type-hero: clamp(1.75rem, 3vw, 2.35rem);
+  --type-section: clamp(1.4rem, 2.4vw, 1.9rem);
+  --type-card: clamp(1.2rem, 2vw, 1.5rem);
+  --type-lead: 1.15;
+  --type-track: -0.03em;
+}
+
+.hero-copy h1,
+.how-hero-copy h1,
+.service-detail-hero h1,
+.services-hero h1,
+.longevity-hero h1,
+.membership-options .hero h1,
+.about-hero h1,
+.articles-hero h1 {
+  font-size: var(--type-hero) !important;
+  line-height: var(--type-lead) !important;
+  letter-spacing: var(--type-track) !important;
+}
+
+.section-intro h2,
+.experience-copy h2,
+.consult-section h2,
+.care-model-copy h2,
+.care-model-intro h2,
+.treatments-heading h2,
+.consult-banner h2,
+.faq-section-home h2,
+.service-scroll-heading h2,
+.service-detail-heading h2,
+.service-detail-cta h2,
+.assessment-copy h2,
+.why-grid h2,
+.how-cta h2,
+.section-heading h2,
+.longevity-intro h2,
+.longevity-cta h2,
+.impact-expanded-header h2,
+.membership-options .section-intro h2,
+.membership-options .cta h2,
+.membership-options .schedule-copy h2,
+.concierge-copy h2,
+.soft-grid h2,
+.option-path-section .section-intro h2,
+.membership-flow .section-intro h2 {
+  font-size: var(--type-section) !important;
+  line-height: var(--type-lead) !important;
+  letter-spacing: var(--type-track) !important;
+}
+
+.service-copy h3,
+.service-detail-card h3,
+.treatment-card h3,
+.service-card h3,
+.longevity-stat strong,
+.pillar-card h3,
+.package-offer-copy h3,
+.process-step h3 {
+  font-size: var(--type-card) !important;
+  line-height: var(--type-lead) !important;
+  letter-spacing: var(--type-track) !important;
+}
+
+blockquote {
+  font-size: clamp(1.35rem, 2.4vw, 1.85rem) !important;
+  line-height: 1.2 !important;
+  letter-spacing: var(--type-track) !important;
+}
+
+.metric-panel strong,
+.data-card span {
+  font-size: clamp(1.75rem, 3vw, 2.35rem) !important;
+  line-height: var(--type-lead) !important;
+  letter-spacing: var(--type-track) !important;
+}
+
+.price,
+.longevity-hero-panel .price,
+.membership-card .price {
+  font-size: clamp(1.75rem, 2.8vw, 2.35rem) !important;
+  line-height: var(--type-lead) !important;
+  letter-spacing: var(--type-track) !important;
+}
+
+.service-detail-note h2,
+.hero-note h2,
+.hero-panel h2,
+.longevity-hero-panel h2 {
+  font-size: 1.35rem !important;
+  line-height: var(--type-lead) !important;
+  letter-spacing: var(--type-track) !important;
+}
+
+.path-card h2 {
+  font-size: clamp(1.25rem, 2vw, 1.45rem) !important;
+  line-height: var(--type-lead) !important;
+  letter-spacing: var(--type-track) !important;
+}
+
+@media (max-width: 900px) {
+  :root {
+    --type-hero: clamp(1.6rem, 6.5vw, 2.1rem);
+    --type-section: clamp(1.3rem, 5.5vw, 1.75rem);
+  }
+}
