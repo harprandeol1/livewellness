@@ -68,7 +68,7 @@ select {
 
 .nav-shell {
   display: grid;
-  grid-template-columns: minmax(200px, 260px) 1fr minmax(180px, 220px);
+  grid-template-columns: minmax(220px, 280px) 1fr minmax(180px, 220px);
   align-items: center;
   width: min(var(--max), calc(100% - 40px));
   height: 58px;
@@ -76,14 +76,15 @@ select {
 }
 
 .wordmark {
-  display: inline-block;
-  font-family: "Libre Baskerville", Georgia, serif;
-  font-size: 1.22rem;
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  line-height: 1.1;
-  text-transform: none;
-  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.wordmark-logo {
+  display: block;
+  width: auto;
+  height: 36px;
 }
 
 .nav-links,
@@ -1625,16 +1626,23 @@ blockquote {
 }
 
 .footer-logo {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  width: auto;
+  height: auto;
   margin-bottom: 72px;
-  border-radius: 8px;
-  background: #17171c;
-  color: #fff;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-weight: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.footer-logo-image {
+  display: block;
+  width: auto;
+  height: 30px;
 }
 
 .footer-brand p,
@@ -2693,9 +2701,8 @@ blockquote {
     width: min(100% - 28px, var(--max));
   }
 
-  .wordmark {
-    font-size: 1rem;
-    letter-spacing: 0.03em;
+  .wordmark-logo {
+    height: 30px;
   }
 
   .hero-content,
