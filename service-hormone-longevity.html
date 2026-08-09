@@ -7,11 +7,254 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260809" />
+    <link rel="stylesheet" href="styles.css?v=20260812" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260809"
+      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260812"
     />
+    <style>
+      .hormone-bento-section {
+        padding: 96px 0 112px;
+        background: linear-gradient(180deg, #f3f2f5 0%, #ececee 100%);
+      }
+
+      .hormone-bento-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .hormone-bento-heading {
+        max-width: 720px;
+        margin: 0 auto 48px;
+        text-align: center;
+      }
+
+      .hormone-bento-heading .kicker {
+        margin-bottom: 18px;
+        color: #8a8f97;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+      }
+
+      .hormone-bento-heading h2 {
+        margin: 0 0 16px;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+        color: #4a4e56;
+      }
+
+      .hormone-bento-heading p {
+        margin: 0;
+        color: #7a8088;
+        line-height: 1.75;
+      }
+
+      .hormone-bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .hormone-bento-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        overflow: hidden;
+        border: 1px solid #d0d3d8;
+        border-radius: 20px;
+        background: #fff;
+        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+        box-shadow: 0 12px 32px rgba(42, 46, 52, 0.06);
+      }
+
+      .hormone-bento-card:hover {
+        transform: translateY(-7px) scale(1.01);
+        box-shadow: 0 24px 52px rgba(42, 46, 52, 0.12);
+        border-color: var(--hormone-border);
+      }
+
+      .hormone-bento-card-featured {
+        grid-column: span 2;
+      }
+
+      .hormone-bento-cap {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        min-height: 88px;
+        padding: 20px 22px 28px;
+        background: var(--hormone-cap);
+        color: #fff;
+        overflow: hidden;
+      }
+
+      .hormone-bento-cap::after {
+        content: "";
+        position: absolute;
+        right: -18px;
+        top: -18px;
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+      }
+
+      .hormone-bento-cap span {
+        position: relative;
+        z-index: 1;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        opacity: 0.92;
+      }
+
+      .hormone-bento-badge {
+        position: relative;
+        z-index: 1;
+        width: 42px;
+        height: 42px;
+        margin-bottom: -34px;
+        margin-left: 22px;
+        border: 3px solid #fff;
+        border-radius: 14px;
+        background: var(--hormone-badge);
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        box-shadow: 0 8px 20px rgba(42, 46, 52, 0.14);
+      }
+
+      .hormone-bento-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 28px 24px 22px;
+      }
+
+      .hormone-bento-body h3 {
+        margin: 0 0 10px;
+        font-size: 1.28rem;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+        color: #4a4e56;
+      }
+
+      .hormone-bento-card-featured .hormone-bento-body h3 {
+        font-size: 1.5rem;
+      }
+
+      .hormone-bento-body p {
+        margin: 0 0 22px;
+        flex: 1;
+        color: #7a8088;
+        font-size: 0.94rem;
+        line-height: 1.7;
+      }
+
+      .hormone-bento-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 16px;
+        border-top: 1px dashed #dde0e4;
+      }
+
+      .hormone-bento-price {
+        font-size: 1.15rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: var(--hormone-price);
+      }
+
+      .hormone-bento-card .button {
+        min-height: 38px;
+        padding-inline: 16px;
+        font-size: 0.82rem;
+      }
+
+      .hormone-tone-slate {
+        --hormone-cap: linear-gradient(135deg, #3d4f6b, #5c7396);
+        --hormone-badge: #4a5d7d;
+        --hormone-border: rgba(74, 93, 125, 0.35);
+        --hormone-price: #4a5d7d;
+      }
+
+      .hormone-tone-rose {
+        --hormone-cap: linear-gradient(135deg, #a85f78, #d48a9f);
+        --hormone-badge: #b86b82;
+        --hormone-border: rgba(184, 107, 130, 0.35);
+        --hormone-price: #a64d62;
+      }
+
+      .hormone-tone-teal {
+        --hormone-cap: linear-gradient(135deg, #2a7a87, #4eb5c4);
+        --hormone-badge: #2f8f9e;
+        --hormone-border: rgba(47, 143, 158, 0.35);
+        --hormone-price: #2a7a87;
+      }
+
+      .hormone-tone-amber {
+        --hormone-cap: linear-gradient(135deg, #9a7030, #c9a05a);
+        --hormone-badge: #a88040;
+        --hormone-border: rgba(168, 128, 64, 0.35);
+        --hormone-price: #8a6530;
+      }
+
+      .hormone-tone-forest {
+        --hormone-cap: linear-gradient(135deg, #3a6b55, #5f9a7d);
+        --hormone-badge: #457a62;
+        --hormone-border: rgba(69, 122, 98, 0.35);
+        --hormone-price: #3a6b55;
+      }
+
+      .hormone-tone-violet {
+        --hormone-cap: linear-gradient(135deg, #5f4d8f, #8a76b8);
+        --hormone-badge: #6b5ba3;
+        --hormone-border: rgba(107, 91, 163, 0.35);
+        --hormone-price: #5f4d8f;
+      }
+
+      @media (max-width: 960px) {
+        .hormone-bento-grid,
+        .hormone-bento-card-featured {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hormone-bento-card-featured {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hormone-bento-section {
+          padding: 72px 0 88px;
+        }
+
+        .hormone-bento-grid,
+        .hormone-bento-card-featured {
+          grid-template-columns: 1fr;
+        }
+
+        .hormone-bento-card-featured {
+          grid-column: span 1;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="topbar" id="top">
@@ -50,14 +293,101 @@
 </header>
     <main>
       <section class="service-detail-hero"><div class="service-detail-inner"><div><p class="eyebrow">Hormone & Longevity Therapy</p><h1>Optimization protocols for hormones, peptides, thyroid, and recovery.</h1><p>Hormone and longevity therapy starts with evaluation, labs, risk review, and physician guidance. Protocols are designed to support energy, performance, recovery, metabolic health, cognition, and quality of life when clinically appropriate.</p></div><aside class="service-detail-note"><span>Physician managed</span><h2>Protocols should be monitored, measured, and adjusted.</h2><p>Care includes evaluation, protocol design, safety monitoring, and ongoing follow-up.</p><a class="button button-dark" href="index.html#consult">Request evaluation</a></aside></div></section>
-      <section class="service-scroll-section"><div class="service-scroll-heading"><p class="kicker">Therapy options</p><h2>Choose a physician-guided optimization path.</h2><p>Therapies are individualized based on symptoms, biomarkers, goals, and medical appropriateness.</p></div><div class="service-scroll-list">
-        <article class="service-scroll-item"><div class="service-visual service-bg-1"></div><div class="service-copy"><span>Hormone 01</span><h3>Testosterone Therapy (TRT)</h3><p>TRT begins with evaluation, lab review, protocol design, and ongoing monitoring to support energy, strength, libido, mood, and quality of life when clinically appropriate.</p><strong>From $199/mo</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-2"></div><div class="service-copy"><span>Hormone 02</span><h3>Bioidentical HRT (Women)</h3><p>Bioidentical HRT can support estrogen, progesterone, and testosterone optimization with a physician-guided plan and follow-up monitoring.</p><strong>From $249/mo</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-3"></div><div class="service-copy"><span>Hormone 03</span><h3>Peptide Therapy</h3><p>Peptide protocols may include BPC-157, sermorelin, CJC-1295, ipamorelin, and more, selected based on recovery, sleep, body composition, and performance goals.</p><strong>From $299/mo</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-4"></div><div class="service-copy"><span>Hormone 04</span><h3>Thyroid Optimization</h3><p>Thyroid optimization includes T3/T4 protocol management and monitoring for patients with thyroid-related symptoms or abnormal patterns.</p><strong>From $149/mo</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-5"></div><div class="service-copy"><span>Hormone 05</span><h3>Adrenal & Cortisol Reset</h3><p>A focused assessment and nutraceutical protocol for stress, fatigue, cortisol rhythm, recovery, and resilience goals.</p><strong>From $249/program</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-6"></div><div class="service-copy"><span>Hormone 06</span><h3>Longevity Supplement Rx</h3><p>A personalized pharmaceutical-grade supplement protocol designed around your labs, goals, and physician recommendations.</p><strong>From $99/mo</strong></div></article>
-      </div></section>
+      <section class="hormone-bento-section">
+        <div class="hormone-bento-inner">
+          <div class="hormone-bento-heading">
+            <p class="kicker">Therapy options</p>
+            <h2>Choose a physician-guided optimization path.</h2>
+            <p>Therapies are individualized based on symptoms, biomarkers, goals, and medical appropriateness.</p>
+          </div>
+          <div class="hormone-bento-grid">
+            <article class="hormone-bento-card hormone-bento-card-featured hormone-tone-slate">
+              <div class="hormone-bento-cap">
+                <span>Hormone 01</span>
+              </div>
+              <div class="hormone-bento-badge" aria-hidden="true">TRT</div>
+              <div class="hormone-bento-body">
+                <h3>Testosterone Therapy (TRT)</h3>
+                <p>TRT begins with evaluation, lab review, protocol design, and ongoing monitoring to support energy, strength, libido, mood, and quality of life when clinically appropriate.</p>
+                <div class="hormone-bento-footer">
+                  <span class="hormone-bento-price">From $199/mo</span>
+                  <a class="button button-outline" href="index.html#consult">Request evaluation</a>
+                </div>
+              </div>
+            </article>
+            <article class="hormone-bento-card hormone-tone-rose">
+              <div class="hormone-bento-cap">
+                <span>Hormone 02</span>
+              </div>
+              <div class="hormone-bento-badge" aria-hidden="true">HRT</div>
+              <div class="hormone-bento-body">
+                <h3>Bioidentical HRT (Women)</h3>
+                <p>Bioidentical HRT can support estrogen, progesterone, and testosterone optimization with a physician-guided plan and follow-up monitoring.</p>
+                <div class="hormone-bento-footer">
+                  <span class="hormone-bento-price">From $249/mo</span>
+                  <a class="button button-outline" href="index.html#consult">Request evaluation</a>
+                </div>
+              </div>
+            </article>
+            <article class="hormone-bento-card hormone-tone-teal">
+              <div class="hormone-bento-cap">
+                <span>Hormone 03</span>
+              </div>
+              <div class="hormone-bento-badge" aria-hidden="true">Pep</div>
+              <div class="hormone-bento-body">
+                <h3>Peptide Therapy</h3>
+                <p>Peptide protocols may include BPC-157, sermorelin, CJC-1295, ipamorelin, and more, selected based on recovery, sleep, body composition, and performance goals.</p>
+                <div class="hormone-bento-footer">
+                  <span class="hormone-bento-price">From $299/mo</span>
+                  <a class="button button-outline" href="index.html#consult">Request protocol</a>
+                </div>
+              </div>
+            </article>
+            <article class="hormone-bento-card hormone-tone-amber">
+              <div class="hormone-bento-cap">
+                <span>Hormone 04</span>
+              </div>
+              <div class="hormone-bento-badge" aria-hidden="true">T3</div>
+              <div class="hormone-bento-body">
+                <h3>Thyroid Optimization</h3>
+                <p>Thyroid optimization includes T3/T4 protocol management and monitoring for patients with thyroid-related symptoms or abnormal patterns.</p>
+                <div class="hormone-bento-footer">
+                  <span class="hormone-bento-price">From $149/mo</span>
+                  <a class="button button-outline" href="index.html#consult">Request evaluation</a>
+                </div>
+              </div>
+            </article>
+            <article class="hormone-bento-card hormone-tone-forest">
+              <div class="hormone-bento-cap">
+                <span>Hormone 05</span>
+              </div>
+              <div class="hormone-bento-badge" aria-hidden="true">Adr</div>
+              <div class="hormone-bento-body">
+                <h3>Adrenal &amp; Cortisol Reset</h3>
+                <p>A focused assessment and nutraceutical protocol for stress, fatigue, cortisol rhythm, recovery, and resilience goals.</p>
+                <div class="hormone-bento-footer">
+                  <span class="hormone-bento-price">From $249/program</span>
+                  <a class="button button-outline" href="index.html#consult">Request program</a>
+                </div>
+              </div>
+            </article>
+            <article class="hormone-bento-card hormone-tone-violet">
+              <div class="hormone-bento-cap">
+                <span>Hormone 06</span>
+              </div>
+              <div class="hormone-bento-badge" aria-hidden="true">Rx+</div>
+              <div class="hormone-bento-body">
+                <h3>Longevity Supplement Rx</h3>
+                <p>A personalized pharmaceutical-grade supplement protocol designed around your labs, goals, and physician recommendations.</p>
+                <div class="hormone-bento-footer">
+                  <span class="hormone-bento-price">From $99/mo</span>
+                  <a class="button button-outline" href="index.html#consult">Request protocol</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
       <section class="service-detail-cta"><h2>Optimize with oversight.</h2><p>Start with a consult and lab review to see which therapy options fit your goals and health profile.</p><a class="join-button" href="index.html#consult">Request therapy consult</a></section>
     </main>
     <footer class="site-footer-rich">
