@@ -14,10 +14,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260809" />
+    <link rel="stylesheet" href="styles.css?v=20260818" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260809"
+      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260818"
     />
     <script async src="https://js.stripe.com/v3/buy-button.js"></script>
     <style>
@@ -32,7 +32,7 @@
         display: flex;
         align-items: flex-end;
         padding: 132px 0 78px;
-        background: #020202;
+        background: #020202 url("10.jpg") center / cover no-repeat;
         color: #fff;
         overflow: hidden;
       }
@@ -42,26 +42,13 @@
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(circle at 72% 22%, rgba(255, 255, 255, 0.18), transparent 16%),
-          radial-gradient(circle at 25% 46%, rgba(255, 70, 118, 0.24), transparent 18%),
-          linear-gradient(180deg, rgba(0, 0, 0, 0.04), #000 92%),
-          linear-gradient(130deg, #050506, #17171f 46%, #040404);
+          radial-gradient(circle at 72% 22%, rgba(255, 255, 255, 0.12), transparent 16%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.55) 48%, rgba(0, 0, 0, 0.35) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.2), #000 92%);
       }
 
       .longevity-hero::after {
-        content: "";
-        position: absolute;
-        right: 8vw;
-        top: 14vh;
-        width: min(760px, 55vw);
-        height: 440px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 16px;
-        background:
-          repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.12) 0 1px, transparent 1px 82px),
-          linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-        box-shadow: 0 0 120px rgba(255, 255, 255, 0.08);
-        transform: skewY(-2deg);
+        display: none;
       }
 
       .longevity-hero-inner {
@@ -102,17 +89,19 @@
       }
 
       .longevity-hero-panel {
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        border-radius: 18px;
-        background: rgba(255, 255, 255, 0.94);
-        color: #111;
-        padding: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 22px;
+        background: rgba(10, 12, 16, 0.82);
+        backdrop-filter: blur(18px);
+        color: #fff;
+        padding: 32px;
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
       }
 
       .longevity-hero-panel span {
         display: block;
         margin-bottom: 44px;
-        color: #777;
+        color: rgba(212, 169, 106, 0.88);
         font-size: 11px;
         font-weight: 800;
         letter-spacing: 0.22em;
@@ -121,24 +110,31 @@
 
       .longevity-hero-panel h2 {
         margin: 0 0 14px;
+        font-family: "Libre Baskerville", Georgia, serif;
         font-size: 24px;
+        font-weight: 400;
         letter-spacing: -0.035em;
         line-height: 1.12;
       }
 
       .longevity-hero-panel p {
         margin: 0 0 22px;
-        color: #62626a;
+        color: rgba(255, 255, 255, 0.72);
         font-size: 14px;
         line-height: 1.65;
       }
 
       .longevity-hero-panel .price {
-        display: block;
+        display: inline-flex;
+        align-items: center;
         margin-bottom: 18px;
-        font-size: 30px;
-        font-weight: 600;
-        letter-spacing: -0.03em;
+        border-radius: 999px;
+        background: rgba(212, 169, 106, 0.16);
+        color: #e8c992;
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        padding: 10px 14px;
       }
 
       .longevity-hero-panel stripe-buy-button {
@@ -403,8 +399,27 @@
         overflow: hidden;
         min-height: 480px;
         border: 1px solid #d0d3d8;
-        border-radius: 20px;
+        border-radius: 22px;
         background: #f7f7f8;
+        transition: transform 220ms ease, box-shadow 220ms ease;
+        box-shadow: 0 16px 40px rgba(42, 46, 52, 0.08);
+        opacity: 0;
+        transform: translateY(36px);
+      }
+
+      .pillar-card.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 220ms ease;
+      }
+
+      .pillar-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 28px 64px rgba(42, 46, 52, 0.14);
+      }
+
+      .pillar-card.is-visible:hover {
+        transform: translateY(-8px);
       }
 
       .pillar-media,
@@ -525,53 +540,91 @@
         line-height: 1.65;
       }
 
-      .tests-grid {
+      .tests-mosaic-grid {
         display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: 10px;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 16px;
       }
 
-      .test-card {
+      .test-mosaic-card {
         position: relative;
+        grid-column: span 3;
+        min-height: 280px;
         overflow: hidden;
-        min-height: 320px;
-        border: 1px solid #d0d3d8;
         border-radius: 20px;
-        background: #f7f7f8;
-        padding: 0;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        box-shadow: 0 16px 44px rgba(42, 46, 52, 0.1);
+        opacity: 0;
+        transform: translateY(36px) scale(0.98);
+        transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 300ms ease;
       }
 
-      .test-media-mri { background-image: linear-gradient(135deg, #d0d4da, #a0a6b0 55%, #808890); }
-      .test-media-blood { background-image: linear-gradient(135deg, #d8ccd0, #b0a0a4 55%, #908084); }
-      .test-media-vo2 { background-image: linear-gradient(135deg, #c8d4e0, #9eb0c0 55%, #7e909c); }
-      .test-media-dexa { background-image: linear-gradient(135deg, #dcd4c8, #b8b0a4 55%, #989080); }
-      .test-media-cardiac { background-image: linear-gradient(135deg, #d0c8d8, #a8a0b4 55%, #888098); }
-      .test-media-genetic { background-image: linear-gradient(135deg, #c8d8d0, #a0b4a8 55%, #809488); }
-      .test-media-cgm { background-image: linear-gradient(135deg, #dcd8cc, #b8b4a4 55%, #989480); }
-      .test-media-lung { background-image: linear-gradient(135deg, #ccd4dc, #a4b0bc 55%, #84908c); }
-      .test-media-cancer { background-image: linear-gradient(135deg, #d8ccd4, #b0a4ac 55%, #908488); }
-      .test-media-neuro { background-image: linear-gradient(135deg, #d4ccd8, #aca0b4 55%, #8c8090); }
-      .test-media-sleep { background-image: linear-gradient(135deg, #d0d4e0, #a4a8bc 55%, #848898); }
-      .test-media-more { background-image: linear-gradient(135deg, #d8d8d8, #b0b0b0 55%, #909090); }
-
-      .test-copy {
-        position: relative;
-        margin-top: -64px;
-        padding: 0 24px 28px;
-        z-index: 3;
+      .test-mosaic-card.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
       }
 
-      .test-card h3 {
-        margin: 0 0 10px;
-        font-size: 15px;
-        letter-spacing: -0.03em;
+      .test-mosaic-card:hover {
+        box-shadow: 0 24px 56px rgba(42, 46, 52, 0.16);
       }
 
-      .test-card p {
+      .test-mosaic-card-wide {
+        grid-column: span 6;
+        min-height: 300px;
+      }
+
+      .test-mosaic-photo {
+        position: absolute;
+        inset: 0;
+        background: var(--test-photo) center / cover no-repeat;
+        transform: scale(1.08);
+        transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .test-mosaic-card.is-visible .test-mosaic-photo,
+      .test-mosaic-card:hover .test-mosaic-photo {
+        transform: scale(1);
+      }
+
+      .test-mosaic-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(10, 12, 16, 0.05) 0%, rgba(10, 12, 16, 0.45) 42%, rgba(10, 12, 16, 0.9) 100%);
+      }
+
+      .test-mosaic-content {
+        position: absolute;
+        inset: auto 0 0 0;
+        z-index: 1;
+        padding: 20px 20px 18px;
+        color: #fff;
+        transform: translateY(10px);
+        transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .test-mosaic-card.is-visible .test-mosaic-content,
+      .test-mosaic-card:hover .test-mosaic-content {
+        transform: translateY(0);
+      }
+
+      .test-mosaic-content h3 {
+        margin: 0 0 8px;
+        font-size: 1rem;
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+      }
+
+      .test-mosaic-content p {
         margin: 0;
-        color: #666;
-        font-size: 13px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.82rem;
         line-height: 1.55;
+      }
+
+      .tests-grid {
+        display: none;
       }
 
       .impact-expanded {
@@ -676,6 +729,12 @@
         background: #f0f1f3;
         padding: 48px 38px;
         min-height: 300px;
+        transition: transform 220ms ease, box-shadow 220ms ease;
+      }
+
+      .impact-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 48px rgba(42, 46, 52, 0.1);
       }
 
       .impact-card strong {
@@ -693,75 +752,139 @@
       }
 
       .package-final {
-        padding: 140px 0 120px;
-        background: #eceef1;
-        border-top: 1px solid #d8dbe0;
+        padding: 0 0 100px;
+        background: linear-gradient(180deg, #eceef1 0%, #12161d 18%);
       }
 
       .package-final-inner {
         width: min(1180px, calc(100% - 40px));
         margin: 0 auto;
+      }
+
+      .package-spotlight {
+        position: relative;
         display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 28px;
-        align-items: stretch;
+        grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+        min-height: min(520px, 72vh);
+        overflow: hidden;
+        border-radius: 26px;
+        border: 1px solid rgba(212, 169, 106, 0.22);
+        box-shadow: 0 32px 90px rgba(0, 0, 0, 0.38);
       }
 
-      .package-final-copy,
-      .package-final-buy {
-        border: 1px solid #dddfe3;
-        border-radius: 20px;
-        background: #f7f7f8;
-        padding: 40px;
+      .package-spotlight-media {
+        position: relative;
+        min-height: 320px;
+        background: url("clinic.jpg") center / cover no-repeat;
+        transform: scale(1.04);
+        transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
       }
 
-      .package-final-copy > p {
-        color: #7a8088;
+      .package-spotlight:hover .package-spotlight-media {
+        transform: scale(1);
+      }
+
+      .package-spotlight-media::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(18, 22, 29, 0.1) 0%, rgba(18, 22, 29, 0.55) 55%, rgba(18, 22, 29, 0.94) 100%),
+          linear-gradient(180deg, transparent 50%, rgba(18, 22, 29, 0.4) 100%);
+      }
+
+      .package-spotlight-badge {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #b8843f, #d4a96a);
+        color: #1a1410;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 10px 14px;
+        box-shadow: 0 12px 28px rgba(184, 132, 63, 0.35);
+      }
+
+      .package-spotlight-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(32px, 5vw, 52px);
+        background: linear-gradient(180deg, #1f252e 0%, #171c24 100%);
+        color: #fff;
+      }
+
+      .package-spotlight-copy .longevity-label {
+        color: rgba(212, 169, 106, 0.82);
+      }
+
+      .package-spotlight-copy h3 {
+        margin: 0 0 14px;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: clamp(1.75rem, 3vw, 2.35rem);
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+      }
+
+      .package-spotlight-copy > p {
+        margin: 0 0 22px;
+        color: rgba(255, 255, 255, 0.72);
         line-height: 1.7;
-        font-size: 15px;
       }
 
-      .package-final-copy ul {
+      .package-spotlight-copy ul {
         display: grid;
-        gap: 10px;
-        margin: 24px 0 0;
+        gap: 8px;
+        margin: 0 0 28px;
         padding: 0;
         list-style: none;
       }
 
-      .package-final-copy li {
-        color: #7a8088;
-        line-height: 1.62;
-        font-size: 14px;
+      .package-spotlight-copy li {
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 0.9rem;
+        line-height: 1.55;
       }
 
-      .package-final-copy li::before {
+      .package-spotlight-copy li::before {
         content: "+ ";
-        color: #8a8f97;
-        font-weight: 500;
+        color: #e8c992;
+        font-weight: 700;
       }
 
-      .package-final-buy {
+      .package-spotlight-actions {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        background: #ececee;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
       }
 
-      .package-final-buy .price {
-        display: block;
-        margin: 0 0 10px;
-        font-size: clamp(28px, 3.5vw, 40px);
-        font-weight: 450;
-        letter-spacing: -0.025em;
-        color: #5a5e66;
+      .package-spotlight-price {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        background: rgba(212, 169, 106, 0.14);
+        color: #e8c992;
+        font-size: 1.1rem;
+        font-weight: 700;
+        padding: 10px 14px;
       }
 
-      .package-final-buy p {
-        margin: 0 0 24px;
-        color: #7a8088;
-        line-height: 1.65;
+      .package-spotlight-copy .join-button {
+        background: linear-gradient(135deg, #c9a05a, #e8c992);
+        color: #1a1410;
+      }
+
+      .package-final-copy,
+      .package-final-buy {
+        display: none;
       }
 
       .longevity-faq {
@@ -809,9 +932,13 @@
       }
 
       @media (max-width: 1100px) {
-        .method-flow,
-        .tests-grid {
+        .method-flow {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .test-mosaic-card,
+        .test-mosaic-card-wide {
+          grid-column: span 6;
         }
       }
 
@@ -823,19 +950,20 @@
         .longevity-hero-inner,
         .longevity-intro,
         .package-offer,
-        .pillar-grid {
+        .pillar-grid,
+        .package-spotlight {
           grid-template-columns: 1fr;
-        }
-
-        .longevity-hero::after {
-          display: none;
         }
 
         .longevity-stats,
         .method-flow,
-        .tests-grid,
         .impact-grid {
           grid-template-columns: 1fr;
+        }
+
+        .test-mosaic-card,
+        .test-mosaic-card-wide {
+          grid-column: span 12;
         }
 
         .longevity-section {
@@ -844,6 +972,18 @@
 
         .longevity-hero h1 {
           font-size: clamp(32px, 8vw, 48px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .pillar-card,
+        .test-mosaic-card,
+        .test-mosaic-photo,
+        .test-mosaic-content,
+        .package-spotlight-media {
+          opacity: 1;
+          transform: none;
+          transition: none;
         }
       }
     </style>
@@ -1098,78 +1238,54 @@
             </p>
           </div>
 
-          <div class="tests-grid">
-            <article class="test-card">
-              <div class="test-media test-media-mri">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>Whole Body MRI</h3><p>Detects abnormalities across the body.</p></div>
+          <div class="tests-mosaic-grid">
+            <article class="test-mosaic-card test-mosaic-card-wide" style="--test-photo: url('13.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="Whole body MRI"></div>
+              <div class="test-mosaic-content"><h3>Whole Body MRI</h3><p>Detects abnormalities across the body.</p></div>
             </article>
-            <article class="test-card">
-              <div class="test-media test-media-blood">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>Advanced Blood Panel</h3><p>In-depth blood analysis across key biomarkers.</p></div>
+            <article class="test-mosaic-card test-mosaic-card-wide" style="--test-photo: url('7.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="Advanced blood panel"></div>
+              <div class="test-mosaic-content"><h3>Advanced Blood Panel</h3><p>In-depth blood analysis across key biomarkers.</p></div>
             </article>
-            <article class="test-card">
-              <div class="test-media test-media-vo2">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>VO2 Max Testing</h3><p>Measures oxygen uptake and endurance.</p></div>
+            <article class="test-mosaic-card" style="--test-photo: url('metabolichealth.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="VO2 max testing"></div>
+              <div class="test-mosaic-content"><h3>VO2 Max Testing</h3><p>Measures oxygen uptake and endurance.</p></div>
             </article>
-            <article class="test-card">
-              <div class="test-media test-media-dexa">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>DEXA Body Composition</h3><p>Analyzes body fat, muscle, and bone density.</p></div>
+            <article class="test-mosaic-card" style="--test-photo: url('weightloss.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="DEXA body composition"></div>
+              <div class="test-mosaic-content"><h3>DEXA Body Composition</h3><p>Analyzes body fat, muscle, and bone density.</p></div>
             </article>
-            <article class="test-card">
-              <div class="test-media test-media-cardiac">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>CT Coronary Angiography</h3><p>Assesses coronary blockages and heart risk.</p></div>
+            <article class="test-mosaic-card" style="--test-photo: url('heartdisease.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="CT coronary angiography"></div>
+              <div class="test-mosaic-content"><h3>CT Coronary Angiography</h3><p>Assesses coronary blockages and heart risk.</p></div>
             </article>
-            <article class="test-card">
-              <div class="test-media test-media-genetic">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>Hereditary Disease Screening</h3><p>Screens genetic disease risk.</p></div>
+            <article class="test-mosaic-card" style="--test-photo: url('10.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="Hereditary disease screening"></div>
+              <div class="test-mosaic-content"><h3>Hereditary Disease Screening</h3><p>Screens genetic disease risk.</p></div>
             </article>
-            <article class="test-card">
-              <div class="test-media test-media-cgm">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>Continuous Glucose Monitoring</h3><p>Tracks blood sugar continuously.</p></div>
+            <article class="test-mosaic-card" style="--test-photo: url('5.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="Continuous glucose monitoring"></div>
+              <div class="test-mosaic-content"><h3>Continuous Glucose Monitoring</h3><p>Tracks blood sugar continuously.</p></div>
             </article>
-            <article class="test-card">
-              <div class="test-media test-media-lung">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>Low-Dose Lung CT</h3><p>Detects early lung cancer signs.</p></div>
+            <article class="test-mosaic-card" style="--test-photo: url('12.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="Low-dose lung CT"></div>
+              <div class="test-mosaic-content"><h3>Low-Dose Lung CT</h3><p>Detects early lung cancer signs.</p></div>
             </article>
-            <article class="test-card">
-              <div class="test-media test-media-cancer">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>Multi-Cancer Early Detection</h3><p>Detects early signals across cancers.</p></div>
+            <article class="test-mosaic-card" style="--test-photo: url('cancerrisk.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="Multi-cancer early detection"></div>
+              <div class="test-mosaic-content"><h3>Multi-Cancer Early Detection</h3><p>Detects early signals across cancers.</p></div>
             </article>
-            <article class="test-card">
-              <div class="test-media test-media-neuro">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>Neurocognitive Testing</h3><p>Assesses memory and cognition.</p></div>
+            <article class="test-mosaic-card" style="--test-photo: url('neurodeg.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="Neurocognitive testing"></div>
+              <div class="test-mosaic-content"><h3>Neurocognitive Testing</h3><p>Assesses memory and cognition.</p></div>
             </article>
-            <article class="test-card">
-              <div class="test-media test-media-sleep">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>At-Home Sleep Testing</h3><p>Evaluates sleep patterns and quality.</p></div>
+            <article class="test-mosaic-card" style="--test-photo: url('8.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="At-home sleep testing"></div>
+              <div class="test-mosaic-content"><h3>At-Home Sleep Testing</h3><p>Evaluates sleep patterns and quality.</p></div>
             </article>
-            <article class="test-card">
-              <div class="test-media test-media-more">
-                <div class="media-fade"></div>
-              </div>
-              <div class="test-copy"><h3>Up to 30+ Assessments</h3><p>Additional diagnostics selected for your profile.</p></div>
+            <article class="test-mosaic-card test-mosaic-card-wide" style="--test-photo: url('docoffice.jpg')">
+              <div class="test-mosaic-photo" role="img" aria-label="Additional longevity assessments"></div>
+              <div class="test-mosaic-content"><h3>Up to 30+ Assessments</h3><p>Additional diagnostics selected for your profile.</p></div>
             </article>
           </div>
         </div>
@@ -1256,31 +1372,33 @@
 
       <section class="package-final" id="package-offer" aria-labelledby="package-final-heading">
         <div class="package-final-inner">
-          <div class="package-final-copy">
-            <p class="longevity-label">Complete package</p>
-            <h3 id="package-final-heading">Everything included for $3,500</h3>
-            <p>
-              One comprehensive longevity visit with advanced diagnostics, physician
-              review, and a personalized plan to improve and monitor your health.
-            </p>
-            <ul>
-              <li>30+ advanced assessments in a single day</li>
-              <li>Whole-body MRI and advanced blood panel</li>
-              <li>Cardiac imaging and body composition testing</li>
-              <li>1:1 physician-led results review</li>
-              <li>Personalized exercise and nutrition guidance</li>
-              <li>Follow-up testing and biomarker monitoring plan</li>
-            </ul>
-          </div>
-          <div class="package-final-buy">
-            <p class="longevity-label">Buy now</p>
-            <strong class="price">$3,500</strong>
-            <p>Secure your comprehensive longevity assessment and start your preventive care plan today.</p>
-            <stripe-buy-button
-              buy-button-id="buy_btn_1Tn695Gsz6uUXkr8mnAw5NWo"
-              publishable-key="pk_test_51Tn498Gsz6uUXkr8G1XrOv7FILe87af5DnIFs8WDtx1jnR63kONSBeXvCOjutiUbBsj9u4UFemco335dxAe1VRYV00PgA9ze2c"
-            ></stripe-buy-button>
-          </div>
+          <article class="package-spotlight">
+            <div class="package-spotlight-media" role="img" aria-label="Longevity package assessment"></div>
+            <div class="package-spotlight-copy">
+              <p class="longevity-label">Complete package</p>
+              <h3 id="package-final-heading">Everything included for $3,500</h3>
+              <p>
+                One comprehensive longevity visit with advanced diagnostics, physician
+                review, and a personalized plan to improve and monitor your health.
+              </p>
+              <ul>
+                <li>30+ advanced assessments in a single day</li>
+                <li>Whole-body MRI and advanced blood panel</li>
+                <li>Cardiac imaging and body composition testing</li>
+                <li>1:1 physician-led results review</li>
+                <li>Personalized exercise and nutrition guidance</li>
+                <li>Follow-up testing and biomarker monitoring plan</li>
+              </ul>
+              <div class="package-spotlight-actions">
+                <span class="package-spotlight-price">$3,500</span>
+                <stripe-buy-button
+                  buy-button-id="buy_btn_1Tn695Gsz6uUXkr8mnAw5NWo"
+                  publishable-key="pk_test_51Tn498Gsz6uUXkr8G1XrOv7FILe87af5DnIFs8WDtx1jnR63kONSBeXvCOjutiUbBsj9u4UFemco335dxAe1VRYV00PgA9ze2c"
+                ></stripe-buy-button>
+              </div>
+            </div>
+            <span class="package-spotlight-badge">Signature package</span>
+          </article>
         </div>
       </section>
 
@@ -1347,6 +1465,31 @@
           img.parentElement.classList.add("has-image");
         }
       });
+
+      (() => {
+        const revealItems = document.querySelectorAll(".pillar-card, .test-mosaic-card");
+        if (!revealItems.length || !("IntersectionObserver" in window)) {
+          revealItems.forEach((item) => item.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.16, rootMargin: "0px 0px -6% 0px" }
+        );
+
+        revealItems.forEach((item, index) => {
+          item.style.transitionDelay = `${(index % 4) * 70}ms`;
+          observer.observe(item);
+        });
+      })();
     </script>
   </body>
 </html>
