@@ -7,11 +7,236 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260809" />
+    <link rel="stylesheet" href="styles.css?v=20260811" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260809"
+      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260811"
     />
+    <style>
+      .lab-tiles-section {
+        padding: 96px 0 112px;
+        background: #f7f7f8;
+      }
+
+      .lab-tiles-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .lab-tiles-heading {
+        max-width: 720px;
+        margin: 0 auto 48px;
+        text-align: center;
+      }
+
+      .lab-tiles-heading .kicker {
+        margin-bottom: 18px;
+        color: #8a8f97;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+      }
+
+      .lab-tiles-heading h2 {
+        margin: 0 0 16px;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+        color: #4a4e56;
+      }
+
+      .lab-tiles-heading p {
+        margin: 0;
+        color: #7a8088;
+        line-height: 1.75;
+      }
+
+      .lab-tiles-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .lab-tile {
+        position: relative;
+        display: grid;
+        grid-template-columns: 92px minmax(0, 1fr);
+        min-height: 100%;
+        overflow: hidden;
+        border: 1px solid #d0d3d8;
+        border-radius: 16px;
+        background: #fff;
+        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+        box-shadow: 0 10px 28px rgba(42, 46, 52, 0.05);
+      }
+
+      .lab-tile:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 44px rgba(42, 46, 52, 0.11);
+        border-color: var(--lab-border);
+      }
+
+      .lab-tile-featured {
+        grid-column: 1 / -1;
+        grid-template-columns: 120px minmax(0, 1fr);
+      }
+
+      .lab-tile-label {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 22px 16px;
+        background: var(--lab-side);
+        color: #fff;
+      }
+
+      .lab-tile-label span {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        align-self: center;
+      }
+
+      .lab-tile-featured .lab-tile-label span {
+        writing-mode: horizontal-tb;
+        transform: none;
+        align-self: flex-start;
+      }
+
+      .lab-tile-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.18);
+        display: grid;
+        place-items: center;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .lab-tile-body {
+        display: flex;
+        flex-direction: column;
+        padding: 24px 26px 22px;
+      }
+
+      .lab-tile-body h3 {
+        margin: 0 0 10px;
+        font-size: 1.25rem;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+        color: #4a4e56;
+      }
+
+      .lab-tile-featured .lab-tile-body h3 {
+        font-size: 1.55rem;
+      }
+
+      .lab-tile-body p {
+        margin: 0 0 20px;
+        flex: 1;
+        color: #7a8088;
+        font-size: 0.94rem;
+        line-height: 1.7;
+      }
+
+      .lab-tile-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 16px;
+        border-top: 1px solid #e8eaed;
+      }
+
+      .lab-tile-price {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        background: var(--lab-price-bg);
+        color: var(--lab-price-text);
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        padding: 8px 12px;
+      }
+
+      .lab-tile .button {
+        min-height: 38px;
+        padding-inline: 16px;
+        font-size: 0.82rem;
+      }
+
+      .lab-tile-longevity {
+        --lab-side: linear-gradient(180deg, #2f6f8a, #4a9bb5);
+        --lab-border: rgba(47, 111, 138, 0.35);
+        --lab-price-bg: rgba(47, 111, 138, 0.1);
+        --lab-price-text: #2f6f8a;
+      }
+
+      .lab-tile-thyroid {
+        --lab-side: linear-gradient(180deg, #7a5f9b, #a48bc4);
+        --lab-border: rgba(122, 95, 155, 0.35);
+        --lab-price-bg: rgba(122, 95, 155, 0.1);
+        --lab-price-text: #6b5389;
+      }
+
+      .lab-tile-dutch {
+        --lab-side: linear-gradient(180deg, #c46a7d, #e39aab);
+        --lab-border: rgba(196, 106, 125, 0.35);
+        --lab-price-bg: rgba(196, 106, 125, 0.1);
+        --lab-price-text: #a64d62;
+      }
+
+      .lab-tile-gut {
+        --lab-side: linear-gradient(180deg, #3f8f7a, #6bb89f);
+        --lab-border: rgba(63, 143, 122, 0.35);
+        --lab-price-bg: rgba(63, 143, 122, 0.1);
+        --lab-price-text: #357a67;
+      }
+
+      .lab-tile-food {
+        --lab-side: linear-gradient(180deg, #b8843f, #d4a96a);
+        --lab-border: rgba(184, 132, 63, 0.35);
+        --lab-price-bg: rgba(184, 132, 63, 0.12);
+        --lab-price-text: #8a6530;
+      }
+
+      .lab-tile-genetic {
+        --lab-side: linear-gradient(180deg, #4a5d7d, #7084a8);
+        --lab-border: rgba(74, 93, 125, 0.35);
+        --lab-price-bg: rgba(74, 93, 125, 0.1);
+        --lab-price-text: #4a5d7d;
+      }
+
+      @media (max-width: 820px) {
+        .lab-tiles-grid,
+        .lab-tile-featured {
+          grid-template-columns: 1fr;
+        }
+
+        .lab-tile,
+        .lab-tile-featured {
+          grid-template-columns: 72px minmax(0, 1fr);
+        }
+
+        .lab-tile-label span {
+          writing-mode: horizontal-tb;
+          transform: none;
+          align-self: flex-start;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="topbar" id="top">
@@ -50,14 +275,101 @@
 </header>
     <main>
       <section class="service-detail-hero"><div class="service-detail-inner"><div><p class="eyebrow">Diagnostics & Labs</p><h1>Deeper testing to understand risk, function, and prevention.</h1><p>Advanced diagnostics help identify patterns in hormones, inflammation, metabolism, cardiovascular risk, thyroid function, gut health, food sensitivity, genetics, and longevity risk before they become bigger problems.</p></div><aside class="service-detail-note"><span>Why it matters</span><h2>Better data creates better decisions.</h2><p>Labs and diagnostics help personalize your nutrition, exercise, medication, supplement, and follow-up plan.</p><a class="button button-dark" href="index.html#consult">Request testing</a></aside></div></section>
-      <section class="service-scroll-section"><div class="service-scroll-heading"><p class="kicker">Available testing</p><h2>Choose the diagnostic layer you need.</h2><p>Testing can be ordered as a stand-alone service or paired with concierge medicine care.</p></div><div class="service-scroll-list">
-        <article class="service-scroll-item"><div class="service-visual service-bg-1"></div><div class="service-copy"><span>Lab 01</span><h3>Advanced Longevity Panel</h3><p>A broad biomarker panel covering 60+ markers across hormones, inflammation, metabolic health, and cardiovascular risk to support a preventive care plan.</p><strong>From $399/panel</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-2"></div><div class="service-copy"><span>Lab 02</span><h3>Comprehensive Thyroid Panel</h3><p>A deeper thyroid review including TSH, Free T3/T4, reverse T3, and thyroid antibodies to better understand energy, metabolism, and thyroid function.</p><strong>From $199/panel</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-3"></div><div class="service-copy"><span>Lab 03</span><h3>DUTCH Hormone Test</h3><p>A dried urine hormone assessment that evaluates hormone patterns and metabolites for a more complete hormone picture.</p><strong>From $349/test</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-4"></div><div class="service-copy"><span>Lab 04</span><h3>Gut Microbiome Analysis</h3><p>Comprehensive stool testing with actionable insights for gut health, digestion, inflammation, and dietary planning.</p><strong>From $299/test</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-5"></div><div class="service-copy"><span>Lab 05</span><h3>Food Sensitivity Panel</h3><p>IgG testing for 96 common food sensitivities to help guide dietary changes and symptom-focused nutrition planning.</p><strong>From $249/panel</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-6"></div><div class="service-copy"><span>Lab 06</span><h3>Genetic / DNA Analysis</h3><p>Precision health testing for disease risk, pharmacogenomics, longevity traits, and prevention-oriented planning.</p><strong>From $499/test</strong></div></article>
-      </div></section>
+      <section class="lab-tiles-section">
+        <div class="lab-tiles-inner">
+          <div class="lab-tiles-heading">
+            <p class="kicker">Available testing</p>
+            <h2>Choose the diagnostic layer you need.</h2>
+            <p>Testing can be ordered as a stand-alone service or paired with concierge medicine care.</p>
+          </div>
+          <div class="lab-tiles-grid">
+            <article class="lab-tile lab-tile-featured lab-tile-longevity">
+              <div class="lab-tile-label">
+                <span>Lab 01</span>
+                <div class="lab-tile-icon" aria-hidden="true">60+</div>
+              </div>
+              <div class="lab-tile-body">
+                <h3>Advanced Longevity Panel</h3>
+                <p>A broad biomarker panel covering 60+ markers across hormones, inflammation, metabolic health, and cardiovascular risk to support a preventive care plan.</p>
+                <div class="lab-tile-meta">
+                  <span class="lab-tile-price">From $399/panel</span>
+                  <a class="button button-outline" href="index.html#consult">Request panel</a>
+                </div>
+              </div>
+            </article>
+            <article class="lab-tile lab-tile-thyroid">
+              <div class="lab-tile-label">
+                <span>Lab 02</span>
+                <div class="lab-tile-icon" aria-hidden="true">T3</div>
+              </div>
+              <div class="lab-tile-body">
+                <h3>Comprehensive Thyroid Panel</h3>
+                <p>A deeper thyroid review including TSH, Free T3/T4, reverse T3, and thyroid antibodies to better understand energy, metabolism, and thyroid function.</p>
+                <div class="lab-tile-meta">
+                  <span class="lab-tile-price">From $199/panel</span>
+                  <a class="button button-outline" href="index.html#consult">Request panel</a>
+                </div>
+              </div>
+            </article>
+            <article class="lab-tile lab-tile-dutch">
+              <div class="lab-tile-label">
+                <span>Lab 03</span>
+                <div class="lab-tile-icon" aria-hidden="true">H+</div>
+              </div>
+              <div class="lab-tile-body">
+                <h3>DUTCH Hormone Test</h3>
+                <p>A dried urine hormone assessment that evaluates hormone patterns and metabolites for a more complete hormone picture.</p>
+                <div class="lab-tile-meta">
+                  <span class="lab-tile-price">From $349/test</span>
+                  <a class="button button-outline" href="index.html#consult">Request test</a>
+                </div>
+              </div>
+            </article>
+            <article class="lab-tile lab-tile-gut">
+              <div class="lab-tile-label">
+                <span>Lab 04</span>
+                <div class="lab-tile-icon" aria-hidden="true">GI</div>
+              </div>
+              <div class="lab-tile-body">
+                <h3>Gut Microbiome Analysis</h3>
+                <p>Comprehensive stool testing with actionable insights for gut health, digestion, inflammation, and dietary planning.</p>
+                <div class="lab-tile-meta">
+                  <span class="lab-tile-price">From $299/test</span>
+                  <a class="button button-outline" href="index.html#consult">Request test</a>
+                </div>
+              </div>
+            </article>
+            <article class="lab-tile lab-tile-food">
+              <div class="lab-tile-label">
+                <span>Lab 05</span>
+                <div class="lab-tile-icon" aria-hidden="true">96</div>
+              </div>
+              <div class="lab-tile-body">
+                <h3>Food Sensitivity Panel</h3>
+                <p>IgG testing for 96 common food sensitivities to help guide dietary changes and symptom-focused nutrition planning.</p>
+                <div class="lab-tile-meta">
+                  <span class="lab-tile-price">From $249/panel</span>
+                  <a class="button button-outline" href="index.html#consult">Request panel</a>
+                </div>
+              </div>
+            </article>
+            <article class="lab-tile lab-tile-genetic">
+              <div class="lab-tile-label">
+                <span>Lab 06</span>
+                <div class="lab-tile-icon" aria-hidden="true">DNA</div>
+              </div>
+              <div class="lab-tile-body">
+                <h3>Genetic / DNA Analysis</h3>
+                <p>Precision health testing for disease risk, pharmacogenomics, longevity traits, and prevention-oriented planning.</p>
+                <div class="lab-tile-meta">
+                  <span class="lab-tile-price">From $499/test</span>
+                  <a class="button button-outline" href="index.html#consult">Request test</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
       <section class="service-detail-cta"><h2>Start with better data.</h2><p>Use diagnostics to clarify risk, personalize your care plan, and track progress over time.</p><a class="join-button" href="index.html#consult">Request diagnostics</a></section>
     </main>
     <footer class="site-footer-rich">
