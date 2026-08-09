@@ -401,60 +401,102 @@
         color: #5a5e66;
       }
 
-      .card-media {
-        position: relative;
-        min-height: 160px;
-        margin: -36px -36px 24px;
-        overflow: hidden;
-        border-bottom: 1px solid #d0d3d8;
-        background:
-          radial-gradient(circle at 72% 28%, rgba(255, 150, 170, 0.18), transparent 28%),
-          linear-gradient(135deg, #d5d8de, #b8bdc6 55%, #9aa1ab);
-      }
-
-      .card-media img {
-        width: 100%;
-        height: 100%;
-        min-height: 160px;
-        object-fit: cover;
-        display: block;
-      }
-
-      .card-media img[src=""] {
-        display: none;
-      }
-
-      .card-media .media-placeholder {
-        inset: 14px;
-        font-size: 11px;
-      }
-
-      .card-media.has-image .media-placeholder {
-        display: none;
-      }
-
       .membership-card {
         position: relative;
         display: flex;
         flex-direction: column;
-        min-height: 640px;
+        min-height: 580px;
         border: 1px solid #d0d3d8;
         border-radius: 20px;
         background: #f7f7f8;
         padding: 36px;
         overflow: hidden;
+        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+        box-shadow: 0 14px 34px rgba(42, 46, 52, 0.07);
+      }
+
+      .membership-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 6px;
+        background: linear-gradient(90deg, #3eb2c3, #7fd4df);
+      }
+
+      .membership-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 26px 52px rgba(42, 46, 52, 0.14);
       }
 
       .membership-card.popular {
         background:
-          radial-gradient(circle at 100% 0%, rgba(255, 120, 150, 0.1), transparent 32%),
+          linear-gradient(180deg, rgba(62, 178, 195, 0.16) 0%, rgba(62, 178, 195, 0) 32%),
+          radial-gradient(circle at 100% 0%, rgba(62, 178, 195, 0.2), transparent 38%),
           #f7f7f8;
+        border-color: rgba(62, 178, 195, 0.34);
       }
 
-      .membership-card.executive,
-      .membership-card.elite-tier {
+      .membership-card.popular::before {
+        background: linear-gradient(90deg, #2f9faf, #7fd4df, #b8ebf2);
+      }
+
+      .membership-card.popular:hover {
+        border-color: rgba(62, 178, 195, 0.5);
+      }
+
+      .membership-card.tier-executive {
+        background:
+          linear-gradient(180deg, rgba(232, 140, 150, 0.14) 0%, rgba(232, 140, 150, 0) 32%),
+          radial-gradient(circle at 100% 0%, rgba(232, 140, 150, 0.18), transparent 38%),
+          #f7f7f8;
+        border-color: rgba(210, 120, 132, 0.28);
+      }
+
+      .membership-card.tier-executive::before {
+        background: linear-gradient(90deg, #d46478, #f0a0ad, #f7d2d8);
+      }
+
+      .membership-card.tier-executive:hover {
+        border-color: rgba(210, 120, 132, 0.45);
+      }
+
+      .membership-card.executive.elite-tier:not(.tier-elite):not(.tier-family) {
         background: #e3e5e9;
         color: #5a5e66;
+      }
+
+      .membership-card.tier-elite {
+        background:
+          linear-gradient(180deg, rgba(90, 107, 138, 0.18) 0%, rgba(90, 107, 138, 0) 32%),
+          radial-gradient(circle at 100% 0%, rgba(90, 107, 138, 0.22), transparent 38%),
+          #e8ebf2;
+        border-color: rgba(90, 107, 138, 0.3);
+      }
+
+      .membership-card.tier-elite::before {
+        background: linear-gradient(90deg, #4a5d7d, #7a8fb0, #b4c2d8);
+      }
+
+      .membership-card.tier-elite:hover {
+        border-color: rgba(90, 107, 138, 0.48);
+      }
+
+      .membership-card.tier-family {
+        background:
+          linear-gradient(180deg, rgba(196, 154, 98, 0.16) 0%, rgba(196, 154, 98, 0) 32%),
+          radial-gradient(circle at 100% 0%, rgba(196, 154, 98, 0.2), transparent 38%),
+          #f3ece2;
+        border-color: rgba(196, 154, 98, 0.32);
+      }
+
+      .membership-card.tier-family::before {
+        background: linear-gradient(90deg, #b8843f, #d4a96a, #ecd2a8);
+      }
+
+      .membership-card.tier-family:hover {
+        border-color: rgba(196, 154, 98, 0.5);
       }
 
       .badge {
@@ -470,10 +512,25 @@
         text-transform: uppercase;
       }
 
-      .membership-card.executive .badge,
-      .membership-card.elite-tier .badge {
-        background: #d5d8de;
-        color: #6f7680;
+      .membership-card.popular .badge {
+        background: rgba(62, 178, 195, 0.16);
+        color: #2f7f8a;
+      }
+
+      .membership-card.tier-executive .badge {
+        background: rgba(232, 140, 150, 0.16);
+        color: #a64d5d;
+      }
+
+      .membership-card.tier-elite .badge,
+      .membership-card.tier-family .badge {
+        background: rgba(90, 107, 138, 0.14);
+        color: #4a5d7d;
+      }
+
+      .membership-card.tier-family .badge {
+        background: rgba(196, 154, 98, 0.18);
+        color: #8a6530;
       }
 
       .membership-card h3 {
@@ -540,10 +597,26 @@
         color: #7a8088;
       }
 
-      .membership-card.executive .signup-btn,
-      .membership-card.elite-tier .signup-btn {
+      .membership-card.tier-elite .signup-btn,
+      .membership-card.tier-family .signup-btn {
         background: #6f7680;
         color: #fff;
+      }
+
+      .membership-card.popular .signup-btn {
+        background: linear-gradient(135deg, #2f9faf, #3eb2c3);
+      }
+
+      .membership-card.tier-executive .signup-btn {
+        background: linear-gradient(135deg, #c45a6d, #e08a98);
+      }
+
+      .membership-card.tier-elite .signup-btn {
+        background: linear-gradient(135deg, #4a5d7d, #6d82a4);
+      }
+
+      .membership-card.tier-family .signup-btn {
+        background: linear-gradient(135deg, #a87432, #c99a52);
       }
 
       .family-note {
@@ -554,6 +627,11 @@
         color: #5a5e66;
         font-size: 13px;
         line-height: 1.5;
+      }
+
+      .membership-card.tier-family .family-note {
+        background: rgba(196, 154, 98, 0.16);
+        color: #6f5430;
       }
 
       .schedule-section {
@@ -900,9 +978,8 @@
 
       <section class="section">
         <div class="concierge-block">
-          <div class="concierge-visual media-fade">
-            <img src="" alt="Concierge medicine at Live Wellness" />
-            <span class="media-placeholder">Add photo here</span>
+          <div class="concierge-visual has-image">
+            <img src="docoffice.jpg" alt="Concierge medicine at Live Wellness" />
           </div>
           <div class="concierge-copy">
             <p class="label">What is concierge medicine?</p>
@@ -947,11 +1024,7 @@
         </div>
 
         <div class="plan-comparison-all">
-          <article class="membership-card popular">
-            <div class="card-media">
-              <img src="" alt="Premier membership" />
-              <span class="media-placeholder">Add photo</span>
-            </div>
+          <article class="membership-card popular tier-premier">
             <span class="badge">Most popular</span>
             <h3>Premier</h3>
             <p>Expanded access with house calls, biomarkers, and lifestyle coaching.</p>
@@ -970,11 +1043,7 @@
             <a class="signup-btn" href="#schedule-call">Sign up</a>
           </article>
 
-          <article class="membership-card">
-            <div class="card-media">
-              <img src="" alt="Executive membership" />
-              <span class="media-placeholder">Add photo</span>
-            </div>
+          <article class="membership-card tier-executive">
             <h3>Executive</h3>
             <p>Advanced diagnostics, IV therapy, weight loss, and optimization support.</p>
             <div class="price">$800<span>/mo</span></div>
@@ -997,11 +1066,7 @@
             <a class="signup-btn" href="#schedule-call">Sign up</a>
           </article>
 
-          <article class="membership-card executive elite-tier">
-            <div class="card-media">
-              <img src="" alt="Elite membership" />
-              <span class="media-placeholder">Add photo</span>
-            </div>
+          <article class="membership-card executive elite-tier tier-elite">
             <h3>Elite</h3>
             <p>Full-spectrum longevity medicine with deep diagnostics and unlimited access.</p>
             <div class="price">$1,300<span>/mo</span></div>
@@ -1029,11 +1094,7 @@
             <a class="signup-btn" href="#schedule-call">Sign up</a>
           </article>
 
-          <article class="membership-card executive elite-tier">
-            <div class="card-media">
-              <img src="" alt="Family Elite membership" />
-              <span class="media-placeholder">Add photo</span>
-            </div>
+          <article class="membership-card executive elite-tier tier-family">
             <span class="badge">Family plan</span>
             <h3>Family Elite</h3>
             <p>All Elite benefits with coverage for your whole household.</p>
@@ -1171,12 +1232,5 @@
   </div>
 </footer>
     <script src="script.js"></script>
-    <script>
-      document.querySelectorAll(".concierge-visual img, .card-media img").forEach(function (img) {
-        if (img.getAttribute("src") && img.getAttribute("src").trim() !== "") {
-          img.parentElement.classList.add("has-image");
-        }
-      });
-    </script>
   </body>
 </html>
