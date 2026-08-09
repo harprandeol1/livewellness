@@ -9,11 +9,213 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260809" />
+    <link rel="stylesheet" href="styles.css?v=20260814" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260809"
+      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260814"
     />
+    <style>
+      .wl-program-section {
+        padding: 96px 0 112px;
+        background: #f7f7f8;
+      }
+
+      .wl-program-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .wl-program-heading {
+        max-width: 720px;
+        margin: 0 auto 48px;
+        text-align: center;
+      }
+
+      .wl-program-heading .kicker {
+        margin-bottom: 18px;
+        color: #8a8f97;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+      }
+
+      .wl-program-heading h2 {
+        margin: 0 0 16px;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+        color: #4a4e56;
+      }
+
+      .wl-program-heading p {
+        margin: 0;
+        color: #7a8088;
+        line-height: 1.75;
+      }
+
+      .wl-program-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+
+      .wl-program-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        border: 1px solid #d0d3d8;
+        border-radius: 20px;
+        background: #fff;
+        overflow: hidden;
+        transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+        box-shadow: 0 12px 30px rgba(42, 46, 52, 0.06);
+      }
+
+      .wl-program-card::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 72px;
+        height: 72px;
+        background: var(--wl-corner);
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+        opacity: 0.9;
+      }
+
+      .wl-program-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 22px 48px rgba(42, 46, 52, 0.12);
+        border-color: var(--wl-border);
+      }
+
+      .wl-program-index {
+        position: absolute;
+        top: 18px;
+        right: 22px;
+        font-size: 2.75rem;
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.05em;
+        color: var(--wl-index);
+        opacity: 0.18;
+      }
+
+      .wl-program-body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 28px 28px 24px;
+      }
+
+      .wl-program-body span {
+        display: inline-block;
+        margin-bottom: 14px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--wl-label);
+      }
+
+      .wl-program-body h3 {
+        margin: 0 0 12px;
+        padding-right: 48px;
+        font-size: 1.35rem;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+        color: #4a4e56;
+      }
+
+      .wl-program-body p {
+        margin: 0;
+        flex: 1;
+        color: #7a8088;
+        font-size: 0.94rem;
+        line-height: 1.7;
+      }
+
+      .wl-program-track {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 16px 22px;
+        background: var(--wl-track);
+        color: #fff;
+      }
+
+      .wl-program-price {
+        font-size: 0.92rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .wl-program-card .button {
+        min-height: 38px;
+        padding-inline: 16px;
+        font-size: 0.82rem;
+        background: rgba(255, 255, 255, 0.16);
+        border-color: rgba(255, 255, 255, 0.42);
+        color: #fff;
+      }
+
+      .wl-program-card .button:hover {
+        background: #fff;
+        border-color: #fff;
+        color: var(--wl-label);
+      }
+
+      .wl-tone-mint {
+        --wl-corner: linear-gradient(135deg, #3f8f7a, #6bb89f);
+        --wl-track: linear-gradient(90deg, #357a67, #4fa88f);
+        --wl-border: rgba(63, 143, 122, 0.35);
+        --wl-index: #3f8f7a;
+        --wl-label: #357a67;
+      }
+
+      .wl-tone-violet {
+        --wl-corner: linear-gradient(135deg, #6b5ba3, #9a88c8);
+        --wl-track: linear-gradient(90deg, #5f4d8f, #7d6aad);
+        --wl-border: rgba(107, 91, 163, 0.35);
+        --wl-index: #6b5ba3;
+        --wl-label: #5f4d8f;
+      }
+
+      .wl-tone-gold {
+        --wl-corner: linear-gradient(135deg, #b8843f, #d4a96a);
+        --wl-track: linear-gradient(90deg, #9a7030, #c49a52);
+        --wl-border: rgba(184, 132, 63, 0.35);
+        --wl-index: #b8843f;
+        --wl-label: #8a6530;
+      }
+
+      .wl-tone-slate {
+        --wl-corner: linear-gradient(135deg, #4a5d7d, #7084a8);
+        --wl-track: linear-gradient(90deg, #3d4f6b, #5c7396);
+        --wl-border: rgba(74, 93, 125, 0.35);
+        --wl-index: #4a5d7d;
+        --wl-label: #4a5d7d;
+      }
+
+      @media (max-width: 760px) {
+        .wl-program-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .wl-program-section {
+          padding: 72px 0 88px;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="topbar" id="top">
@@ -51,14 +253,85 @@
   </nav>
 </header>
     <main>
-      <section class="service-detail-hero"><div class="service-detail-inner"><div><p class="eyebrow">Weight Loss Programs</p><h1>Physician-guided metabolic care with testing and follow-up.</h1><p>Medical weight loss is used to support sustainable fat loss, metabolic health, appetite regulation, body composition, and long-term behavior change with physician oversight and ongoing monitoring.</p></div><aside class="service-detail-note"><span>Medical oversight</span><h2>More than a prescription.</h2><p>Programs can include labs, medication review, nutrition, exercise, body composition, and monthly check-ins.</p><a class="button button-dark" href="index.html#consult">Request weight loss consult</a></aside></div></section>
-      <section class="service-scroll-section"><div class="service-scroll-heading"><p class="kicker">Weight loss options</p><h2>Choose the right level of metabolic support.</h2><p>Programs are selected based on goals, medical history, labs, and medication candidacy.</p></div><div class="service-scroll-list">
-        <article class="service-scroll-item"><div class="service-visual service-bg-1"></div><div class="service-copy"><span>Weight 01</span><h3>GLP-1 Weight Loss</h3><p>A physician-managed semaglutide protocol with monthly check-ins for appetite regulation, metabolic progress, safety monitoring, and sustainable weight loss planning.</p><strong>From $299/mo</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-2"></div><div class="service-copy"><span>Weight 02</span><h3>Tirzepatide Program</h3><p>A Mounjaro-based medical weight loss program with full monitoring, follow-up, and adjustments based on progress and tolerability.</p><strong>From $349/mo</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-3"></div><div class="service-copy"><span>Weight 03</span><h3>Metabolic Reset Program</h3><p>A 6-week intensive program combining labs, nutrition, exercise, and lifestyle structure to reset habits and support metabolic health.</p><strong>From $799/program</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-4"></div><div class="service-copy"><span>Weight 04</span><h3>Body Composition (DEXA)</h3><p>A scan that reports fat mass, lean mass, and visceral fat to track real body composition changes over time.</p><strong>From $199/scan</strong></div></article>
-      </div></section>
-      <section class="service-detail-cta"><h2>Build a monitored weight loss plan.</h2><p>Pair medication, nutrition, labs, and body composition tracking for safer progress.</p><a class="join-button" href="index.html#consult">Start weight loss care</a></section>
+      <section class="service-detail-hero">
+        <div class="service-detail-inner">
+          <div>
+            <p class="eyebrow">Weight Loss Programs</p>
+            <h1>Physician-guided metabolic care with testing and follow-up.</h1>
+            <p>Medical weight loss is used to support sustainable fat loss, metabolic health, appetite regulation, body composition, and long-term behavior change with physician oversight and ongoing monitoring.</p>
+          </div>
+          <aside class="service-detail-note">
+            <span>Medical oversight</span>
+            <h2>More than a prescription.</h2>
+            <p>Programs can include labs, medication review, nutrition, exercise, body composition, and monthly check-ins.</p>
+            <a class="button button-dark" href="index.html#consult">Request weight loss consult</a>
+          </aside>
+        </div>
+      </section>
+      <section class="wl-program-section">
+        <div class="wl-program-inner">
+          <div class="wl-program-heading">
+            <p class="kicker">Weight loss options</p>
+            <h2>Choose the right level of metabolic support.</h2>
+            <p>Programs are selected based on goals, medical history, labs, and medication candidacy.</p>
+          </div>
+          <div class="wl-program-grid">
+            <article class="wl-program-card wl-tone-mint">
+              <div class="wl-program-index" aria-hidden="true">01</div>
+              <div class="wl-program-body">
+                <span>Weight 01</span>
+                <h3>GLP-1 Weight Loss</h3>
+                <p>A physician-managed semaglutide protocol with monthly check-ins for appetite regulation, metabolic progress, safety monitoring, and sustainable weight loss planning.</p>
+              </div>
+              <div class="wl-program-track">
+                <span class="wl-program-price">From $299/mo</span>
+                <a class="button button-outline" href="index.html#consult">Request consult</a>
+              </div>
+            </article>
+            <article class="wl-program-card wl-tone-violet">
+              <div class="wl-program-index" aria-hidden="true">02</div>
+              <div class="wl-program-body">
+                <span>Weight 02</span>
+                <h3>Tirzepatide Program</h3>
+                <p>A Mounjaro-based medical weight loss program with full monitoring, follow-up, and adjustments based on progress and tolerability.</p>
+              </div>
+              <div class="wl-program-track">
+                <span class="wl-program-price">From $349/mo</span>
+                <a class="button button-outline" href="index.html#consult">Request consult</a>
+              </div>
+            </article>
+            <article class="wl-program-card wl-tone-gold">
+              <div class="wl-program-index" aria-hidden="true">03</div>
+              <div class="wl-program-body">
+                <span>Weight 03</span>
+                <h3>Metabolic Reset Program</h3>
+                <p>A 6-week intensive program combining labs, nutrition, exercise, and lifestyle structure to reset habits and support metabolic health.</p>
+              </div>
+              <div class="wl-program-track">
+                <span class="wl-program-price">From $799/program</span>
+                <a class="button button-outline" href="index.html#consult">Request consult</a>
+              </div>
+            </article>
+            <article class="wl-program-card wl-tone-slate">
+              <div class="wl-program-index" aria-hidden="true">04</div>
+              <div class="wl-program-body">
+                <span>Weight 04</span>
+                <h3>Body Composition (DEXA)</h3>
+                <p>A scan that reports fat mass, lean mass, and visceral fat to track real body composition changes over time.</p>
+              </div>
+              <div class="wl-program-track">
+                <span class="wl-program-price">From $199/scan</span>
+                <a class="button button-outline" href="index.html#consult">Request consult</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section class="service-detail-cta">
+        <h2>Build a monitored weight loss plan.</h2>
+        <p>Pair medication, nutrition, labs, and body composition tracking for safer progress.</p>
+        <a class="join-button" href="index.html#consult">Start weight loss care</a>
+      </section>
     </main>
     <footer class="site-footer-rich">
   <div class="footer-brand">
