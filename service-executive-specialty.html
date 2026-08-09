@@ -7,11 +7,364 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260809" />
+    <link rel="stylesheet" href="styles.css?v=20260817" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260809"
+      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260817"
     />
+    <style>
+      .exec-spotlight {
+        position: relative;
+        margin-top: -1px;
+        padding: 0 0 80px;
+        background: linear-gradient(180deg, #12161d 0%, #1a2028 100%);
+      }
+
+      .exec-spotlight-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .exec-feature-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+        min-height: min(580px, 80vh);
+        overflow: hidden;
+        border-radius: 26px;
+        border: 1px solid rgba(212, 169, 106, 0.22);
+        box-shadow: 0 32px 90px rgba(0, 0, 0, 0.42);
+      }
+
+      .exec-feature-media {
+        position: relative;
+        min-height: 360px;
+        background: url("docoffice.jpg") center / cover no-repeat;
+        transform: scale(1.04);
+        transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .exec-feature-card:hover .exec-feature-media {
+        transform: scale(1);
+      }
+
+      .exec-feature-media::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(18, 22, 29, 0.08) 0%, rgba(18, 22, 29, 0.5) 52%, rgba(18, 22, 29, 0.94) 100%),
+          linear-gradient(180deg, transparent 55%, rgba(18, 22, 29, 0.35) 100%);
+      }
+
+      .exec-feature-badge {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #b8843f, #d4a96a);
+        color: #1a1410;
+        font-size: 0.7rem;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        padding: 10px 14px;
+        box-shadow: 0 12px 28px rgba(184, 132, 63, 0.35);
+      }
+
+      .exec-feature-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(32px, 5vw, 56px);
+        background: linear-gradient(180deg, #1f252e 0%, #171c24 100%);
+        color: #fff;
+      }
+
+      .exec-feature-copy .kicker {
+        margin-bottom: 16px;
+        color: rgba(212, 169, 106, 0.82);
+      }
+
+      .exec-feature-copy h2 {
+        margin: 0 0 16px;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: clamp(2rem, 3.6vw, 2.85rem);
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 1.08;
+      }
+
+      .exec-feature-copy p {
+        margin: 0 0 28px;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.75;
+        max-width: 50ch;
+      }
+
+      .exec-feature-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .exec-feature-price {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        background: rgba(212, 169, 106, 0.14);
+        color: #e8c992;
+        font-size: 0.88rem;
+        font-weight: 700;
+        padding: 10px 14px;
+      }
+
+      .exec-feature-copy .join-button {
+        background: linear-gradient(135deg, #c9a05a, #e8c992);
+        color: #1a1410;
+      }
+
+      .exec-feature-copy .button-dark {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.28);
+        color: #fff;
+      }
+
+      .exec-mosaic-section {
+        padding: 96px 0 112px;
+        background: #f3f2f0;
+      }
+
+      .exec-mosaic-heading {
+        width: min(820px, calc(100% - 40px));
+        margin: 0 auto 52px;
+        text-align: center;
+      }
+
+      .exec-mosaic-heading .kicker {
+        margin-bottom: 18px;
+        color: #8a8f97;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+      }
+
+      .exec-mosaic-heading h2 {
+        margin: 0 0 16px;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+        color: #4a4e56;
+      }
+
+      .exec-mosaic-heading p {
+        margin: 0;
+        color: #7a8088;
+        line-height: 1.75;
+      }
+
+      .exec-mosaic-grid {
+        display: grid;
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+        gap: 18px;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .exec-mosaic-card {
+        position: relative;
+        grid-column: span 4;
+        min-height: 360px;
+        overflow: hidden;
+        border-radius: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        box-shadow: 0 18px 48px rgba(42, 46, 52, 0.12);
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+        transition:
+          opacity 700ms ease,
+          transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+          box-shadow 300ms ease;
+      }
+
+      .exec-mosaic-card.is-visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .exec-mosaic-card:hover {
+        box-shadow: 0 28px 64px rgba(42, 46, 52, 0.18);
+      }
+
+      .exec-mosaic-card-wide {
+        grid-column: span 6;
+      }
+
+      .exec-mosaic-card-feature {
+        grid-column: span 8;
+        min-height: 400px;
+      }
+
+      .exec-mosaic-card-compact {
+        grid-column: span 4;
+      }
+
+      .exec-mosaic-photo {
+        position: absolute;
+        inset: 0;
+        background: var(--exec-photo) center / cover no-repeat;
+        transform: scale(1.08);
+        transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .exec-mosaic-card.is-visible .exec-mosaic-photo,
+      .exec-mosaic-card:hover .exec-mosaic-photo {
+        transform: scale(1);
+      }
+
+      .exec-mosaic-photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(18, 22, 29, 0.08) 0%, rgba(18, 22, 29, 0.42) 42%, rgba(18, 22, 29, 0.9) 100%);
+      }
+
+      .exec-mosaic-content {
+        position: absolute;
+        inset: auto 0 0 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 24px 24px 22px;
+        color: #fff;
+        transform: translateY(12px);
+        transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .exec-mosaic-card.is-visible .exec-mosaic-content,
+      .exec-mosaic-card:hover .exec-mosaic-content {
+        transform: translateY(0);
+      }
+
+      .exec-mosaic-content span {
+        margin-bottom: 10px;
+        font-size: 0.66rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.62);
+      }
+
+      .exec-mosaic-content h3 {
+        margin: 0 0 10px;
+        font-size: clamp(1.2rem, 2vw, 1.55rem);
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+      }
+
+      .exec-mosaic-content p {
+        margin: 0 0 18px;
+        color: rgba(255, 255, 255, 0.78);
+        font-size: 0.92rem;
+        line-height: 1.65;
+      }
+
+      .exec-mosaic-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: auto;
+      }
+
+      .exec-mosaic-price {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        font-size: 0.8rem;
+        font-weight: 700;
+        padding: 8px 12px;
+      }
+
+      .exec-mosaic-content .button {
+        min-height: 36px;
+        padding-inline: 14px;
+        font-size: 0.78rem;
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.35);
+        color: #fff;
+      }
+
+      .exec-mosaic-content .button:hover {
+        background: #fff;
+        border-color: #fff;
+        color: #4a4e56;
+      }
+
+      @media (max-width: 1024px) {
+        .exec-mosaic-card,
+        .exec-mosaic-card-wide,
+        .exec-mosaic-card-feature,
+        .exec-mosaic-card-compact {
+          grid-column: span 6;
+          min-height: 340px;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .exec-feature-card {
+          grid-template-columns: 1fr;
+        }
+
+        .exec-feature-media {
+          min-height: 260px;
+        }
+
+        .exec-feature-media::before {
+          background: linear-gradient(180deg, rgba(18, 22, 29, 0.1) 0%, rgba(18, 22, 29, 0.92) 100%);
+        }
+
+        .exec-mosaic-card,
+        .exec-mosaic-card-wide,
+        .exec-mosaic-card-feature,
+        .exec-mosaic-card-compact {
+          grid-column: span 12;
+          min-height: 320px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .exec-spotlight {
+          padding-bottom: 56px;
+        }
+
+        .exec-mosaic-section {
+          padding: 72px 0 88px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .exec-feature-media,
+        .exec-mosaic-card,
+        .exec-mosaic-photo,
+        .exec-mosaic-content {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="topbar" id="top">
@@ -49,16 +402,116 @@
   </nav>
 </header>
     <main>
-      <section class="service-detail-hero"><div class="service-detail-inner"><div><p class="eyebrow">Executive & Specialty</p><h1>Advanced assessments for performance, cognition, sleep, and longevity.</h1><p>Executive and specialty services provide deeper insight through comprehensive physicals, performance testing, metabolic tracking, sleep studies, cognitive health assessments, and root-cause functional medicine workups.</p></div><aside class="service-detail-note"><span>Deep diagnostics</span><h2>For patients who want the bigger picture.</h2><p>These services can be used one time or layered into an ongoing concierge medicine plan.</p><a class="button button-dark" href="index.html#consult">Request specialty care</a></aside></div></section>
-      <section class="service-scroll-section"><div class="service-scroll-heading"><p class="kicker">Specialty options</p><h2>Choose deeper performance and health insight.</h2><p>Specialty services are useful for prevention, performance, biological age, metabolic insight, sleep, and cognitive clarity.</p></div><div class="service-scroll-list">
-        <article class="service-scroll-item"><div class="service-visual service-bg-1"></div><div class="service-copy"><span>Specialty 01</span><h3>Executive Physical</h3><p>A half-day comprehensive workup with physician-led debrief, designed for patients who want a deeper snapshot of health and risk.</p><strong>From $995 one-time</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-2"></div><div class="service-copy"><span>Specialty 02</span><h3>VO2 Max Testing</h3><p>A cardiorespiratory fitness and biological age assessment that helps guide training, performance, and longevity planning.</p><strong>From $249/test</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-3"></div><div class="service-copy"><span>Specialty 03</span><h3>Continuous Glucose Monitor</h3><p>A 14-day CGM cycle with physician review to identify glucose patterns, meal responses, and metabolic opportunities.</p><strong>From $199/cycle</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-4"></div><div class="service-copy"><span>Specialty 04</span><h3>Sleep Study</h3><p>At-home sleep apnea testing with results review to support sleep quality, energy, recovery, and cardiovascular risk management.</p><strong>From $249/study</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-5"></div><div class="service-copy"><span>Specialty 05</span><h3>Cognitive & Brain Health Panel</h3><p>An assessment for memory, focus, cognitive performance, and neurodegenerative risk to inform a brain-health plan.</p><strong>From $349/assessment</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-6"></div><div class="service-copy"><span>Specialty 06</span><h3>Functional Medicine Deep-Dive</h3><p>A 90-minute intake plus full root-cause workup plan for patients who want a deeper evaluation of complex symptoms.</p><strong>From $499 one-time</strong></div></article>
-      </div></section>
-      <section class="service-detail-cta"><h2>Take a deeper look.</h2><p>Choose an executive or specialty assessment and review results with a physician-led plan.</p><a class="join-button" href="index.html#consult">Request specialty consult</a></section>
+      <section class="service-detail-hero">
+        <div class="service-detail-inner">
+          <div>
+            <p class="eyebrow">Executive &amp; Specialty</p>
+            <h1>Advanced assessments for performance, cognition, sleep, and longevity.</h1>
+            <p>Executive and specialty services provide deeper insight through comprehensive physicals, performance testing, metabolic tracking, sleep studies, cognitive health assessments, and root-cause functional medicine workups.</p>
+          </div>
+          <aside class="service-detail-note">
+            <span>Deep diagnostics</span>
+            <h2>For patients who want the bigger picture.</h2>
+            <p>These services can be used one time or layered into an ongoing concierge medicine plan.</p>
+            <a class="button button-dark" href="index.html#consult">Request specialty care</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="exec-spotlight" aria-labelledby="exec-feature-title">
+        <div class="exec-spotlight-inner">
+          <article class="exec-feature-card">
+            <div class="exec-feature-media" role="img" aria-label="Executive physical consultation"></div>
+            <div class="exec-feature-copy">
+              <p class="kicker">Flagship assessment</p>
+              <h2 id="exec-feature-title">Executive Physical</h2>
+              <p>A half-day comprehensive workup with physician-led debrief, designed for patients who want a deeper snapshot of health, risk, and performance — the foundation of proactive executive care.</p>
+              <div class="exec-feature-actions">
+                <span class="exec-feature-price">From $995 one-time</span>
+                <a class="join-button" href="index.html#consult">Book executive physical</a>
+                <a class="button button-dark" href="index.html#consult">Request consult</a>
+              </div>
+            </div>
+            <span class="exec-feature-badge">Signature service</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="exec-mosaic-section">
+        <div class="exec-mosaic-heading">
+          <p class="kicker">Specialty options</p>
+          <h2>Layer deeper insight into your plan.</h2>
+          <p>Performance, metabolic, sleep, cognitive, and root-cause assessments for prevention and optimization.</p>
+        </div>
+        <div class="exec-mosaic-grid">
+          <article class="exec-mosaic-card exec-mosaic-card-feature" style="--exec-photo: url('metabolichealth.jpg')">
+            <div class="exec-mosaic-photo" role="img" aria-label="VO2 max performance testing"></div>
+            <div class="exec-mosaic-content">
+              <span>Specialty 02</span>
+              <h3>VO2 Max Testing</h3>
+              <p>A cardiorespiratory fitness and biological age assessment that helps guide training, performance, and longevity planning.</p>
+              <div class="exec-mosaic-meta">
+                <span class="exec-mosaic-price">From $249/test</span>
+                <a class="button button-outline" href="index.html#consult">Request test</a>
+              </div>
+            </div>
+          </article>
+          <article class="exec-mosaic-card exec-mosaic-card-compact" style="--exec-photo: url('10.jpg')">
+            <div class="exec-mosaic-photo" role="img" aria-label="Continuous glucose monitoring"></div>
+            <div class="exec-mosaic-content">
+              <span>Specialty 03</span>
+              <h3>Continuous Glucose Monitor</h3>
+              <p>A 14-day CGM cycle with physician review to identify glucose patterns and metabolic opportunities.</p>
+              <div class="exec-mosaic-meta">
+                <span class="exec-mosaic-price">From $199/cycle</span>
+                <a class="button button-outline" href="index.html#consult">Request CGM</a>
+              </div>
+            </div>
+          </article>
+          <article class="exec-mosaic-card exec-mosaic-card-compact" style="--exec-photo: url('12.jpg')">
+            <div class="exec-mosaic-photo" role="img" aria-label="At-home sleep study"></div>
+            <div class="exec-mosaic-content">
+              <span>Specialty 04</span>
+              <h3>Sleep Study</h3>
+              <p>At-home sleep apnea testing with results review to support sleep quality, energy, recovery, and cardiovascular risk.</p>
+              <div class="exec-mosaic-meta">
+                <span class="exec-mosaic-price">From $249/study</span>
+                <a class="button button-outline" href="index.html#consult">Request study</a>
+              </div>
+            </div>
+          </article>
+          <article class="exec-mosaic-card exec-mosaic-card-wide" style="--exec-photo: url('neurodeg.jpg')">
+            <div class="exec-mosaic-photo" role="img" aria-label="Cognitive and brain health assessment"></div>
+            <div class="exec-mosaic-content">
+              <span>Specialty 05</span>
+              <h3>Cognitive &amp; Brain Health Panel</h3>
+              <p>An assessment for memory, focus, cognitive performance, and neurodegenerative risk to inform a brain-health plan.</p>
+              <div class="exec-mosaic-meta">
+                <span class="exec-mosaic-price">From $349/assessment</span>
+                <a class="button button-outline" href="index.html#consult">Request assessment</a>
+              </div>
+            </div>
+          </article>
+          <article class="exec-mosaic-card exec-mosaic-card-wide" style="--exec-photo: url('regenerative.jpg')">
+            <div class="exec-mosaic-photo" role="img" aria-label="Functional medicine deep dive"></div>
+            <div class="exec-mosaic-content">
+              <span>Specialty 06</span>
+              <h3>Functional Medicine Deep-Dive</h3>
+              <p>A 90-minute intake plus full root-cause workup plan for patients who want a deeper evaluation of complex symptoms.</p>
+              <div class="exec-mosaic-meta">
+                <span class="exec-mosaic-price">From $499 one-time</span>
+                <a class="button button-outline" href="index.html#consult">Request workup</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="service-detail-cta">
+        <h2>Take a deeper look.</h2>
+        <p>Choose an executive or specialty assessment and review results with a physician-led plan.</p>
+        <a class="join-button" href="index.html#consult">Request specialty consult</a>
+      </section>
     </main>
     <footer class="site-footer-rich">
   <div class="footer-brand">
@@ -106,5 +559,31 @@
   </div>
 </footer>
     <script src="script.js"></script>
+    <script>
+      (() => {
+        const cards = document.querySelectorAll(".exec-mosaic-card");
+        if (!cards.length || !("IntersectionObserver" in window)) {
+          cards.forEach((card) => card.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.18, rootMargin: "0px 0px -6% 0px" }
+        );
+
+        cards.forEach((card, index) => {
+          card.style.transitionDelay = `${index * 80}ms`;
+          observer.observe(card);
+        });
+      })();
+    </script>
   </body>
 </html>
