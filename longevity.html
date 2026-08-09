@@ -454,8 +454,7 @@
         z-index: 1;
       }
 
-      .pillar-media.has-image .media-placeholder,
-      .test-media.has-image .media-placeholder {
+      .pillar-media.has-image .media-placeholder {
         display: none;
       }
 
@@ -468,8 +467,7 @@
         z-index: 2;
       }
 
-      .pillar-media.has-image,
-      .test-media.has-image {
+      .pillar-media.has-image {
         background-image: none;
       }
 
@@ -1102,96 +1100,72 @@
           <div class="tests-grid">
             <article class="test-card">
               <div class="test-media test-media-mri">
-                <img src="" alt="Whole Body MRI" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>Whole Body MRI</h3><p>Detects abnormalities across the body.</p></div>
             </article>
             <article class="test-card">
               <div class="test-media test-media-blood">
-                <img src="" alt="Advanced Blood Panel" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>Advanced Blood Panel</h3><p>In-depth blood analysis across key biomarkers.</p></div>
             </article>
             <article class="test-card">
               <div class="test-media test-media-vo2">
-                <img src="" alt="VO2 Max Testing" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>VO2 Max Testing</h3><p>Measures oxygen uptake and endurance.</p></div>
             </article>
             <article class="test-card">
               <div class="test-media test-media-dexa">
-                <img src="" alt="DEXA Body Composition" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>DEXA Body Composition</h3><p>Analyzes body fat, muscle, and bone density.</p></div>
             </article>
             <article class="test-card">
               <div class="test-media test-media-cardiac">
-                <img src="" alt="CT Coronary Angiography" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>CT Coronary Angiography</h3><p>Assesses coronary blockages and heart risk.</p></div>
             </article>
             <article class="test-card">
               <div class="test-media test-media-genetic">
-                <img src="" alt="Hereditary Disease Screening" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>Hereditary Disease Screening</h3><p>Screens genetic disease risk.</p></div>
             </article>
             <article class="test-card">
               <div class="test-media test-media-cgm">
-                <img src="" alt="Continuous Glucose Monitoring" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>Continuous Glucose Monitoring</h3><p>Tracks blood sugar continuously.</p></div>
             </article>
             <article class="test-card">
               <div class="test-media test-media-lung">
-                <img src="" alt="Low-Dose Lung CT" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>Low-Dose Lung CT</h3><p>Detects early lung cancer signs.</p></div>
             </article>
             <article class="test-card">
               <div class="test-media test-media-cancer">
-                <img src="" alt="Multi-Cancer Early Detection" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>Multi-Cancer Early Detection</h3><p>Detects early signals across cancers.</p></div>
             </article>
             <article class="test-card">
               <div class="test-media test-media-neuro">
-                <img src="" alt="Neurocognitive Testing" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>Neurocognitive Testing</h3><p>Assesses memory and cognition.</p></div>
             </article>
             <article class="test-card">
               <div class="test-media test-media-sleep">
-                <img src="" alt="At-Home Sleep Testing" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>At-Home Sleep Testing</h3><p>Evaluates sleep patterns and quality.</p></div>
             </article>
             <article class="test-card">
               <div class="test-media test-media-more">
-                <img src="" alt="Up to 30+ Assessments" />
-                <span class="media-placeholder">Add photo</span>
                 <div class="media-fade"></div>
               </div>
               <div class="test-copy"><h3>Up to 30+ Assessments</h3><p>Additional diagnostics selected for your profile.</p></div>
@@ -1367,7 +1341,7 @@
 </footer>
     <script src="script.js"></script>
     <script>
-      document.querySelectorAll(".pillar-media img, .test-media img").forEach(function (img) {
+      document.querySelectorAll(".pillar-media img").forEach(function (img) {
         if (img.getAttribute("src") && img.getAttribute("src").trim() !== "") {
           img.parentElement.classList.add("has-image");
         }
