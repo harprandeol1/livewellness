@@ -7,11 +7,374 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260809" />
+    <link rel="stylesheet" href="styles.css?v=20260816" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260809"
+      href="https://cdn.jsdelivr.net/gh/harprandeol1/livewellness@main/styles.css?v=20260816"
     />
+    <style>
+      .hc-urgent-spotlight {
+        position: relative;
+        margin-top: -1px;
+        padding: 0 0 72px;
+        background: #0d1f28;
+      }
+
+      .hc-urgent-spotlight-inner {
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .hc-urgent-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+        min-height: min(560px, 78vh);
+        overflow: hidden;
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 28px 80px rgba(0, 0, 0, 0.35);
+      }
+
+      .hc-urgent-media {
+        position: relative;
+        min-height: 360px;
+        background: url("clinic.jpg") center / cover no-repeat;
+      }
+
+      .hc-urgent-media::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(13, 31, 40, 0.15) 0%, rgba(13, 31, 40, 0.55) 55%, rgba(13, 31, 40, 0.92) 100%),
+          linear-gradient(180deg, transparent 40%, rgba(13, 31, 40, 0.45) 100%);
+      }
+
+      .hc-urgent-badge {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border-radius: 999px;
+        background: rgba(220, 72, 72, 0.92);
+        color: #fff;
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 10px 14px;
+        box-shadow: 0 10px 28px rgba(220, 72, 72, 0.35);
+      }
+
+      .hc-urgent-badge::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #fff;
+        animation: hc-pulse 1.4s ease-in-out infinite;
+      }
+
+      @keyframes hc-pulse {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        50% {
+          opacity: 0.45;
+          transform: scale(0.82);
+        }
+      }
+
+      .hc-urgent-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(32px, 5vw, 56px);
+        background: linear-gradient(180deg, #122733 0%, #0d1f28 100%);
+        color: #fff;
+      }
+
+      .hc-urgent-copy .kicker {
+        margin-bottom: 16px;
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      .hc-urgent-copy h2 {
+        margin: 0 0 16px;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 1.1;
+      }
+
+      .hc-urgent-copy p {
+        margin: 0 0 28px;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.75;
+        max-width: 52ch;
+      }
+
+      .hc-urgent-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .hc-urgent-price {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 0.88rem;
+        font-weight: 700;
+        padding: 10px 14px;
+      }
+
+      .hc-urgent-copy .join-button {
+        background: #fff;
+        color: #0d1f28;
+      }
+
+      .hc-urgent-copy .button-dark {
+        background: transparent;
+        border-color: rgba(255, 255, 255, 0.35);
+        color: #fff;
+      }
+
+      .hc-reveal-section {
+        padding: 88px 0 112px;
+        background: #f7f7f8;
+      }
+
+      .hc-reveal-heading {
+        width: min(820px, calc(100% - 40px));
+        margin: 0 auto 56px;
+        text-align: center;
+      }
+
+      .hc-reveal-heading .kicker {
+        margin-bottom: 18px;
+        color: #8a8f97;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.42em;
+        text-transform: uppercase;
+      }
+
+      .hc-reveal-heading h2 {
+        margin: 0 0 16px;
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 400;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+        color: #4a4e56;
+      }
+
+      .hc-reveal-heading p {
+        margin: 0;
+        color: #7a8088;
+        line-height: 1.75;
+      }
+
+      .hc-reveal-list {
+        display: grid;
+        gap: 96px;
+        width: min(1180px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .hc-reveal-item {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.72fr);
+        gap: 0;
+        align-items: stretch;
+        opacity: 0;
+        transform: translateY(48px);
+        transition: opacity 700ms ease, transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .hc-reveal-item.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .hc-reveal-item:nth-child(even) {
+        grid-template-columns: minmax(340px, 0.72fr) minmax(0, 1fr);
+      }
+
+      .hc-reveal-item:nth-child(even) .hc-reveal-media {
+        order: 2;
+      }
+
+      .hc-reveal-media {
+        position: relative;
+        min-height: min(520px, 62vh);
+        overflow: hidden;
+        border-radius: 22px;
+        background: var(--hc-photo) center / cover no-repeat;
+        box-shadow: 0 24px 60px rgba(42, 46, 52, 0.14);
+        transform: scale(1.06);
+        transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      .hc-reveal-item.is-visible .hc-reveal-media {
+        transform: scale(1);
+      }
+
+      .hc-reveal-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent 0 38%, rgba(247, 247, 248, 0.82) 72%, #f7f7f8 100%);
+        pointer-events: none;
+      }
+
+      .hc-reveal-item:nth-child(even) .hc-reveal-media::after {
+        background: linear-gradient(270deg, transparent 0 38%, rgba(247, 247, 248, 0.82) 72%, #f7f7f8 100%);
+      }
+
+      .hc-reveal-copy {
+        position: relative;
+        z-index: 1;
+        align-self: center;
+        margin: 0 -48px;
+        padding: clamp(28px, 4vw, 44px);
+        border: 1px solid #d8dbe0;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.94);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 18px 48px rgba(42, 46, 52, 0.1);
+        transform: translateY(28px);
+        transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1) 120ms, box-shadow 700ms ease 120ms;
+      }
+
+      .hc-reveal-item.is-visible .hc-reveal-copy {
+        transform: translateY(0);
+        box-shadow: 0 28px 64px rgba(42, 46, 52, 0.14);
+      }
+
+      .hc-reveal-copy span {
+        display: block;
+        margin-bottom: 18px;
+        color: #8a8f97;
+        font-size: 0.68rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .hc-reveal-copy h3 {
+        margin: 0 0 14px;
+        font-size: clamp(1.45rem, 2.5vw, 2rem);
+        font-weight: 500;
+        letter-spacing: -0.03em;
+        line-height: 1.12;
+        color: #4a4e56;
+      }
+
+      .hc-reveal-copy p {
+        margin: 0 0 22px;
+        color: #7a8088;
+        line-height: 1.75;
+      }
+
+      .hc-reveal-meta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .hc-reveal-price {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        background: #ececee;
+        color: #4a4e56;
+        font-size: 0.84rem;
+        font-weight: 700;
+        padding: 10px 14px;
+      }
+
+      .hc-reveal-copy .button {
+        min-height: 40px;
+      }
+
+      @media (max-width: 960px) {
+        .hc-urgent-card {
+          grid-template-columns: 1fr;
+        }
+
+        .hc-urgent-media {
+          min-height: 280px;
+        }
+
+        .hc-urgent-media::before {
+          background:
+            linear-gradient(180deg, rgba(13, 31, 40, 0.1) 0%, rgba(13, 31, 40, 0.88) 100%);
+        }
+
+        .hc-reveal-item,
+        .hc-reveal-item:nth-child(even) {
+          grid-template-columns: 1fr;
+        }
+
+        .hc-reveal-item:nth-child(even) .hc-reveal-media {
+          order: 0;
+        }
+
+        .hc-reveal-media {
+          min-height: 280px;
+        }
+
+        .hc-reveal-media::after,
+        .hc-reveal-item:nth-child(even) .hc-reveal-media::after {
+          background: linear-gradient(180deg, transparent 0 42%, rgba(247, 247, 248, 0.88) 78%, #f7f7f8 100%);
+        }
+
+        .hc-reveal-copy {
+          margin: -42px 18px 0;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hc-urgent-spotlight {
+          padding-bottom: 56px;
+        }
+
+        .hc-reveal-section {
+          padding: 72px 0 88px;
+        }
+
+        .hc-reveal-list {
+          gap: 64px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hc-reveal-item,
+        .hc-reveal-media,
+        .hc-reveal-copy,
+        .hc-urgent-badge::before {
+          opacity: 1;
+          transform: none;
+          transition: none;
+          animation: none;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="topbar" id="top">
@@ -49,14 +412,92 @@
   </nav>
 </header>
     <main>
-      <section class="service-detail-hero"><div class="service-detail-inner"><div><p class="eyebrow">House Calls & Urgent Care</p><h1>Care at home, at the office, or before you travel.</h1><p>House calls and urgent care services bring physician visits, lab draws, cardiac rhythm checks, and travel medicine planning into a more convenient model when waiting rooms do not fit your life.</p></div><aside class="service-detail-note"><span>Convenience</span><h2>Medical care where you are.</h2><p>Use these services for same-day needs, travel preparation, at-home testing, or additional support outside routine visits.</p><a class="button button-dark" href="index.html#consult">Request house call</a></aside></div></section>
-      <section class="service-scroll-section"><div class="service-scroll-heading"><p class="kicker">Available urgent services</p><h2>Choose in-home or travel support.</h2><p>Some services are included in higher concierge tiers and also available a la carte.</p></div><div class="service-scroll-list">
-        <article class="service-scroll-item"><div class="service-visual service-bg-1"></div><div class="service-copy"><span>Urgent 01</span><h3>Urgent Care House Call</h3><p>A same-day physician visit to your home or office for urgent needs that can be safely evaluated outside the clinic.</p><strong>From $350/visit</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-2"></div><div class="service-copy"><span>Urgent 02</span><h3>In-Home Lab Draw</h3><p>A phlebotomist comes to your home to draw labs for any panel, reducing friction and making diagnostic follow-through easier.</p><strong>From $99 + lab costs</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-3"></div><div class="service-copy"><span>Urgent 03</span><h3>Mobile EKG</h3><p>An in-home cardiac rhythm assessment for selected symptoms, monitoring needs, or physician-directed evaluation.</p><strong>From $149/visit</strong></div></article>
-        <article class="service-scroll-item"><div class="service-visual service-bg-4"></div><div class="service-copy"><span>Urgent 04</span><h3>Travel Medicine Consult</h3><p>A pre-trip consult for vaccines, destination risks, medications, prevention planning, and travel health clearance.</p><strong>From $199/consult</strong></div></article>
-      </div></section>
-      <section class="service-detail-cta"><h2>Get care without the waiting room.</h2><p>Schedule a house call, mobile diagnostic service, or travel consult based on your needs.</p><a class="join-button" href="index.html#consult">Request urgent care</a></section>
+      <section class="service-detail-hero">
+        <div class="service-detail-inner">
+          <div>
+            <p class="eyebrow">House Calls &amp; Urgent Care</p>
+            <h1>Same-day physician care at home — without the waiting room.</h1>
+            <p>When you need urgent evaluation, a house call brings physician-led care to your home or office. We also offer mobile labs, EKG, and travel medicine for members who want care on their schedule.</p>
+          </div>
+          <aside class="service-detail-note">
+            <span>Urgent access</span>
+            <h2>Priority response when symptoms cannot wait.</h2>
+            <p>Concierge members receive same-day house call access on eligible tiers. All patients can request urgent in-home evaluation when clinically appropriate.</p>
+            <a class="button button-dark" href="tel:+19169642003">Call for urgent care</a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="hc-urgent-spotlight" aria-labelledby="hc-urgent-title">
+        <div class="hc-urgent-spotlight-inner">
+          <article class="hc-urgent-card">
+            <div class="hc-urgent-media" role="img" aria-label="Physician providing urgent care"></div>
+            <div class="hc-urgent-copy">
+              <p class="kicker">Priority service</p>
+              <h2 id="hc-urgent-title">Urgent Care House Call</h2>
+              <p>A same-day physician visit to your home or office for urgent needs that can be safely evaluated outside the clinic — fevers, infections, acute symptoms, medication issues, and more.</p>
+              <div class="hc-urgent-actions">
+                <span class="hc-urgent-price">From $350/visit</span>
+                <a class="join-button" href="tel:+19169642003">Call now for same-day care</a>
+                <a class="button button-dark" href="index.html#consult">Request house call</a>
+              </div>
+            </div>
+            <span class="hc-urgent-badge">Same-day urgent</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="hc-reveal-section">
+        <div class="hc-reveal-heading">
+          <p class="kicker">Additional mobile services</p>
+          <h2>Support beyond the urgent visit.</h2>
+          <p>Pair your house call with in-home diagnostics, cardiac checks, or travel planning.</p>
+        </div>
+        <div class="hc-reveal-list">
+          <article class="hc-reveal-item" style="--hc-photo: url('7.jpg')">
+            <div class="hc-reveal-media" role="img" aria-label="In-home lab draw"></div>
+            <div class="hc-reveal-copy">
+              <span>Mobile 02</span>
+              <h3>In-Home Lab Draw</h3>
+              <p>A phlebotomist comes to your home to draw labs for any panel, reducing friction and making diagnostic follow-through easier after an urgent visit or routine check-in.</p>
+              <div class="hc-reveal-meta">
+                <span class="hc-reveal-price">From $99 + lab costs</span>
+                <a class="button button-outline" href="index.html#consult">Request lab draw</a>
+              </div>
+            </div>
+          </article>
+          <article class="hc-reveal-item" style="--hc-photo: url('heartdisease.jpg')">
+            <div class="hc-reveal-media" role="img" aria-label="Mobile cardiac rhythm check"></div>
+            <div class="hc-reveal-copy">
+              <span>Mobile 03</span>
+              <h3>Mobile EKG</h3>
+              <p>An in-home cardiac rhythm assessment for selected symptoms, monitoring needs, or physician-directed evaluation — ideal when leaving home is difficult.</p>
+              <div class="hc-reveal-meta">
+                <span class="hc-reveal-price">From $149/visit</span>
+                <a class="button button-outline" href="index.html#consult">Request EKG</a>
+              </div>
+            </div>
+          </article>
+          <article class="hc-reveal-item" style="--hc-photo: url('14.jpg')">
+            <div class="hc-reveal-media" role="img" aria-label="Travel medicine consult"></div>
+            <div class="hc-reveal-copy">
+              <span>Mobile 04</span>
+              <h3>Travel Medicine Consult</h3>
+              <p>A pre-trip consult for vaccines, destination risks, medications, prevention planning, and travel health clearance before you leave.</p>
+              <div class="hc-reveal-meta">
+                <span class="hc-reveal-price">From $199/consult</span>
+                <a class="button button-outline" href="index.html#consult">Request consult</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="service-detail-cta">
+        <h2>Need care today?</h2>
+        <p>Call for same-day urgent house calls or request mobile support for labs, EKG, and travel medicine.</p>
+        <a class="join-button" href="tel:+19169642003">Call (916) 964-2003</a>
+      </section>
     </main>
     <footer class="site-footer-rich">
   <div class="footer-brand">
@@ -104,5 +545,28 @@
   </div>
 </footer>
     <script src="script.js"></script>
+    <script>
+      (() => {
+        const items = document.querySelectorAll(".hc-reveal-item");
+        if (!items.length || !("IntersectionObserver" in window)) {
+          items.forEach((item) => item.classList.add("is-visible"));
+          return;
+        }
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.22, rootMargin: "0px 0px -8% 0px" }
+        );
+
+        items.forEach((item) => observer.observe(item));
+      })();
+    </script>
   </body>
 </html>
